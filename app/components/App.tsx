@@ -4,11 +4,31 @@ import {
   ArrowRight, CheckCircle2, Menu, X, Send, Target,
   Code, Smartphone, ShoppingCart, Brush, FileText, Megaphone,
   BookOpen, Users, Wrench, Shield, Clock, Lightbulb, Heart, Trophy,
-  Award, Headphones, DollarSign, Settings, MessageCircle,
-  TrendingUp, Building2, Star, Lock, Layers, Handshake, UserPlus
+  Award, Headphones, CreditCard, Settings, MessageCircle,
+  TrendingUp, Building2, Star, Lock, Layers, Handshake, UserPlus, Wallet
 } from 'lucide-react';
 
 const styles = `
+  /* Custom Orange Colors */
+  .bg-orange-50 { background-color: #fff7ed !important; }
+  .bg-orange-100 { background-color: #ffedd5 !important; }
+  .bg-orange-200 { background-color: #fed7aa !important; }
+  .bg-orange-500 { background-color: #f97316 !important; }
+  .bg-orange-600 { background-color: #ea580c !important; }
+  .text-orange-100 { color: #ffedd5 !important; }
+  .text-orange-200 { color: #fed7aa !important; }
+  .text-orange-500 { color: #f97316 !important; }
+  .text-orange-600 { color: #ea580c !important; }
+  .text-orange-700 { color: #c2410c !important; }
+  .text-orange-800 { color: #9a3412 !important; }
+  .border-orange-100 { border-color: #ffedd5 !important; }
+  .border-orange-200 { border-color: #fed7aa !important; }
+  .from-orange-500 { --tw-gradient-from: #f97316; }
+  .to-orange-600 { --tw-gradient-to: #d97706; }
+  .hover\\:bg-orange-50:hover { background-color: #fff7ed !important; }
+  .hover\\:bg-orange-600:hover { background-color: #ea580c !important; }
+  .hover\\:border-orange-200:hover { border-color: #fed7aa !important; }
+
   @keyframes fadeInUp {
     from { opacity: 0; transform: translateY(30px); }
     to { opacity: 1; transform: translateY(0); }
@@ -187,6 +207,7 @@ function App() {
         <main className="flex-1">
           {page === 'home' && <Home nav={nav} />}
           {page === 'services' && <Services nav={nav} />}
+          {page === 'education' && <Education nav={nav} />}
           {page === 'about' && <About nav={nav} />}
           {page === 'partners' && <Partners nav={nav} />}
           {page === 'contact' && <Contact />}
@@ -213,11 +234,11 @@ function Header({ nav, menuOpen, setMenuOpen }: { nav: (p: string) => void; menu
         <div className="flex h-20 items-center justify-between">
           <button onClick={() => nav('home')} className="flex items-center gap-3 group">
             <img src="/logo.png" alt="Lumina" className="w-10 h-10 object-contain group-hover:scale-105 transition-transform" />
-            <span className="text-xl font-bold tracking-tight text-slate-1000 group-hover:text-blue-600 transition-colors">LUMINA</span>
+            <span className="text-2xl font-bold tracking-tight text-slate-900 group-hover:text-blue-600 transition-colors">LUMINA</span>
           </button>
 
           <nav className="hidden md:flex items-center gap-1">
-            {[['home','Accueil'],['services','Services'],['about','À propos'],['partners','LUMINA Partners']].map(([p,l]) => (
+            {[['home','Accueil'],['services','Services'],['education','LUMINA Education'],['about','À propos'],['partners','Partners']].map(([p,l]) => (
               <button key={p} onClick={() => nav(p)} className="px-4 py-2.5 text-slate-600 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-all font-medium">{l}</button>
             ))}
             <button onClick={() => nav('contact')} className="ml-3 px-6 py-2.5 bg-slate-900 text-white rounded-lg hover:bg-slate-800 transition-all font-medium btn-dark flex items-center gap-2">
@@ -232,7 +253,7 @@ function Header({ nav, menuOpen, setMenuOpen }: { nav: (p: string) => void; menu
 
         <div className={`md:hidden overflow-hidden transition-all duration-400 ${menuOpen ? 'max-h-96 pb-4' : 'max-h-0'}`}>
           <nav className="flex flex-col gap-1 pt-2 border-t border-slate-100">
-            {[['home','Accueil'],['services','Services'],['about','À propos'],['partners','LUMINA Partners'],['contact','Contact']].map(([p,l]) => (
+            {[['home','Accueil'],['services','Services'],['education','LUMINA Education'],['about','À propos'],['partners','Partners'],['contact','Contact']].map(([p,l]) => (
               <button key={p} onClick={() => nav(p)} className="text-left text-slate-700 hover:text-blue-600 hover:bg-blue-50 py-3 px-4 rounded-lg transition-all font-medium">{l}</button>
             ))}
           </nav>
@@ -332,8 +353,8 @@ function Footer({ nav, navToService }: { nav: (p: string) => void; navToService:
             <a href="tel:+330758172693" className="flex items-center gap-2 text-slate-400 hover:text-white transition-colors">
               <Phone size={14} /> +33 07 58 17 26 93
             </a>
-            <a href="mailto:contact@lumina-digital.com" className="flex items-center gap-2 text-slate-400 hover:text-white transition-colors">
-              <Mail size={14} /> contact@lumina-digital.com
+            <a href="mailto:contact@lumina-cg.com" className="flex items-center gap-2 text-slate-400 hover:text-white transition-colors">
+              <Mail size={14} /> contact@lumina-cg.com
             </a>
             <span className="flex items-center gap-2 text-slate-400">
               <MapPin size={14} /> Brazzaville, Congo
@@ -587,7 +608,7 @@ function Home({ nav }: { nav: (p: string) => void }) {
                   { icon: Target, text: 'Solutions sur mesure adaptées', color: 'bg-orange-50 text-orange-600' },
                   { icon: Code, text: 'Technologies modernes', color: 'bg-slate-100 text-slate-700' },
                   { icon: Headphones, text: 'Accompagnement personnalisé', color: 'bg-violet-50 text-violet-600' },
-                  { icon: DollarSign, text: 'Tarifs transparents et compétitifs', color: 'bg-emerald-50 text-emerald-600' },
+                  { icon: Wallet, text: 'Tarifs transparents et compétitifs', color: 'bg-emerald-50 text-emerald-600' },
                   { icon: Wrench, text: 'Maintenance et support continu', color: 'bg-rose-50 text-rose-600' },
                 ].map((f, i) => (
                   <li key={i} className="flex items-center gap-4 p-4 rounded-2xl bg-white border border-slate-100 shadow-sm hover:shadow-md transition-all group">
@@ -632,17 +653,11 @@ function Services({ nav }: { nav: (p: string) => void }) {
       { name: 'Design Complet', price: '200 000 FCFA', icon: FileText, pop: true, feat: ['Tout du pack Identité','Cartes visite','Templates réseaux sociaux','Guide de marque'] },
       { name: 'Marketing Digital', price: 'Sur devis', icon: Megaphone, feat: ['Stratégie contenu','Gestion réseaux sociaux','Campagnes pub','Email marketing','Analytics'] },
     ]},
-    { id: 'lumina-education', cat: 'LUMINA Education', icon: GraduationCap, color: 'orange', items: [
-      { name: 'Site Scolaire', price: '350 000 FCFA', icon: BookOpen, feat: ['Site institutionnel','Actualités','Galerie photos','SEO','Hébergement 1 an'] },
-      { name: 'Pack Écoles Complet', price: '900 000 FCFA', icon: GraduationCap, pop: true, feat: ['Site complet','Envoi résultats SMS/Email','Inscriptions en ligne','Espace parents','Formation','Support 1 an'] },
-      { name: 'Plateforme Complète', price: 'Sur devis', icon: Users, feat: ['Tout du Pack Écoles','Gestion administrative','E-learning','Application mobile','Support continu'] },
-    ]},
   ];
   
   const colors: Record<string, { bg: string; text: string; border: string; light: string; accent: string }> = {
     blue: { bg: 'bg-blue-100', text: 'text-blue-700', border: 'border-blue-200', light: 'bg-blue-50', accent: 'bg-blue-600' },
     violet: { bg: 'bg-violet-100', text: 'text-violet-700', border: 'border-violet-200', light: 'bg-violet-50', accent: 'bg-violet-600' },
-    orange: { bg: 'bg-orange-100', text: 'text-orange-700', border: 'border-orange-200', light: 'bg-orange-50', accent: 'bg-orange-600' },
   };
 
   return (
@@ -689,6 +704,79 @@ function Services({ nav }: { nav: (p: string) => void }) {
           </section>
         );
       })}
+
+      {/* LUMINA Education Teaser */}
+      <section id="lumina-education" className="py-20 bg-orange-50">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-orange-100 text-orange-700 text-sm font-medium mb-6">
+                <GraduationCap size={18} /> Nouveau : Plateforme SaaS
+              </div>
+              <h2 className="text-3xl lg:text-4xl font-bold text-slate-900 mb-4">LUMINA Education</h2>
+              <p className="text-lg text-slate-600 mb-6 leading-relaxed">
+                La plateforme tout-en-un pour gérer votre établissement scolaire. Notes, bulletins, SMS aux parents, paiements... Tout au même endroit.
+              </p>
+              <ul className="space-y-3 mb-8">
+                {['Gestion des élèves et classes','Notes et bulletins automatiques','Envoi SMS/Email aux parents','Suivi des paiements scolarité','Espace parents sécurisé'].map(f => (
+                  <li key={f} className="flex items-center gap-3">
+                    <CheckCircle2 size={20} className="text-orange-500" />
+                    <span className="text-slate-700">{f}</span>
+                  </li>
+                ))}
+              </ul>
+              <div className="flex flex-wrap gap-4">
+                <button onClick={() => nav('education')} className="px-6 py-3 bg-orange-500 text-white rounded-xl hover:bg-orange-600 transition-all font-semibold flex items-center gap-2">
+                  Découvrir LUMINA Education <ArrowRight size={18} />
+                </button>
+                <div className="flex items-center gap-2 px-4 py-3 bg-white rounded-xl border border-orange-200">
+                  <span className="text-slate-500 text-sm">À partir de</span>
+                  <span className="text-xl font-bold text-orange-600">70 000 FCFA</span>
+                  <span className="text-slate-500 text-sm">/mois</span>
+                </div>
+              </div>
+            </div>
+            <div className="relative">
+              <div className="bg-white rounded-2xl shadow-2xl p-6">
+                <div className="flex items-center gap-3 mb-5 pb-4 border-b border-slate-200">
+                  <div className="w-10 h-10 bg-slate-900 rounded-xl flex items-center justify-center">
+                    <GraduationCap size={20} className="text-white" />
+                  </div>
+                  <div>
+                    <p className="font-semibold text-slate-900">École Saint-Joseph</p>
+                    <p className="text-xs text-slate-500">Dashboard administrateur</p>
+                  </div>
+                </div>
+                <div className="grid grid-cols-2 gap-3 mb-4">
+                  <div className="bg-slate-100 rounded-xl p-4 text-center">
+                    <p className="text-2xl font-bold text-slate-900">342</p>
+                    <p className="text-xs font-medium text-slate-600">Élèves</p>
+                  </div>
+                  <div className="bg-slate-100 rounded-xl p-4 text-center">
+                    <p className="text-2xl font-bold text-slate-900">12</p>
+                    <p className="text-xs font-medium text-slate-600">Classes</p>
+                  </div>
+                  <div className="bg-slate-100 rounded-xl p-4 text-center">
+                    <p className="text-2xl font-bold text-slate-900">89%</p>
+                    <p className="text-xs font-medium text-slate-600">Paiements</p>
+                  </div>
+                  <div className="bg-slate-100 rounded-xl p-4 text-center">
+                    <p className="text-2xl font-bold text-slate-900">24</p>
+                    <p className="text-xs font-medium text-slate-600">Profs</p>
+                  </div>
+                </div>
+                <div className="bg-green-100 rounded-xl p-4 flex items-center justify-between">
+                  <span className="text-sm font-medium text-green-700">Bulletins ce mois</span>
+                  <span className="text-lg font-bold text-green-700">156</span>
+                </div>
+              </div>
+              <div className="absolute -bottom-4 -right-4 bg-orange-500 text-white rounded-xl px-4 py-2 text-sm font-semibold shadow-lg">
+                Essai gratuit 14 jours
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* Maintenance */}
       <section id="maintenance" className="bg-blue-50 py-20">
@@ -875,7 +963,7 @@ function Partners({ nav }: { nav: (p: string) => void }) {
 
 function About({ nav }: { nav: (p: string) => void }) {
   const values = [
-    { icon: Lightbulb, title: 'Innovation', desc: 'Toujours à l\'affût des nouvelles technologies', color: 'bg-amber-50 text-amber-600' },
+    { icon: Lightbulb, title: 'Innovation', desc: 'Toujours à l\'affût des nouvelles technologies', color: 'bg-orange-50 text-orange-600' },
     { icon: Heart, title: 'Exigence', desc: 'Le détail fait la différence', color: 'bg-rose-50 text-rose-600' },
     { icon: Users, title: 'Proximité', desc: 'Un interlocuteur dédié, toujours', color: 'bg-blue-50 text-blue-600' },
     { icon: Trophy, title: 'Engagement', desc: 'Votre réussite est notre fierté', color: 'bg-emerald-50 text-emerald-600' },
@@ -883,7 +971,7 @@ function About({ nav }: { nav: (p: string) => void }) {
 
   const team = [
     { role: 'Direction & Stratégie', desc: 'Vision produit, relation client, pilotage des projets' },
-    { role: 'Développement', desc: 'Experts React, Next.js, Node.js et WordPress...' },
+    { role: 'Développement', desc: 'Experts React, Next.js, Node.js et WordPress' },
     { role: 'Design & UX', desc: 'Interfaces modernes et expériences utilisateur fluides' },
     { role: 'Support & Maintenance', desc: 'Disponibilité et réactivité garanties' },
   ];
@@ -1040,7 +1128,7 @@ function Contact() {
   const info = [
     { icon: Phone, title: 'Téléphone CG', value: '+242 04 405 40 04', link: 'tel:+242044054004' },
     { icon: Phone, title: 'Téléphone FR', value: '+33 07 58 17 26 93', link: 'tel:+330758172693' },
-    { icon: Mail, title: 'Email', value: 'contact@lumina-digital.com', link: 'mailto:contact@lumina-digital.com' },
+    { icon: Mail, title: 'Email', value: 'contact@lumina-cg.com', link: 'mailto:contact@lumina-cg.com' },
     { icon: Clock, title: 'Horaires', value: 'Lun - Ven: 8h - 18h' },
   ];
   const services = ['Site Vitrine','Site E-commerce','Application Web','Branding','Marketing Digital','Solution École','Maintenance','Autre'];
@@ -1228,6 +1316,266 @@ function Contact() {
   );
 }
 
+function Education({ nav }: { nav: (p: string) => void }) {
+  const features = [
+    { icon: Users, title: 'Gestion des élèves', desc: 'Inscriptions, fiches élèves, affectation aux classes, historique complet' },
+    { icon: FileText, title: 'Notes & Bulletins', desc: 'Saisie des notes, calcul automatique des moyennes, génération PDF des bulletins' },
+    { icon: MessageCircle, title: 'Communication Parents', desc: 'Envoi SMS et emails groupés : résultats, absences, informations importantes' },
+    { icon: Wallet, title: 'Suivi Paiements', desc: 'Gestion des frais de scolarité, relances automatiques, rapports financiers' },
+    { icon: Shield, title: 'Espace Parents', desc: 'Portail sécurisé pour consulter notes, bulletins et informations de l\'enfant' },
+    { icon: TrendingUp, title: 'Statistiques', desc: 'Tableaux de bord, analyses des performances, rapports personnalisés' },
+  ];
+
+  const plans = [
+    { 
+      name: 'Starter', 
+      price: '70 000', 
+      period: '/mois',
+      students: 'Jusqu\'à 200 élèves',
+      features: ['Gestion élèves & classes', 'Notes et bulletins PDF', 'Espace parents', 'Support email'],
+      cta: 'Commencer l\'essai gratuit',
+      popular: false
+    },
+    { 
+      name: 'Pro', 
+      price: '110 000', 
+      period: '/mois',
+      students: 'Jusqu\'à 500 élèves',
+      features: ['Tout de Starter', 'Envoi SMS aux parents', 'Suivi des paiements', 'Rapports avancés', 'Support prioritaire'],
+      cta: 'Commencer l\'essai gratuit',
+      popular: true
+    },
+    { 
+      name: 'Premium', 
+      price: '130 000', 
+      period: '/mois',
+      students: 'Élèves illimités',
+      features: ['Tout de Pro', 'Multi-établissements', 'API personnalisée', 'Formation sur site', 'Support dédié 24/7'],
+      cta: 'Nous contacter',
+      popular: false
+    },
+  ];
+
+  const faqs = [
+    { q: 'Comment fonctionne l\'essai gratuit ?', a: 'Vous avez 14 jours pour tester toutes les fonctionnalités sans engagement. Aucune carte bancaire requise.' },
+    { q: 'Puis-je migrer mes données existantes ?', a: 'Oui, notre équipe vous accompagne gratuitement dans la migration de vos données depuis Excel ou tout autre système.' },
+    { q: 'Le système fonctionne-t-il hors connexion ?', a: 'L\'application nécessite une connexion internet, mais les bulletins PDF peuvent être téléchargés et consultés hors ligne.' },
+    { q: 'Comment sont envoyés les SMS aux parents ?', a: 'Vous rédigez votre message, sélectionnez les destinataires (classe, niveau, ou individuel) et envoyez. Les SMS sont facturés en supplément selon votre consommation.' },
+  ];
+
+  const [openFaq, setOpenFaq] = useState<number | null>(null);
+
+  return (
+    <div>
+      {/* Hero */}
+      <section className="bg-orange-500 text-white py-20 lg:py-28">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/20 text-white text-sm font-medium mb-6 fade-in-up">
+                <GraduationCap size={18} /> Plateforme de gestion scolaire
+              </div>
+              <h1 className="text-4xl lg:text-5xl font-bold mb-6 leading-tight fade-in-up delay-1">
+                Gérez votre école <br/>en toute simplicité
+              </h1>
+              <p className="text-xl text-orange-100 mb-8 leading-relaxed fade-in-up delay-2">
+                Notes, bulletins, communication parents, paiements... Tout ce dont votre établissement a besoin, dans une seule plateforme.
+              </p>
+              <div className="flex flex-wrap gap-4 fade-in-up delay-3">
+                <button onClick={() => nav('contact')} className="px-8 py-4 bg-white text-orange-600 rounded-xl hover:bg-orange-50 transition-all font-semibold flex items-center gap-2">
+                  Essai gratuit 14 jours <ArrowRight size={20} />
+                </button>
+                <button onClick={() => nav('contact')} className="px-8 py-4 border-2 border-white/50 text-white rounded-xl hover:bg-white/10 transition-all font-semibold">
+                  Demander une démo
+                </button>
+              </div>
+              <p className="text-orange-200 text-sm mt-4 flex items-center gap-2">
+                <CheckCircle2 size={16} /> Aucune carte bancaire requise
+              </p>
+            </div>
+            <div className="relative fade-in-right delay-2">
+              <div className="bg-white rounded-2xl shadow-2xl p-6">
+                <div className="flex items-center gap-3 mb-5 pb-4 border-b border-slate-200">
+                  <div className="w-10 h-10 bg-slate-900 rounded-xl flex items-center justify-center">
+                    <GraduationCap size={20} className="text-white" />
+                  </div>
+                  <div>
+                    <p className="font-semibold text-slate-900">LUMINA Education</p>
+                    <p className="text-xs text-slate-500">Tableau de bord</p>
+                  </div>
+                </div>
+                <div className="grid grid-cols-2 gap-3 mb-4">
+                  <div className="bg-slate-100 rounded-xl p-4 text-center">
+                    <p className="text-2xl font-bold text-slate-900">487</p>
+                    <p className="text-xs font-medium text-slate-600">Élèves</p>
+                  </div>
+                  <div className="bg-slate-100 rounded-xl p-4 text-center">
+                    <p className="text-2xl font-bold text-slate-900">18</p>
+                    <p className="text-xs font-medium text-slate-600">Classes</p>
+                  </div>
+                  <div className="bg-slate-100 rounded-xl p-4 text-center">
+                    <p className="text-2xl font-bold text-slate-900">94%</p>
+                    <p className="text-xs font-medium text-slate-600">Paiements</p>
+                  </div>
+                  <div className="bg-slate-100 rounded-xl p-4 text-center">
+                    <p className="text-2xl font-bold text-slate-900">156</p>
+                    <p className="text-xs font-medium text-slate-600">SMS</p>
+                  </div>
+                </div>
+                <div className="bg-green-100 rounded-xl p-4 flex items-center gap-3">
+                  <CheckCircle2 size={20} className="text-slate-900" />
+                  <span className="text-sm font-semibold text-slate-900">Bulletins CM1 générés</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Features */}
+      <section className="py-20 bg-white">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-orange-50 text-orange-600 text-sm font-medium mb-4">
+              <Layers size={16} /> Fonctionnalités
+            </div>
+            <h2 className="text-3xl lg:text-4xl font-bold text-slate-900 mb-4">Tout ce dont votre école a besoin</h2>
+            <p className="text-lg text-slate-600 max-w-2xl mx-auto">Une solution complète pour simplifier la gestion de votre établissement</p>
+          </div>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {features.map((f, i) => (
+              <div key={i} className="border border-slate-200 rounded-2xl p-6 hover:border-orange-200 hover:shadow-lg transition-all">
+                <div className="w-12 h-12 bg-orange-100 text-orange-600 rounded-xl flex items-center justify-center mb-4">
+                  <f.icon size={24} />
+                </div>
+                <h3 className="text-lg font-bold text-slate-900 mb-2">{f.title}</h3>
+                <p className="text-slate-600 text-sm leading-relaxed">{f.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Pricing */}
+      <section className="py-20 bg-slate-50">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          
+          {/* Mise en place */}
+          <div className="text-center mb-12">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-slate-200 text-slate-700 text-sm font-medium mb-4">
+              <Settings size={16} /> Étape 1
+            </div>
+            <h2 className="text-3xl lg:text-4xl font-bold text-slate-900 mb-4">Mise en place</h2>
+            <p className="text-lg text-slate-600 max-w-2xl mx-auto">Nous construisons votre plateforme sur mesure selon vos besoins</p>
+          </div>
+          
+          <div className="max-w-3xl mx-auto mb-20">
+            <div className="bg-white rounded-2xl p-8 border-2 border-slate-200 shadow-lg">
+              <div className="grid md:grid-cols-2 gap-8">
+                <div>
+                  <h3 className="text-xl font-bold text-slate-900 mb-4">Ce qui est inclus :</h3>
+                  <ul className="space-y-3">
+                    {['Analyse de vos besoins spécifiques', 'Développement personnalisé', 'Import de vos données existantes', 'Personnalisation (logo, couleurs)', 'Formation de votre équipe', '1 mois de support inclus'].map((f, i) => (
+                      <li key={i} className="flex items-start gap-3">
+                        <CheckCircle2 size={20} className="text-emerald-500 flex-shrink-0 mt-0.5" />
+                        <span className="text-slate-700">{f}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+                <div className="flex flex-col justify-center items-center text-center bg-slate-50 rounded-xl p-6">
+                  <p className="text-slate-500 mb-2">Prix</p>
+                  <p className="text-3xl font-bold text-slate-900 mb-4">Sur devis</p>
+                  <p className="text-sm text-slate-500 mb-6">Adapté à la taille et aux besoins de votre établissement</p>
+                  <button onClick={() => nav('contact')} className="w-full py-3 bg-slate-900 text-white rounded-xl font-semibold hover:bg-slate-800 transition-all flex items-center justify-center gap-2">
+                    Demander un devis gratuit <ArrowRight size={18} />
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Espace entre étapes */}
+          <div className="h-16"></div>
+
+          {/* Abonnements */}
+          <div className="text-center mb-12">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-orange-100 text-orange-600 text-sm font-medium mb-4">
+              <CreditCard size={16} /> Étape 2
+            </div>
+            <h2 className="text-3xl lg:text-4xl font-bold text-slate-900 mb-4">Abonnement mensuel</h2>
+            <p className="text-lg text-slate-600 max-w-2xl mx-auto">Choisissez la formule adaptée à votre établissement</p>
+          </div>
+          
+          <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+            {plans.map((plan, i) => (
+              <div key={i} className={`relative rounded-2xl p-8 ${plan.popular ? 'bg-orange-500 text-white scale-105 shadow-2xl' : 'bg-white border-2 border-slate-200'}`}>
+                {plan.popular && <span className="absolute -top-4 left-1/2 -translate-x-1/2 px-4 py-1 bg-slate-900 text-white text-sm rounded-full font-semibold">Populaire</span>}
+                <h3 className={`text-xl font-bold mb-2 ${plan.popular ? 'text-white' : 'text-slate-900'}`}>{plan.name}</h3>
+                <p className={`text-sm mb-4 ${plan.popular ? 'text-orange-100' : 'text-slate-500'}`}>{plan.students}</p>
+                <div className="flex items-baseline gap-1 mb-6">
+                  <span className={`text-4xl font-bold ${plan.popular ? 'text-white' : 'text-orange-500'}`}>{plan.price}</span>
+                  <span className={plan.popular ? 'text-orange-100' : 'text-slate-500'}>FCFA{plan.period}</span>
+                </div>
+                <ul className="space-y-3 mb-8">
+                  {plan.features.map((f, j) => (
+                    <li key={j} className="flex items-start gap-2">
+                      <CheckCircle2 size={18} className={plan.popular ? 'text-orange-200' : 'text-emerald-500'} />
+                      <span className={`text-sm ${plan.popular ? 'text-white' : 'text-slate-600'}`}>{f}</span>
+                    </li>
+                  ))}
+                </ul>
+                <button onClick={() => nav('contact')} className={`w-full py-3 rounded-xl font-semibold transition-all ${plan.popular ? 'bg-white text-orange-500 hover:bg-orange-50' : 'bg-slate-100 text-slate-700 hover:bg-slate-200'}`}>
+                  {plan.cta}
+                </button>
+              </div>
+            ))}
+          </div>
+          
+        </div>
+      </section>
+
+      {/* FAQ */}
+      <section className="py-20 bg-white">
+        <div className="mx-auto max-w-3xl px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl lg:text-4xl font-bold text-slate-900 mb-4">Questions fréquentes</h2>
+          </div>
+          <div className="space-y-4">
+            {faqs.map((faq, i) => (
+              <div key={i} className="border border-slate-200 rounded-xl overflow-hidden">
+                <button onClick={() => setOpenFaq(openFaq === i ? null : i)} className="w-full px-6 py-4 flex items-center justify-between text-left hover:bg-slate-50 transition-colors">
+                  <span className="font-semibold text-slate-900">{faq.q}</span>
+                  <ArrowRight size={20} className={`text-slate-400 transition-transform ${openFaq === i ? 'rotate-90' : ''}`} />
+                </button>
+                {openFaq === i && (
+                  <div className="px-6 pb-4">
+                    <p className="text-slate-600">{faq.a}</p>
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className="py-20 bg-orange-500">
+        <div className="mx-auto max-w-4xl px-6 lg:px-8 text-center">
+          <h2 className="text-3xl lg:text-4xl font-bold text-white mb-4">Prêt à moderniser votre école ?</h2>
+          <p className="text-xl text-orange-100 mb-8">Rejoignez les établissements qui ont déjà simplifié leur gestion avec LUMINA Education.</p>
+          <div className="flex flex-wrap justify-center gap-4">
+            <button onClick={() => nav('contact')} className="px-8 py-4 bg-white text-orange-600 rounded-xl hover:bg-orange-50 transition-all font-semibold flex items-center gap-2">
+              Démarrer l'essai gratuit <ArrowRight size={20} />
+            </button>
+          </div>
+          <p className="text-orange-200 text-sm mt-6">14 jours gratuits • Aucune carte bancaire • Annulation à tout moment</p>
+        </div>
+      </section>
+    </div>
+  );
+}
+
 function Privacy({ nav }: { nav: (p: string) => void }) {
   return (
     <div>
@@ -1331,8 +1679,8 @@ function Privacy({ nav }: { nav: (p: string) => void }) {
                 <div className="bg-slate-900 text-white rounded-xl p-5">
                   <h3 className="font-semibold mb-2">Exercer vos droits</h3>
                   <p className="text-slate-300 text-sm mb-3">Pour toute demande concernant vos données personnelles :</p>
-                  <a href="mailto:contact@lumina-digital.com" className="inline-flex items-center gap-2 px-4 py-2 bg-white text-slate-900 rounded-lg font-medium text-sm hover:bg-slate-100 transition-colors">
-                    <Mail size={16} /> contact@lumina-digital.com
+                  <a href="mailto:contact@lumina-cg.com" className="inline-flex items-center gap-2 px-4 py-2 bg-white text-slate-900 rounded-lg font-medium text-sm hover:bg-slate-100 transition-colors">
+                    <Mail size={16} /> contact@lumina-cg.com
                   </a>
                 </div>
               </div>
