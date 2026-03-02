@@ -1,0 +1,5 @@
+```
+User-agent: *
+Allow: /
+
+Sitemap: https://lumina-cg.com/sitemap.xml
