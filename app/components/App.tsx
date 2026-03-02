@@ -1126,9 +1126,9 @@ function About({ nav }: { nav: (p: string) => void }) {
 
       {/* Chiffres */}
       <section className="py-20 bg-slate-50">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 text-center">
-                        {[['30','+','Projets livrés'],['100','%','Clients satisfaits'],['24','h','Temps de réponse']].map(([v,s,l]) => (
+        <div className="mx-auto max-w-4xl px-6 lg:px-8">
+          <div className="grid grid-cols-3 gap-6 text-center">
+            {[['30','+','Projets livrés'],['100','%','Clients satisfaits'],['24','h','Temps de réponse']].map(([v,s,l]) => (
               <div key={l} className="p-6 rounded-2xl bg-white border border-slate-200">
                 <div className="text-4xl lg:text-5xl font-bold text-blue-600 mb-2"><AnimatedNumber value={v} suffix={s} /></div>
                 <div className="text-slate-600 font-medium">{l}</div>
