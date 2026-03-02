@@ -267,11 +267,27 @@ function Footer({ nav, navToService }: { nav: (p: string) => void; navToService:
   const [email, setEmail] = useState('');
   const [subscribed, setSubscribed] = useState(false);
 
-  const handleNewsletter = (e: React.FormEvent) => {
+  const handleNewsletter = async (e: React.FormEvent) => {
     e.preventDefault();
-    setSubscribed(true);
-    setEmail('');
-    setTimeout(() => setSubscribed(false), 3000);
+    
+    try {
+      const response = await fetch('https://formspree.io/f/mgoljvnw', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          type: 'Newsletter',
+          email: email,
+        }),
+      });
+      
+      if (response.ok) {
+        setSubscribed(true);
+        setEmail('');
+        setTimeout(() => setSubscribed(false), 3000);
+      }
+    } catch (error) {
+      console.error('Erreur newsletter');
+    }
   };
 
   return (
@@ -827,10 +843,31 @@ function Partners({ nav }: { nav: (p: string) => void }) {
   const [form, setForm] = useState({ name: '', email: '', phone: '', message: '', experience: '' });
   const [sent, setSent] = useState(false);
 
-  const submit = (e: React.FormEvent) => {
+  const submit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setSent(true);
-    setTimeout(() => { setSent(false); setForm({ name: '', email: '', phone: '', message: '', experience: '' }); }, 3000);
+    
+    try {
+      const response = await fetch('https://formspree.io/f/mgoljvnw', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          type: formType === 'apporteur' ? 'Apporteur d\'affaires' : 'Candidature équipe',
+          name: form.name,
+          email: form.email,
+          phone: form.phone,
+          experience: form.experience,
+          message: form.message,
+        }),
+      });
+      
+      if (response.ok) {
+        setSent(true);
+        setForm({ name: '', email: '', phone: '', message: '', experience: '' });
+        setTimeout(() => setSent(false), 5000);
+      }
+    } catch (error) {
+      console.error('Erreur envoi formulaire');
+    }
   };
 
   return (
@@ -1089,9 +1126,9 @@ function About({ nav }: { nav: (p: string) => void }) {
 
       {/* Chiffres */}
       <section className="py-20 bg-slate-50">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 text-center">
-            {[['50','+','Projets livrés'],['100','%','Clients satisfaits'],['24','h','Temps de réponse'],['4','+','Experts mobilisables']].map(([v,s,l]) => (
+        <div className="mx-auto max-w-4xl px-6 lg:px-8">
+          <div className="grid grid-cols-3 gap-6 text-center">
+            {[['30','+','Projets livrés'],['100','%','Clients satisfaits'],['24','h','Temps de réponse']].map(([v,s,l]) => (
               <div key={l} className="p-6 rounded-2xl bg-white border border-slate-200">
                 <div className="text-4xl lg:text-5xl font-bold text-blue-600 mb-2"><AnimatedNumber value={v} suffix={s} /></div>
                 <div className="text-slate-600 font-medium">{l}</div>
@@ -1118,11 +1155,34 @@ function About({ nav }: { nav: (p: string) => void }) {
 function Contact() {
   const [form, setForm] = useState({ name: '', email: '', phone: '', service: '', message: '' });
   const [sent, setSent] = useState(false);
+  const [sending, setSending] = useState(false);
 
-  const submit = (e: React.FormEvent) => {
+  const submit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setSent(true);
-    setTimeout(() => { setSent(false); setForm({ name: '', email: '', phone: '', service: '', message: '' }); }, 3000);
+    setSending(true);
+    
+    try {
+      const response = await fetch('https://formspree.io/f/mgoljvnw', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name: form.name,
+          email: form.email,
+          phone: form.phone,
+          service: form.service,
+          message: form.message,
+        }),
+      });
+      
+      if (response.ok) {
+        setSent(true);
+        setForm({ name: '', email: '', phone: '', service: '', message: '' });
+        setTimeout(() => setSent(false), 5000);
+      }
+    } catch (error) {
+      console.error('Erreur envoi formulaire:', error);
+    }
+    setSending(false);
   };
 
   const info = [
@@ -1217,8 +1277,8 @@ function Contact() {
                       <label className="block text-sm font-semibold text-slate-700 mb-2">Détails du projet *</label>
                       <textarea value={form.message} onChange={e => setForm({...form, message: e.target.value})} required rows={5} className="w-full px-4 py-3 border border-slate-200 rounded-xl focus:outline-none input-focus bg-white resize-none" placeholder="Parlez-nous de vos objectifs, de votre budget estimé et de vos délais..." />
                     </div>
-                    <button type="submit" className="w-full py-4 bg-slate-900 text-white rounded-xl hover:bg-slate-800 transition-all flex items-center justify-center gap-2 font-semibold text-lg btn-dark">
-                      <Send size={20} /> Envoyer le message
+                    <button type="submit" disabled={sending} className="w-full py-4 bg-slate-900 text-white rounded-xl hover:bg-slate-800 transition-all flex items-center justify-center gap-2 font-semibold text-lg btn-dark disabled:opacity-50">
+                      <Send size={20} /> {sending ? 'Envoi en cours...' : 'Envoyer le message'}
                     </button>
                   </form>
                 )}
