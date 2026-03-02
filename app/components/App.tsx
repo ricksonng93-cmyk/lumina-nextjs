@@ -407,7 +407,7 @@ function Home({ nav }: { nav: (p: string) => void }) {
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             <div>
               <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-100 text-blue-700 text-sm font-medium mb-6 fade-in-up">
-                <Globe size={16} /> Société de création numérique
+                <Globe size={16} /> Votre partenaire en création numérique
               </div>
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-slate-900 mb-6 leading-tight fade-in-up delay-1">
                 Votre vision mérite une <span className="text-blue-600">expertise d'exception</span>
@@ -491,7 +491,7 @@ function Home({ nav }: { nav: (p: string) => void }) {
       <section className="bg-slate-900 text-white py-16">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
-            {[['50','+','Projets réalisés'],['100','%','Satisfaction'],['24','h','Délai de réponse'],['7','/7','Disponibilité']].map(([v,s,l]) => (
+            {[['30','+','Projets réalisés'],['100','%','Satisfaction'],['24','h','Délai de réponse'],['7','/7','Disponibilité']].map(([v,s,l]) => (
               <div key={l} className="text-center">
                 <div className="text-4xl lg:text-5xl font-bold text-blue-400 mb-2"><AnimatedNumber value={v} suffix={s} /></div>
                 <div className="text-slate-400 font-medium">{l}</div>
@@ -731,7 +731,7 @@ function Services({ nav }: { nav: (p: string) => void }) {
                 </button>
                 <div className="flex items-center gap-2 px-4 py-3 bg-white rounded-xl border border-orange-200">
                   <span className="text-slate-500 text-sm">À partir de</span>
-                  <span className="text-xl font-bold text-orange-600">70 000 FCFA</span>
+                  <span className="text-xl font-bold text-orange-600">60 000 FCFA</span>
                   <span className="text-slate-500 text-sm">/mois</span>
                 </div>
               </div>
@@ -1329,7 +1329,7 @@ function Education({ nav }: { nav: (p: string) => void }) {
   const plans = [
     { 
       name: 'Starter', 
-      price: '70 000', 
+      price: '60 000', 
       period: '/mois',
       students: 'Jusqu\'à 200 élèves',
       features: ['Gestion élèves & classes', 'Notes et bulletins PDF', 'Espace parents', 'Support email'],
@@ -1347,7 +1347,7 @@ function Education({ nav }: { nav: (p: string) => void }) {
     },
     { 
       name: 'Premium', 
-      price: '130 000', 
+      price: '180 000', 
       period: '/mois',
       students: 'Élèves illimités',
       features: ['Tout de Pro', 'Multi-établissements', 'API personnalisée', 'Formation sur site', 'Support dédié 24/7'],
