@@ -187,7 +187,7 @@ function App() {
 
   const nav = (p: string) => { setPage(p); setMenuOpen(false); window.scrollTo({ top: 0, behavior: 'smooth' }); window.history.pushState({}, '', p === 'home' ? '/' : '/' + p); };
 
-  useEffect(() => { const path = window.location.pathname.replace('/', ''); if (path && ['services','education','about','partners','contact','privacy'].includes(path)) setPage(path); }, []);
+  useEffect(() => { const path = window.location.pathname.replace('/', ''); if (path && ['services','education','a-propos','partners','contact','privacy'].includes(path)) setPage(path); }, []);
 
   useEffect(() => { const onPop = () => { const path = window.location.pathname.replace('/', ''); setPage(path || 'home'); }; window.addEventListener('popstate', onPop); return () => window.removeEventListener('popstate', onPop); }, []);
 
@@ -212,7 +212,7 @@ function App() {
           {page === 'home' && <Home nav={nav} />}
           {page === 'services' && <Services nav={nav} />}
           {page === 'education' && <Education nav={nav} />}
-          {page === 'about' && <About nav={nav} />}
+          {page === 'a-propos' && <About nav={nav} />}
           {page === 'partners' && <Partners nav={nav} />}
           {page === 'contact' && <Contact />}
           {page === 'privacy' && <Privacy nav={nav} />}
@@ -242,7 +242,7 @@ function Header({ nav, menuOpen, setMenuOpen }: { nav: (p: string) => void; menu
           </button>
 
           <nav className="hidden md:flex items-center gap-1">
-            {[['home','Accueil'],['services','Services'],['education','LUMINA Education'],['about','À propos'],['partners','Partners']].map(([p,l]) => (
+            {[['home','Accueil'],['services','Services'],['education','LUMINA Education'],['a-propos','À propos'],['partners','Partners']].map(([p,l]) => (
               <button key={p} onClick={() => nav(p)} className="px-4 py-2.5 text-slate-600 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-all font-medium">{l}</button>
             ))}
             <button onClick={() => nav('contact')} className="ml-3 px-6 py-2.5 bg-slate-900 text-white rounded-lg hover:bg-slate-800 transition-all font-medium btn-dark flex items-center gap-2">
@@ -257,7 +257,7 @@ function Header({ nav, menuOpen, setMenuOpen }: { nav: (p: string) => void; menu
 
         <div className={`md:hidden overflow-hidden transition-all duration-400 ${menuOpen ? 'max-h-96 pb-4' : 'max-h-0'}`}>
           <nav className="flex flex-col gap-1 pt-2 border-t border-slate-100">
-            {[['home','Accueil'],['services','Services'],['education','LUMINA Education'],['about','À propos'],['partners','Partners'],['contact','Contact']].map(([p,l]) => (
+            {[['home','Accueil'],['services','Services'],['education','LUMINA Education'],['a-propos','À propos'],['partners','Partners'],['contact','Contact']].map(([p,l]) => (
               <button key={p} onClick={() => nav(p)} className="text-left text-slate-700 hover:text-blue-600 hover:bg-blue-50 py-3 px-4 rounded-lg transition-all font-medium">{l}</button>
             ))}
           </nav>
@@ -328,7 +328,7 @@ function Footer({ nav, navToService }: { nav: (p: string) => void; navToService:
           <div>
             <h4 className="font-semibold mb-4 text-white">Entreprise</h4>
             <div className="space-y-2 text-sm">
-              {[['about','À propos'],['partners','LUMINA Partners'],['contact','Contact']].map(([p,l]) => (
+              {[['a-propos','À propos'],['partners','LUMINA Partners'],['contact','Contact']].map(([p,l]) => (
                 <button key={p} onClick={() => nav(p)} className="block text-slate-400 hover:text-white transition-colors text-left">{l}</button>
               ))}
               <button onClick={() => nav('privacy')} className="block text-slate-400 hover:text-white transition-colors text-left">Politique de confidentialité</button>
@@ -639,7 +639,7 @@ function Home({ nav }: { nav: (p: string) => void }) {
                   </li>
                 ))}
               </ul>
-              <button onClick={() => nav('about')} className="px-7 py-3.5 bg-slate-900 text-white rounded-xl hover:bg-slate-800 transition-all flex items-center gap-2 font-semibold btn-dark">
+              <button onClick={() => nav('a-propos')} className="px-7 py-3.5 bg-slate-900 text-white rounded-xl hover:bg-slate-800 transition-all flex items-center gap-2 font-semibold btn-dark">
                 En savoir plus sur nous <ArrowRight size={18} />
               </button>
             </div>
