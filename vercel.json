@@ -1,0 +1,10 @@
+{
+  "rewrites": [
+    { "source": "/services", "destination": "/" },
+    { "source": "/education", "destination": "/" },
+    { "source": "/a-propos", "destination": "/" },
+    { "source": "/partners", "destination": "/" },
+    { "source": "/contact", "destination": "/" },
+    { "source": "/privacy", "destination": "/" }
+  ]
+}
