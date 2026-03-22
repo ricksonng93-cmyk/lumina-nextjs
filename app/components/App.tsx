@@ -185,7 +185,11 @@ function App() {
   const [page, setPage] = useState('home');
   const [menuOpen, setMenuOpen] = useState(false);
 
-  const nav = (p: string) => { setPage(p); setMenuOpen(false); window.scrollTo({ top: 0, behavior: 'smooth' }); };
+  const nav = (p: string) => { setPage(p); setMenuOpen(false); window.scrollTo({ top: 0, behavior: 'smooth' }); window.history.pushState({}, '', p === 'home' ? '/' : '/' + p); };
+
+  useEffect(() => { const path = window.location.pathname.replace('/', ''); if (path && ['services','education','about','partners','contact','privacy'].includes(path)) setPage(path); }, []);
+
+  useEffect(() => { const onPop = () => { const path = window.location.pathname.replace('/', ''); setPage(path || 'home'); }; window.addEventListener('popstate', onPop); return () => window.removeEventListener('popstate', onPop); }, []);
 
   // Navigation vers section service spécifique
   const navToService = (serviceId: string) => {
