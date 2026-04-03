@@ -368,7 +368,7 @@ function Footer({ nav, navToService }: { nav: (p: string) => void; navToService:
         <div className="pt-8">
           <div className="flex flex-wrap justify-center gap-6 mb-6 text-sm">
             <a href="tel:+242044054004" className="flex items-center gap-2 text-slate-400 hover:text-white transition-colors">
-              <Phone size={14} /> +242 04 405 40 04
+              <Phone size={14} /> +242 06 404 54 04
             </a>
             <a href="tel:+330758172693" className="flex items-center gap-2 text-slate-400 hover:text-white transition-colors">
               <Phone size={14} /> +33 07 58 17 26 93
@@ -381,7 +381,7 @@ function Footer({ nav, navToService }: { nav: (p: string) => void; navToService:
             </span>
           </div>
           <div className="text-center text-slate-500 text-sm">
-            <p>© 2026 LUMINA Digital. Tous droits réservés.</p>
+            <p>© 2025 LUMINA Creative Group. Tous droits réservés.</p>
           </div>
         </div>
       </div>
@@ -433,7 +433,7 @@ function Home({ nav }: { nav: (p: string) => void }) {
                 Votre vision mérite une <span className="text-blue-600">expertise d'exception</span>
               </h1>
               <p className="text-lg lg:text-xl text-slate-600 mb-8 leading-relaxed fade-in-up delay-2">
-                Nous accompagnons les écoles, PME et institutions congolaises dans leur transformation numérique grâce à des solutions fiables, sécurisées et adaptées.
+                Nous accompagnons les institutions et entreprises dans leur transformation numérique grâce à des solutions fiables, sécurisées et adaptées.
               </p>
               <div className="flex flex-wrap gap-4 fade-in-up delay-3">
                 <button onClick={() => nav('contact')} className="px-7 py-3.5 bg-slate-900 text-white rounded-xl hover:bg-slate-800 transition-all flex items-center gap-2 font-semibold btn-dark">
@@ -1190,7 +1190,7 @@ function Contact() {
   };
 
   const info = [
-    { icon: Phone, title: 'Téléphone CG', value: '+242 04 405 40 04', link: 'tel:+242044054004' },
+    { icon: Phone, title: 'Téléphone CG', value: '+242 06 404 54 04', link: 'tel:+242044054004' },
     { icon: Phone, title: 'Téléphone FR', value: '+33 07 58 17 26 93', link: 'tel:+330758172693' },
     { icon: Mail, title: 'Email', value: 'contact@lumina-cg.com', link: 'mailto:contact@lumina-cg.com' },
     { icon: Clock, title: 'Horaires', value: 'Lun - Ven: 8h - 18h' },
