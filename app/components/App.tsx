@@ -64,17 +64,44 @@ const styles = `
     100% { transform: translateX(-50%); }
   }
   
-  .fade-in-up { animation: fadeInUp 0.7s ease-out forwards; }
-  .fade-in-left { animation: fadeInLeft 0.7s ease-out forwards; }
-  .fade-in-right { animation: fadeInRight 0.7s ease-out forwards; }
-  .scale-in { animation: scaleIn 0.5s ease-out forwards; }
+  /* Scroll reveal: elements start hidden, animate when .revealed is added */
+  .reveal {
+    opacity: 0;
+    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .reveal.reveal-up { transform: translateY(40px); }
+  .reveal.reveal-left { transform: translateX(-40px); }
+  .reveal.reveal-right { transform: translateX(40px); }
+  .reveal.reveal-scale { transform: scale(0.92); }
+  .reveal.revealed {
+    opacity: 1;
+    transform: translateY(0) translateX(0) scale(1);
+  }
+
+  /* Stagger delays for children */
+  .reveal.stagger-1 { transition-delay: 0.1s; }
+  .reveal.stagger-2 { transition-delay: 0.2s; }
+  .reveal.stagger-3 { transition-delay: 0.3s; }
+  .reveal.stagger-4 { transition-delay: 0.4s; }
+  .reveal.stagger-5 { transition-delay: 0.5s; }
+  .reveal.stagger-6 { transition-delay: 0.6s; }
+
+  /* Legacy classes mapped to new system */
+  .fade-in-up { opacity: 0; transform: translateY(40px); transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
+  .fade-in-left { opacity: 0; transform: translateX(-40px); transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
+  .fade-in-right { opacity: 0; transform: translateX(40px); transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
+  .scale-in { opacity: 0; transform: scale(0.92); transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
+  .fade-in-up.revealed, .fade-in-left.revealed, .fade-in-right.revealed, .scale-in.revealed {
+    opacity: 1;
+    transform: translateY(0) translateX(0) scale(1);
+  }
   .float { animation: float 3s ease-in-out infinite; }
-  
-  .delay-1 { animation-delay: 0.1s; opacity: 0; }
-  .delay-2 { animation-delay: 0.2s; opacity: 0; }
-  .delay-3 { animation-delay: 0.3s; opacity: 0; }
-  .delay-4 { animation-delay: 0.4s; opacity: 0; }
-  .delay-5 { animation-delay: 0.5s; opacity: 0; }
+
+  .delay-1 { transition-delay: 0.1s; }
+  .delay-2 { transition-delay: 0.2s; }
+  .delay-3 { transition-delay: 0.3s; }
+  .delay-4 { transition-delay: 0.4s; }
+  .delay-5 { transition-delay: 0.5s; }
   
   .card-hover { transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); }
   .card-hover:hover { transform: translateY(-8px); box-shadow: 0 25px 50px rgba(0,0,0,0.1); }
@@ -137,6 +164,26 @@ const styles = `
     animation-play-state: paused;
   }
 `;
+
+function useScrollReveal() {
+  useEffect(() => {
+    const selectors = '.fade-in-up, .fade-in-left, .fade-in-right, .scale-in, .reveal';
+    const elements = document.querySelectorAll(selectors);
+    if (!elements.length) return;
+
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('revealed');
+          obs.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+
+    elements.forEach((el) => obs.observe(el));
+    return () => obs.disconnect();
+  });
+}
 
 function AnimatedNumber({ value, suffix = '' }: { value: string; suffix?: string }) {
   const [display, setDisplay] = useState(0);
@@ -392,6 +439,7 @@ function Footer({ nav, navToService }: { nav: (p: string) => void; navToService:
 }
 
 function Home({ nav }: { nav: (p: string) => void }) {
+  useScrollReveal();
   // Technologies - Cases stylées sans icônes
   const technologies = [
     'React', 'Next.js', 'Node.js', 'TypeScript', 'WordPress', 
@@ -694,6 +742,7 @@ function Home({ nav }: { nav: (p: string) => void }) {
 }
 
 function Services({ nav }: { nav: (p: string) => void }) {
+  useScrollReveal();
   const data = [
     { id: 'sites-web', cat: 'Sites Web & Applications', icon: Globe, color: 'blue', items: [
       { name: 'Pack Starter', price: '150 000 FCFA', icon: Code, feat: ['Site vitrine 1-5 pages','Design responsive','Formulaire contact','SEO basique','Hébergement 1 an'] },
@@ -875,6 +924,7 @@ function Services({ nav }: { nav: (p: string) => void }) {
 }
 
 function Partners({ nav }: { nav: (p: string) => void }) {
+  useScrollReveal();
   const [formType, setFormType] = useState<'apporteur' | 'rejoindre'>('apporteur');
   const [form, setForm] = useState({ name: '', email: '', phone: '', message: '', experience: '' });
   const [sent, setSent] = useState(false);
@@ -1035,6 +1085,7 @@ function Partners({ nav }: { nav: (p: string) => void }) {
 }
 
 function About({ nav }: { nav: (p: string) => void }) {
+  useScrollReveal();
   const values = [
     { icon: Lightbulb, title: 'Innovation', desc: 'Toujours à l\'affût des nouvelles technologies', color: 'bg-orange-50 text-orange-600' },
     { icon: Heart, title: 'Exigence', desc: 'Le détail fait la différence', color: 'bg-rose-50 text-rose-600' },
@@ -1189,6 +1240,7 @@ function About({ nav }: { nav: (p: string) => void }) {
 }
 
 function Contact() {
+  useScrollReveal();
   const [form, setForm] = useState({ name: '', email: '', phone: '', service: '', message: '' });
   const [sent, setSent] = useState(false);
   const [sending, setSending] = useState(false);
@@ -1414,6 +1466,7 @@ function Contact() {
 }
 
 function Education({ nav }: { nav: (p: string) => void }) {
+  useScrollReveal();
   const features = [
     { icon: Users, title: 'Gestion des élèves', desc: 'Inscriptions, fiches élèves, affectation aux classes, historique complet' },
     { icon: FileText, title: 'Notes & Bulletins', desc: 'Saisie des notes, calcul automatique des moyennes, génération PDF des bulletins' },
