@@ -167,22 +167,31 @@ const styles = `
 
 function useScrollReveal() {
   useEffect(() => {
-    const selectors = '.fade-in-up, .fade-in-left, .fade-in-right, .scale-in, .reveal';
-    const elements = document.querySelectorAll(selectors);
-    if (!elements.length) return;
+    // Delay to ensure browser paints the initial hidden state before observing
+    const raf = requestAnimationFrame(() => {
+      const selectors = '.fade-in-up, .fade-in-left, .fade-in-right, .scale-in, .reveal';
+      const elements = document.querySelectorAll(selectors);
+      if (!elements.length) return;
 
-    const obs = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('revealed');
-          obs.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+      const obs = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            // Double rAF ensures the hidden state is painted before transitioning
+            requestAnimationFrame(() => {
+              requestAnimationFrame(() => {
+                entry.target.classList.add('revealed');
+              });
+            });
+            obs.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.1, rootMargin: '0px 0px -60px 0px' });
 
-    elements.forEach((el) => obs.observe(el));
-    return () => obs.disconnect();
-  });
+      elements.forEach((el) => obs.observe(el));
+      return () => obs.disconnect();
+    });
+    return () => cancelAnimationFrame(raf);
+  }, []);
 }
 
 function AnimatedNumber({ value, suffix = '' }: { value: string; suffix?: string }) {
@@ -707,20 +716,26 @@ function Home({ nav }: { nav: (p: string) => void }) {
             <h2 className="text-3xl lg:text-4xl font-bold text-slate-900">Ce que disent nos clients</h2>
           </div>
           <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-            <div className="p-8 rounded-2xl bg-slate-50 border border-slate-100">
+            <div className="p-8 rounded-2xl bg-slate-50 border border-slate-100 fade-in-up">
               <div className="flex gap-1 mb-4">{[...Array(5)].map((_, i) => <Star key={i} size={16} className="fill-orange-400 text-orange-400" />)}</div>
               <p className="text-slate-600 mb-6 leading-relaxed">&ldquo;LUMINA a conçu notre charte graphique, notre logo et toute notre identité visuelle. Un travail soigné et professionnel. La collaboration continue sur d&apos;autres projets.&rdquo;</p>
-              <div>
-                <p className="font-semibold text-slate-900">France-Afrique Média</p>
-                <p className="text-sm text-slate-500">Charte graphique, logo & identité visuelle</p>
+              <div className="flex items-center gap-4">
+                <img src="/projects/france-afrique.png" alt="France-Afrique Média" className="w-12 h-12 rounded-lg object-contain bg-white border border-slate-200 p-1" />
+                <div>
+                  <p className="font-semibold text-slate-900">France-Afrique Média</p>
+                  <p className="text-sm text-slate-500">Charte graphique, logo & identité visuelle</p>
+                </div>
               </div>
             </div>
-            <div className="p-8 rounded-2xl bg-slate-50 border border-slate-100">
+            <div className="p-8 rounded-2xl bg-slate-50 border border-slate-100 fade-in-up delay-2">
               <div className="flex gap-1 mb-4">{[...Array(5)].map((_, i) => <Star key={i} size={16} className="fill-orange-400 text-orange-400" />)}</div>
               <p className="text-slate-600 mb-6 leading-relaxed">&ldquo;Nous avions besoin d&apos;une plateforme SaaS de gestion solide et fiable. LUMINA a parfaitement compris nos besoins et livré un produit qui dépasse nos attentes.&rdquo;</p>
-              <div>
-                <p className="font-semibold text-slate-900">Tech Congo</p>
-                <p className="text-sm text-slate-500">Plateforme SaaS de gestion</p>
+              <div className="flex items-center gap-4">
+                <img src="/projects/techcongo.png" alt="Tech Congo" className="w-12 h-12 rounded-lg object-contain bg-white border border-slate-200 p-1" />
+                <div>
+                  <p className="font-semibold text-slate-900">Tech Congo</p>
+                  <p className="text-sm text-slate-500">Plateforme SaaS de gestion</p>
+                </div>
               </div>
             </div>
           </div>
