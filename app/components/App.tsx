@@ -5,7 +5,7 @@ import {
   Code, Smartphone, ShoppingCart, Brush, FileText, Megaphone,
   BookOpen, Users, Wrench, Shield, Clock, Lightbulb, Heart, Trophy,
   Award, Headphones, CreditCard, Settings, MessageCircle,
-  TrendingUp, Building2, Star, Lock, Layers, Handshake, UserPlus, Wallet
+  TrendingUp, Building2, Star, Lock, Layers, Handshake, UserPlus, Wallet, Linkedin
 } from 'lucide-react';
 
 const styles = `
@@ -513,7 +513,7 @@ function Home({ nav }: { nav: (p: string) => void }) {
       <section className="bg-slate-900 text-white py-16">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
-            {[['50','+','Projets réalisés'],['4.8','/5','Satisfaction'],['24','h','Délai de réponse'],['6','/7','Disponibilité']].map(([v,s,l]) => (
+            {[['50','+','Projets réalisés'],['5','/5','Satisfaction'],['24','h','Délai de réponse'],['6','/7','Disponibilité']].map(([v,s,l]) => (
               <div key={l} className="text-center">
                 <div className="text-4xl lg:text-5xl font-bold text-blue-400 mb-2"><AnimatedNumber value={v} suffix={s} /></div>
                 <div className="text-slate-400 font-medium">{l}</div>
@@ -1077,9 +1077,14 @@ function About({ nav }: { nav: (p: string) => void }) {
               {/* Nom sous la photo - Style card moderne */}
               <div className="relative -mt-8 mx-6">
                 <div className="bg-white rounded-2xl p-5 shadow-xl border border-slate-100 relative z-20">
-                  <div>
-                    <a href="https://www.linkedin.com/in/faity-rickson-n-8094051bb/" target="_blank" rel="noopener noreferrer" className="text-lg font-bold text-slate-900 hover:text-blue-600 transition-colors">Faity Rickson NGAKOUA-BOUYA</a>
-                    <p className="text-slate-500 text-sm font-medium">Fondateur & Directeur Créatif</p>
+                  <div className="flex items-center justify-between">
+                    <div>
+                      <h3 className="text-lg font-bold text-slate-900">Faity Rickson NGAKOUA-BOUYA</h3>
+                      <p className="text-slate-500 text-sm font-medium">Fondateur & Directeur Créatif</p>
+                    </div>
+                    <a href="https://www.linkedin.com/in/faity-rickson-n-8094051bb/" target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-[#0A66C2] rounded-lg flex items-center justify-center hover:bg-[#004182] transition-colors">
+                      <Linkedin size={18} className="text-white" />
+                    </a>
                   </div>
                 </div>
               </div>
@@ -1159,7 +1164,7 @@ function About({ nav }: { nav: (p: string) => void }) {
       <section className="py-20 bg-slate-50">
         <div className="mx-auto max-w-4xl px-6 lg:px-8">
           <div className="grid grid-cols-3 gap-6 text-center">
-            {[['50','+','Projets livrés'],['4.8','/5','Satisfaction client'],['24','h','Temps de réponse']].map(([v,s,l]) => (
+            {[['50','+','Projets livrés'],['5','/5','Satisfaction client'],['24','h','Temps de réponse']].map(([v,s,l]) => (
               <div key={l} className="p-6 rounded-2xl bg-white border border-slate-200">
                 <div className="text-4xl lg:text-5xl font-bold text-blue-600 mb-2"><AnimatedNumber value={v} suffix={s} /></div>
                 <div className="text-slate-600 font-medium">{l}</div>
