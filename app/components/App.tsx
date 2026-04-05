@@ -792,7 +792,7 @@ function Services({ nav }: { nav: (p: string) => void }) {
                 </div>
               </div>
               <div className="absolute -bottom-4 -right-4 bg-orange-500 text-white rounded-xl px-4 py-2 text-sm font-semibold shadow-lg">
-                Essai gratuit 14 jours
+                Essai gratuit 30 jours
               </div>
             </div>
           </div>
@@ -1418,7 +1418,7 @@ function Education({ nav }: { nav: (p: string) => void }) {
   ];
 
   const faqs = [
-    { q: 'Comment fonctionne l\'essai gratuit ?', a: 'Vous avez 14 jours pour tester toutes les fonctionnalités sans engagement. Aucune carte bancaire requise.' },
+    { q: 'Comment fonctionne l\'essai gratuit ?', a: 'Vous avez 30 jours pour tester toutes les fonctionnalités sans engagement. Aucune carte bancaire requise.' },
     { q: 'Puis-je migrer mes données existantes ?', a: 'Oui, notre équipe vous accompagne gratuitement dans la migration de vos données depuis Excel ou tout autre système.' },
     { q: 'Le système fonctionne-t-il hors connexion ?', a: 'L\'application nécessite une connexion internet, mais les bulletins PDF peuvent être téléchargés et consultés hors ligne.' },
     { q: 'Comment sont envoyés les SMS aux parents ?', a: 'Vous rédigez votre message, sélectionnez les destinataires (classe, niveau, ou individuel) et envoyez. Les SMS sont facturés en supplément selon votre consommation.' },
@@ -1444,7 +1444,7 @@ function Education({ nav }: { nav: (p: string) => void }) {
               </p>
               <div className="flex flex-wrap gap-4 fade-in-up delay-3">
                 <button onClick={() => nav('contact')} className="px-8 py-4 bg-white text-orange-600 rounded-xl hover:bg-orange-50 transition-all font-semibold flex items-center gap-2">
-                  Essai gratuit 14 jours <ArrowRight size={20} />
+                  Essai gratuit 30 jours <ArrowRight size={20} />
                 </button>
                 <button onClick={() => nav('contact')} className="px-8 py-4 border-2 border-white/50 text-white rounded-xl hover:bg-white/10 transition-all font-semibold">
                   Demander une démo
@@ -1630,7 +1630,7 @@ function Education({ nav }: { nav: (p: string) => void }) {
               Démarrer l'essai gratuit <ArrowRight size={20} />
             </button>
           </div>
-          <p className="text-orange-200 text-sm mt-6">14 jours gratuits • Aucune carte bancaire • Annulation à tout moment</p>
+          <p className="text-orange-200 text-sm mt-6">30 jours gratuits • Aucune carte bancaire • Annulation à tout moment</p>
         </div>
       </section>
     </div>
