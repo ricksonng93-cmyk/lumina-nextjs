@@ -242,7 +242,7 @@ function Header({ nav, menuOpen, setMenuOpen }: { nav: (p: string) => void; menu
           </button>
 
           <nav className="hidden md:flex items-center gap-1">
-            {[['home','Accueil'],['services','Services'],['education','LUMINA Education'],['a-propos','À propos'],['partners','Partners']].map(([p,l]) => (
+            {[['services','Services'],['education','LUMINA Education'],['a-propos','À propos'],['partners','Partners']].map(([p,l]) => (
               <button key={p} onClick={() => nav(p)} className="px-4 py-2.5 text-slate-600 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-all font-medium">{l}</button>
             ))}
             <button onClick={() => nav('contact')} className="ml-3 px-6 py-2.5 bg-slate-900 text-white rounded-lg hover:bg-slate-800 transition-all font-medium btn-dark flex items-center gap-2">
@@ -257,7 +257,7 @@ function Header({ nav, menuOpen, setMenuOpen }: { nav: (p: string) => void; menu
 
         <div className={`md:hidden overflow-hidden transition-all duration-400 ${menuOpen ? 'max-h-96 pb-4' : 'max-h-0'}`}>
           <nav className="flex flex-col gap-1 pt-2 border-t border-slate-100">
-            {[['home','Accueil'],['services','Services'],['education','LUMINA Education'],['a-propos','À propos'],['partners','Partners'],['contact','Contact']].map(([p,l]) => (
+            {[['services','Services'],['education','LUMINA Education'],['a-propos','À propos'],['partners','Partners'],['contact','Contact']].map(([p,l]) => (
               <button key={p} onClick={() => nav(p)} className="text-left text-slate-700 hover:text-blue-600 hover:bg-blue-50 py-3 px-4 rounded-lg transition-all font-medium">{l}</button>
             ))}
           </nav>
@@ -377,7 +377,7 @@ function Footer({ nav, navToService }: { nav: (p: string) => void; navToService:
               <Mail size={14} /> contact@lumina-cg.com
             </a>
             <span className="flex items-center gap-2 text-slate-400">
-              <MapPin size={14} /> Brazzaville, Congo
+              <MapPin size={14} /> Paris, France & Brazzaville, Congo
             </span>
           </div>
           <div className="text-center text-slate-500 text-sm">
@@ -466,7 +466,7 @@ function Home({ nav }: { nav: (p: string) => void }) {
                     <Users size={18} className="text-blue-600" />
                   </div>
                   <div>
-                    <p className="font-bold text-slate-900">+30</p>
+                    <p className="font-bold text-slate-900">+50</p>
                     <p className="text-xs text-slate-500">Clients satisfaits</p>
                   </div>
                 </div>
@@ -511,7 +511,7 @@ function Home({ nav }: { nav: (p: string) => void }) {
       <section className="bg-slate-900 text-white py-16">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
-            {[['30','+','Projets réalisés'],['100','%','Satisfaction'],['24','h','Délai de réponse'],['7','/7','Disponibilité']].map(([v,s,l]) => (
+            {[['50','+','Projets réalisés'],['100','%','Satisfaction'],['24','h','Délai de réponse'],['7','/7','Disponibilité']].map(([v,s,l]) => (
               <div key={l} className="text-center">
                 <div className="text-4xl lg:text-5xl font-bold text-blue-400 mb-2"><AnimatedNumber value={v} suffix={s} /></div>
                 <div className="text-slate-400 font-medium">{l}</div>
@@ -1132,7 +1132,7 @@ function About({ nav }: { nav: (p: string) => void }) {
       <section className="py-20 bg-slate-50">
         <div className="mx-auto max-w-4xl px-6 lg:px-8">
           <div className="grid grid-cols-3 gap-6 text-center">
-            {[['30','+','Projets livrés'],['100','%','Clients satisfaits'],['24','h','Temps de réponse']].map(([v,s,l]) => (
+            {[['50','+','Projets livrés'],['100','%','Clients satisfaits'],['24','h','Temps de réponse']].map(([v,s,l]) => (
               <div key={l} className="p-6 rounded-2xl bg-white border border-slate-200">
                 <div className="text-4xl lg:text-5xl font-bold text-blue-600 mb-2"><AnimatedNumber value={v} suffix={s} /></div>
                 <div className="text-slate-600 font-medium">{l}</div>
@@ -1311,7 +1311,8 @@ function Contact() {
                     <MapPin size={18} className="text-slate-400 mt-1" />
                     <div>
                       <p className="font-semibold text-slate-900">Siège</p>
-                      <p className="text-slate-600 text-sm">Brazzaville, Congo</p>
+                      <p className="text-slate-600 text-sm">Paris, France & Brazzaville, Congo</p>
+                      
                     </div>
                   </div>
                   <div className="flex items-start gap-3">
@@ -1355,9 +1356,9 @@ function Contact() {
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-violet-50 text-violet-600 text-sm font-medium mb-4">
               <MapPin size={16} /> Notre localisation
             </div>
-            <h2 className="text-3xl lg:text-4xl font-bold text-slate-900 mb-4">Situés à Brazzaville</h2>
+            <h2 className="text-3xl lg:text-4xl font-bold text-slate-900 mb-4">Situés à Paris & Brazzaville</h2>
             <p className="text-lg text-slate-600 max-w-2xl mx-auto">
-              Au cœur de la capitale congolaise, nous accompagnons les entreprises locales dans leur transformation digitale
+              Entre Paris et Brazzaville, nous accompagnons les entreprises dans leur transformation digitale
             </p>
           </div>
           <div className="grid grid-cols-3 gap-4 lg:gap-6 max-w-3xl mx-auto">
