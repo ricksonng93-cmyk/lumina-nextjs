@@ -557,7 +557,7 @@ function Home({ nav }: { nav: (p: string) => void }) {
             ].map((project, i) => (
               <div key={i} className="inline-flex flex-col items-center mx-12 lg:mx-16">
                 <div className="w-32 h-32 lg:w-40 lg:h-40 flex items-center justify-center mb-4">
-                  <img src={project.logo} alt={project.name} className="w-full h-full object-contain opacity-40 hover:opacity-100 transition-opacity duration-300 grayscale hover:grayscale-0" />
+                  <img src={project.logo} alt={project.name} className="w-full h-full object-contain opacity-80 hover:opacity-100 transition-opacity duration-300" />
                 </div>
                 <p className="text-sm font-medium text-slate-400">{project.name}</p>
               </div>
