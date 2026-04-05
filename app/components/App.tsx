@@ -219,6 +219,7 @@ function App() {
         </main>
         <Footer nav={nav} navToService={navToService} />
         <WhatsAppButton />
+        <CookieBanner />
       </div>
     </>
   );
@@ -512,7 +513,7 @@ function Home({ nav }: { nav: (p: string) => void }) {
       <section className="bg-slate-900 text-white py-16">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
-            {[['50','+','Projets réalisés'],['100','%','Satisfaction'],['24','h','Délai de réponse'],['7','/7','Disponibilité']].map(([v,s,l]) => (
+            {[['50','+','Projets réalisés'],['4.8','/5','Satisfaction'],['24','h','Délai de réponse'],['6','/7','Disponibilité']].map(([v,s,l]) => (
               <div key={l} className="text-center">
                 <div className="text-4xl lg:text-5xl font-bold text-blue-400 mb-2"><AnimatedNumber value={v} suffix={s} /></div>
                 <div className="text-slate-400 font-medium">{l}</div>
@@ -643,6 +644,36 @@ function Home({ nav }: { nav: (p: string) => void }) {
               <button onClick={() => nav('a-propos')} className="px-7 py-3.5 bg-slate-900 text-white rounded-xl hover:bg-slate-800 transition-all flex items-center gap-2 font-semibold btn-dark">
                 En savoir plus sur nous <ArrowRight size={18} />
               </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Témoignages */}
+      <section className="py-20 bg-white">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-slate-100 text-slate-700 text-sm font-medium mb-4">
+              <Star size={16} /> Ils nous font confiance
+            </div>
+            <h2 className="text-3xl lg:text-4xl font-bold text-slate-900">Ce que disent nos clients</h2>
+          </div>
+          <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+            <div className="p-8 rounded-2xl bg-slate-50 border border-slate-100">
+              <div className="flex gap-1 mb-4">{[...Array(5)].map((_, i) => <Star key={i} size={16} className="fill-orange-400 text-orange-400" />)}</div>
+              <p className="text-slate-600 mb-6 leading-relaxed">&ldquo;LUMINA a conçu notre charte graphique, notre logo et toute notre identité visuelle. Un travail soigné et professionnel. La collaboration continue sur d&apos;autres projets.&rdquo;</p>
+              <div>
+                <p className="font-semibold text-slate-900">France-Afrique Média</p>
+                <p className="text-sm text-slate-500">Charte graphique, logo & identité visuelle</p>
+              </div>
+            </div>
+            <div className="p-8 rounded-2xl bg-slate-50 border border-slate-100">
+              <div className="flex gap-1 mb-4">{[...Array(5)].map((_, i) => <Star key={i} size={16} className="fill-orange-400 text-orange-400" />)}</div>
+              <p className="text-slate-600 mb-6 leading-relaxed">&ldquo;Nous avions besoin d&apos;une plateforme SaaS de gestion solide et fiable. LUMINA a parfaitement compris nos besoins et livré un produit qui dépasse nos attentes.&rdquo;</p>
+              <div>
+                <p className="font-semibold text-slate-900">Tech Congo</p>
+                <p className="text-sm text-slate-500">Plateforme SaaS de gestion</p>
+              </div>
             </div>
           </div>
         </div>
@@ -1047,7 +1078,7 @@ function About({ nav }: { nav: (p: string) => void }) {
               <div className="relative -mt-8 mx-6">
                 <div className="bg-white rounded-2xl p-5 shadow-xl border border-slate-100 relative z-20">
                   <div>
-                    <h3 className="text-lg font-bold text-slate-900">Faity Rickson NGAKOUA-BOUYA</h3>
+                    <a href="https://www.linkedin.com/in/faity-rickson-n-8094051bb/" target="_blank" rel="noopener noreferrer" className="text-lg font-bold text-slate-900 hover:text-blue-600 transition-colors">Faity Rickson NGAKOUA-BOUYA</a>
                     <p className="text-slate-500 text-sm font-medium">Fondateur & Directeur Créatif</p>
                   </div>
                 </div>
@@ -1128,7 +1159,7 @@ function About({ nav }: { nav: (p: string) => void }) {
       <section className="py-20 bg-slate-50">
         <div className="mx-auto max-w-4xl px-6 lg:px-8">
           <div className="grid grid-cols-3 gap-6 text-center">
-            {[['50','+','Projets livrés'],['100','%','Clients satisfaits'],['24','h','Temps de réponse']].map(([v,s,l]) => (
+            {[['50','+','Projets livrés'],['4.8','/5','Satisfaction client'],['24','h','Temps de réponse']].map(([v,s,l]) => (
               <div key={l} className="p-6 rounded-2xl bg-white border border-slate-200">
                 <div className="text-4xl lg:text-5xl font-bold text-blue-600 mb-2"><AnimatedNumber value={v} suffix={s} /></div>
                 <div className="text-slate-600 font-medium">{l}</div>
@@ -1367,7 +1398,7 @@ function Contact() {
               <div className="text-slate-600 text-sm font-medium">Devis gratuits</div>
             </div>
             <div className="text-center p-6 lg:p-8 rounded-2xl bg-slate-50 border border-slate-100">
-              <div className="text-3xl lg:text-4xl font-bold text-orange-500 mb-2">7j/7</div>
+              <div className="text-3xl lg:text-4xl font-bold text-orange-500 mb-2">6j/7</div>
               <div className="text-slate-600 text-sm font-medium">Disponibilité</div>
             </div>
           </div>
@@ -1760,6 +1791,36 @@ function Privacy({ nav }: { nav: (p: string) => void }) {
           </button>
         </div>
       </section>
+    </div>
+  );
+}
+
+function CookieBanner() {
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    if (!localStorage.getItem('cookies-accepted')) setVisible(true);
+  }, []);
+
+  const accept = () => { localStorage.setItem('cookies-accepted', 'true'); setVisible(false); };
+
+  if (!visible) return null;
+
+  return (
+    <div className="fixed bottom-0 left-0 right-0 z-50 p-4">
+      <div className="mx-auto max-w-4xl bg-slate-900 text-white rounded-2xl p-6 shadow-2xl flex flex-col sm:flex-row items-start sm:items-center gap-4">
+        <div className="flex-1">
+          <p className="text-sm leading-relaxed">Ce site utilise des cookies pour améliorer votre expérience. En continuant, vous acceptez notre <button onClick={() => { accept(); window.history.pushState({}, '', '/privacy'); window.location.reload(); }} className="underline hover:text-blue-400 transition-colors">politique de confidentialité</button>.</p>
+        </div>
+        <div className="flex gap-3 flex-shrink-0">
+          <button onClick={accept} className="px-5 py-2.5 bg-white text-slate-900 rounded-lg text-sm font-semibold hover:bg-slate-100 transition-all">
+            Accepter
+          </button>
+          <button onClick={() => setVisible(false)} className="px-5 py-2.5 border border-slate-600 text-slate-300 rounded-lg text-sm font-medium hover:border-slate-400 hover:text-white transition-all">
+            Refuser
+          </button>
+        </div>
+      </div>
     </div>
   );
 }
