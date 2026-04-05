@@ -1039,21 +1039,16 @@ function About({ nav }: { nav: (p: string) => void }) {
               {/* Photo fondateur */}
               <div className="relative">
                 <div className="relative z-10 rounded-3xl overflow-hidden shadow-2xl">
-                  <img src="/fondateur.png" alt="Faity Rickson NGAKOUA-BOUYA" className="w-full h-[500px] object-cover" />
+                  <img src="/fondateur.png" alt="Faity Rickson NGAKOUA-BOUYA" className="w-full h-[500px] object-cover object-top" />
                 </div>
                 <div className="absolute -z-10 top-6 -right-6 w-full h-full bg-blue-200/60 rounded-3xl" />
               </div>
               {/* Nom sous la photo - Style card moderne */}
               <div className="relative -mt-8 mx-6">
                 <div className="bg-white rounded-2xl p-5 shadow-xl border border-slate-100 relative z-20">
-                  <div className="flex items-center gap-4">
-                    <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-xl flex items-center justify-center shadow-lg shadow-blue-500/30">
-                      <Award size={24} className="text-white" />
-                    </div>
-                    <div>
-                      <h3 className="text-lg font-bold text-slate-900">Faity Rickson NGAKOUA-BOUYA</h3>
-                      <p className="text-blue-600 text-sm font-medium">Fondateur & Directeur Créatif</p>
-                    </div>
+                  <div>
+                    <h3 className="text-lg font-bold text-slate-900">Faity Rickson NGAKOUA-BOUYA</h3>
+                    <p className="text-slate-500 text-sm font-medium">Fondateur & Directeur Créatif</p>
                   </div>
                 </div>
               </div>
