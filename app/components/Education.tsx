@@ -18,9 +18,9 @@ export default function Education({ nav }: { nav: (p: string) => void }) {
   ];
 
   const plans = [
-    { name: 'Starter', price: '60 000', period: '/mois', students: 'Jusqu\'à 200 élèves', features: ['Gestion élèves & classes', 'Notes et bulletins PDF', 'Espace parents', 'Support email'], cta: 'Commencer l\'essai gratuit', popular: false },
-    { name: 'Pro', price: '110 000', period: '/mois', students: 'Jusqu\'à 500 élèves', features: ['Tout de Starter', 'Envoi SMS aux parents', 'Suivi des paiements', 'Rapports avancés', 'Support prioritaire'], cta: 'Commencer l\'essai gratuit', popular: true },
-    { name: 'Premium', price: '180 000', period: '/mois', students: 'Élèves illimités', features: ['Tout de Pro', 'Multi-établissements', 'API personnalisée', 'Formation sur site', 'Support dédié 24/7'], cta: 'Nous contacter', popular: false },
+    { name: 'Starter', price: 'Sur devis', period: '', students: 'Jusqu\'à 200 élèves', features: ['Gestion élèves & classes', 'Notes et bulletins PDF', 'Espace parents', 'Support email'], cta: 'Commencer l\'essai gratuit', popular: false },
+    { name: 'Pro', price: 'Sur devis', period: '', students: 'Jusqu\'à 500 élèves', features: ['Tout de Starter', 'Envoi SMS aux parents', 'Suivi des paiements', 'Rapports avancés', 'Support prioritaire'], cta: 'Commencer l\'essai gratuit', popular: true },
+    { name: 'Premium', price: 'Sur devis', period: '', students: 'Élèves illimités', features: ['Tout de Pro', 'Multi-établissements', 'API personnalisée', 'Formation sur site', 'Support dédié 24/7'], cta: 'Nous contacter', popular: false },
   ];
 
   const faqs = [
@@ -171,7 +171,7 @@ export default function Education({ nav }: { nav: (p: string) => void }) {
                 <p className={`text-sm mb-4 ${plan.popular ? 'text-orange-100' : 'text-slate-500'}`}>{plan.students}</p>
                 <div className="flex items-baseline gap-1 mb-6">
                   <span className={`text-4xl font-bold ${plan.popular ? 'text-white' : 'text-orange-500'}`}>{plan.price}</span>
-                  <span className={plan.popular ? 'text-orange-100' : 'text-slate-500'}>FCFA{plan.period}</span>
+                  <span className={plan.popular ? 'text-orange-100' : 'text-slate-500'}>{plan.period}</span>
                 </div>
                 <ul className="space-y-3 mb-8">
                   {plan.features.map((f, j) => (

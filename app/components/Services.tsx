@@ -10,13 +10,13 @@ export default function Services({ nav }: { nav: (p: string) => void }) {
   useScrollReveal();
   const data = [
     { id: 'sites-web', cat: 'Sites Web & Applications', icon: Globe, color: 'blue', items: [
-      { name: 'Pack Starter', price: '150 000 FCFA', icon: Code, feat: ['Site vitrine 1-5 pages','Design responsive','Formulaire contact','SEO basique','Hébergement 1 an'] },
-      { name: 'Pack Pro', price: '520 000 FCFA', icon: Smartphone, pop: true, feat: ['Pages illimitées','Design premium','Chatbot IA intégré (option)','SEO optimisé','Blog intégré','Support 6 mois'] },
+      { name: 'Pack Starter', price: 'Sur devis', icon: Code, feat: ['Site vitrine 1-5 pages','Design responsive','Formulaire contact','SEO basique','Hébergement 1 an'] },
+      { name: 'Pack Pro', price: 'Sur devis', icon: Smartphone, pop: true, feat: ['Pages illimitées','Design premium','Chatbot IA intégré (option)','SEO optimisé','Blog intégré','Support 6 mois'] },
       { name: 'E-commerce', price: 'Sur devis', icon: ShoppingCart, feat: ['Boutique complète','Paiement sécurisé','Gestion stock','Formation','Support continu'] },
     ]},
     { id: 'branding', cat: 'Branding', icon: Palette, color: 'violet', items: [
-      { name: 'Identité Visuelle', price: '75 000 FCFA', icon: Brush, feat: ['Logo professionnel','Charte graphique','Palette couleurs','3 propositions','Révisions illimitées'] },
-      { name: 'Design Complet', price: '200 000 FCFA', icon: FileText, pop: true, feat: ['Tout du pack Identité','Cartes visite','Templates réseaux sociaux','Guide de marque'] },
+      { name: 'Identité Visuelle', price: 'Sur devis', icon: Brush, feat: ['Logo professionnel','Charte graphique','Palette couleurs','3 propositions','Révisions illimitées'] },
+      { name: 'Design Complet', price: 'Sur devis', icon: FileText, pop: true, feat: ['Tout du pack Identité','Cartes visite','Templates réseaux sociaux','Guide de marque'] },
       { name: 'Marketing Digital', price: 'Sur devis', icon: Megaphone, feat: ['Stratégie contenu','Gestion réseaux sociaux','Campagnes pub','Email marketing','Analytics'] },
     ]},
   ];
@@ -95,7 +95,7 @@ export default function Services({ nav }: { nav: (p: string) => void }) {
                 </button>
                 <div className="flex items-center gap-2 px-4 py-3 bg-white rounded-xl border border-orange-200">
                   <span className="text-slate-500 text-sm">À partir de</span>
-                  <span className="text-xl font-bold text-orange-600">60 000 FCFA</span>
+                  <span className="text-xl font-bold text-orange-600">Sur devis</span>
                   <span className="text-slate-500 text-sm">/mois</span>
                 </div>
               </div>
@@ -152,8 +152,8 @@ export default function Services({ nav }: { nav: (p: string) => void }) {
           </div>
           <div className="grid md:grid-cols-2 gap-6 lg:gap-8 max-w-4xl mx-auto">
             {[
-              { name: 'Maintenance Basique', price: '25 000 FCFA/mois', icon: Wrench, feat: ['Mises à jour sécurité','Sauvegardes hebdo','Support email','Corrections bugs'], pop: false },
-              { name: 'Maintenance Premium', price: '50 000 FCFA/mois', icon: Shield, pop: true, feat: ['Tout basique','MAJ contenu 2h/mois','Support prioritaire','Sauvegardes quotidiennes','Monitoring','Rapports mensuels'] },
+              { name: 'Maintenance Basique', price: 'Sur devis', icon: Wrench, feat: ['Mises à jour sécurité','Sauvegardes hebdo','Support email','Corrections bugs'], pop: false },
+              { name: 'Maintenance Premium', price: 'Sur devis', icon: Shield, pop: true, feat: ['Tout basique','MAJ contenu 2h/mois','Support prioritaire','Sauvegardes quotidiennes','Monitoring','Rapports mensuels'] },
             ].map((plan) => (
               <div key={plan.name} className={`rounded-2xl p-6 lg:p-8 card-hover bg-white ${plan.pop ? 'border-2 border-blue-300 shadow-xl' : 'border-2 border-slate-100'}`}>
                 {plan.pop && <span className="inline-block mb-4 px-4 py-1 bg-blue-600 text-white text-sm rounded-full font-semibold">Recommandé</span>}
