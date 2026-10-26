@@ -221,8 +221,9 @@ export default function HomePage() {
                 Un bulletin en quelques secondes.
               </h2>
               <p className="mt-6 max-w-md text-muted leading-relaxed">
-                Notre plateforme de gestion scolaire calcule les moyennes,
-                génère les bulletins PDF et informe les parents par SMS.
+                Notes, bulletins, paiements et emploi du temps. Les parents
+                suivent tout depuis leur téléphone, les équipes gagnent un temps
+                considérable.
               </p>
               <div className="mt-10">
                 <Button as="a" href="/lumina-education" variant="edu">

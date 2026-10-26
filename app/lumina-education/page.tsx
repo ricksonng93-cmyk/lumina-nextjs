@@ -35,11 +35,8 @@ export default function LuminaEducationPage() {
         <Container>
           <div className="flex flex-col lg:flex-row items-center gap-14 lg:gap-20">
             <div className="flex-1 max-w-xl">
-              <div className="flex items-center gap-4 mb-6">
+              <div className="mb-6">
                 <ProductIcon product="education" size={52} />
-                <span className="text-xs font-semibold text-muted bg-subtle border border-border px-3 py-1 rounded-full tracking-wide">
-                  Déploiement sur mesure
-                </span>
               </div>
               <p className="text-[10px] uppercase tracking-widest text-edu mb-3">lumina education</p>
               <h1 className="text-4xl lg:text-5xl font-black text-ink leading-tight tracking-tight">
@@ -83,23 +80,25 @@ export default function LuminaEducationPage() {
       {/* ── Comment nous déployons ── */}
       <section className="py-20 lg:py-28 border-b border-border">
         <Container>
-          <p className="text-[10px] uppercase tracking-widest text-muted mb-12">
-            comment nous déployons
-          </p>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-0">
-            {STEPS.map((s, i) => (
-              <div
-                key={s.n}
-                className={[
-                  "py-8 md:py-0",
-                  i > 0 ? "border-t md:border-t-0 md:border-l border-border md:pl-10" : "",
-                  i < STEPS.length - 1 ? "md:pr-10" : "",
-                ].join(" ")}
-              >
-                <p className="text-xs font-mono text-muted mb-4">{s.n}</p>
-                <p className="text-ink font-semibold leading-snug">{s.label}</p>
-              </div>
-            ))}
+          <div className="max-w-3xl mx-auto">
+            <p className="text-[10px] uppercase tracking-widest text-muted mb-12 text-center">
+              comment nous déployons
+            </p>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-0">
+              {STEPS.map((s, i) => (
+                <div
+                  key={s.n}
+                  className={[
+                    "py-8 md:py-0 text-center md:text-left",
+                    i > 0 ? "border-t md:border-t-0 md:border-l border-border md:pl-10" : "",
+                    i < STEPS.length - 1 ? "md:pr-10" : "",
+                  ].join(" ")}
+                >
+                  <p className="text-xs font-mono text-muted mb-4">{s.n}</p>
+                  <p className="text-ink text-lg font-semibold leading-snug">{s.label}</p>
+                </div>
+              ))}
+            </div>
           </div>
         </Container>
       </section>
@@ -107,26 +106,21 @@ export default function LuminaEducationPage() {
       {/* ── Référence terrain ── */}
       <section className="py-20 lg:py-28 border-b border-border">
         <Container>
-          <p className="text-[10px] uppercase tracking-widest text-muted mb-10">
-            déjà déployé
-          </p>
-          <div className="flex flex-col lg:flex-row items-start gap-12 lg:gap-20">
-            {/* Identité école */}
-            <div className="flex-shrink-0">
-              {/* Logo : emplacement réservé, fichier à fournir */}
-              <div
-                className="w-20 h-20 rounded-2xl border-2 border-border bg-subtle flex items-center justify-center mb-4"
-              >
-                <span className="text-xl font-black text-muted select-none">SR</span>
-              </div>
-              <p className="font-black text-ink text-xl leading-tight">C.S Le Savoir de Rabbin</p>
-              <p className="text-muted text-sm mt-1">Brazzaville · Congo</p>
-              <p className="text-xs text-muted mt-3">En service depuis la rentrée 2026-2027</p>
+          <div className="max-w-xl mx-auto text-center">
+            <p className="text-[10px] uppercase tracking-widest text-muted mb-8">
+              déjà déployé
+            </p>
+            {/* Logo : emplacement réservé, fichier à fournir */}
+            <div className="w-20 h-20 rounded-2xl border-2 border-border bg-subtle flex items-center justify-center mb-6 mx-auto">
+              <span className="text-xl font-black text-muted select-none">SR</span>
             </div>
+            <p className="font-black text-ink text-2xl leading-tight">C.S Le Savoir de Rabbin</p>
+            <p className="text-muted text-sm mt-1">Brazzaville · Congo</p>
+            <p className="text-sm text-muted mt-3">En service depuis la rentrée 2026-2027</p>
 
             {/* Citation — masquée jusqu'à réception du texte */}
             {/* TODO : décommenter quand Marlyse Safoula fournit sa citation
-            <blockquote className="flex-1 max-w-lg">
+            <blockquote className="mt-8 max-w-lg mx-auto">
               <p className="text-2xl font-black text-ink leading-snug tracking-tight">
                 &ldquo;[Citation de Marlyse Safoula, directrice générale]&rdquo;
               </p>
@@ -143,15 +137,15 @@ export default function LuminaEducationPage() {
       {/* ── CTA ── */}
       <section className="py-20 lg:py-32">
         <Container>
-          <div className="max-w-xl">
+          <div className="max-w-xl mx-auto text-center">
             <h2 className="text-3xl lg:text-4xl font-black text-ink leading-tight tracking-tight">
               Commençons par regarder ce que vous avez déjà.
             </h2>
-            <p className="mt-4 text-muted leading-relaxed">
+            <p className="mt-4 text-muted text-lg leading-relaxed">
               Un audit sans engagement. Nous analysons vos procédures et vous
               indiquons ce qui mérite d&apos;être conservé, numérisé ou restructuré.
             </p>
-            <div className="mt-8 flex flex-wrap items-center gap-4">
+            <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
               <Button as="a" href="/contact">Demander un audit</Button>
               <Link
                 href="/lumina-administration"

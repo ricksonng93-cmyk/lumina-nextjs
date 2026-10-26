@@ -106,7 +106,7 @@ export default function LuminaAdministrationPage() {
             <h2 className="text-3xl lg:text-4xl font-black text-ink leading-tight tracking-tight">
               Commençons par regarder ce que vous avez déjà.
             </h2>
-            <p className="mt-4 text-muted leading-relaxed">
+            <p className="mt-4 text-muted text-lg leading-relaxed">
               Un audit sans engagement. Nous analysons vos procédures et vous
               indiquons ce qui mérite d&apos;être conservé, numérisé ou restructuré.
             </p>

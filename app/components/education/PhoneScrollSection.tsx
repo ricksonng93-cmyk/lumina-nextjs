@@ -307,8 +307,8 @@ export default function PhoneScrollSection() {
     <>
       {/* ── Desktop : téléphone sticky ── */}
       <div className="hidden lg:flex gap-24 items-start">
-        {/* Téléphone */}
-        <div className="w-64 flex-shrink-0">
+        {/* Téléphone — self-stretch pour que sticky fonctionne */}
+        <div className="w-64 flex-shrink-0 self-stretch">
           <div className="sticky" style={{ top: "calc(50vh - 216px)" }}>
             <PhoneFrame>
               <div className="relative h-full">
@@ -351,7 +351,7 @@ export default function PhoneScrollSection() {
                 {String(i + 1).padStart(2, "0")}
               </span>
               <h3 className="text-3xl font-black text-ink leading-tight mb-4">{ch.title}</h3>
-              <p className="text-muted leading-relaxed max-w-sm">{ch.body}</p>
+              <p className="text-muted text-lg leading-relaxed max-w-sm">{ch.body}</p>
             </div>
           ))}
         </div>
@@ -368,7 +368,7 @@ export default function PhoneScrollSection() {
             </PhoneFrame>
             <div className="text-center">
               <h3 className="text-2xl font-black text-ink mb-3">{ch.title}</h3>
-              <p className="text-muted leading-relaxed">{ch.body}</p>
+              <p className="text-muted text-lg leading-relaxed">{ch.body}</p>
             </div>
           </div>
         ))}
