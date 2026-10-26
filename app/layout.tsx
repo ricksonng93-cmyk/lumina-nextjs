@@ -1,47 +1,38 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const pjs = Plus_Jakarta_Sans({
   subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
+  weight: ["400", "500", "600", "700", "800"],
+  variable: "--font-sans",
+  display: "swap",
 });
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://lumina-cg.com"),
-  title: "LUMINA Creative Group — Agence numérique, Paris & Brazzaville",
-  description: "Nous auditons, concevons, construisons et maintenons les outils numériques des écoles, des administrations et des entreprises. Éditeur de LUMINA Education.",
+  title: {
+    default: "LUMINA Creative Group | Agence numérique à Paris et Brazzaville",
+    template: "%s | LUMINA Creative Group",
+  },
+  description:
+    "Nous auditons, concevons, construisons et maintenons les outils numériques des écoles, des administrations et des entreprises. Éditeur de LUMINA Education.",
   openGraph: {
     type: "website",
     locale: "fr_FR",
     siteName: "LUMINA Creative Group",
     url: "https://lumina-cg.com",
-    title: "LUMINA Creative Group — Agence numérique, Paris & Brazzaville",
-    description: "Nous auditons, concevons, construisons et maintenons les outils numériques des écoles, des administrations et des entreprises. Éditeur de LUMINA Education.",
   },
-  twitter: {
-    card: "summary_large_image",
-  },
-  icons: {
-    icon: "/favicon.ico",
-  },
+  twitter: { card: "summary_large_image" },
+  icons: { icon: "/favicon.ico" },
 };
 
 export default function RootLayout({
   children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+}: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="fr">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
+    <html lang="fr" className={pjs.variable}>
+      <body className="font-sans bg-surface text-ink antialiased">
         {children}
       </body>
     </html>

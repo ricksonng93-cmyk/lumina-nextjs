@@ -1,10 +1,136 @@
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
 @import "tailwindcss";
 
-* {
-  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+/* ─── Design tokens ──────────────────────────────────────────────────── */
+@theme {
+  /* Brand */
+  --color-ink:       #0F172A;
+  --color-agency:    #2563EB;
+
+  /* Products */
+  --color-edu:       #3B5BDB;
+  --color-admin:     #475569;
+  --color-care:      #15803D;
+
+  /* Surfaces */
+  --color-surface:   #FFFFFF;
+  --color-muted:     #64748B;
+  --color-border:    #E2E8F0;
+  --color-subtle:    #F8FAFC;
+
+  /* Typography */
+  --font-sans: "Plus Jakarta Sans", system-ui, sans-serif;
 }
 
+/* ─── Base ───────────────────────────────────────────────────────────── */
 html {
   scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ─── Scroll reveal ──────────────────────────────────────────────────── */
+/*
+  Elements start invisible; JS adds .revealed when they enter the viewport.
+  prefers-reduced-motion: skip straight to final state.
+*/
+.reveal {
+  opacity: 0;
+  transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.reveal-up    { transform: translateY(32px); }
+.reveal-left  { transform: translateX(-32px); }
+.reveal-right { transform: translateX(32px); }
+.reveal-scale { transform: scale(0.95); }
+
+.reveal.revealed {
+  opacity: 1;
+  transform: translateY(0) translateX(0) scale(1);
+}
+
+.stagger-1 { transition-delay: 0.05s; }
+.stagger-2 { transition-delay: 0.10s; }
+.stagger-3 { transition-delay: 0.15s; }
+.stagger-4 { transition-delay: 0.20s; }
+.stagger-5 { transition-delay: 0.25s; }
+.stagger-6 { transition-delay: 0.30s; }
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+/* ─── Logo carousel ──────────────────────────────────────────────────── */
+@keyframes logo-scroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+.logo-carousel          { overflow: hidden; }
+.logo-carousel-track    { display: inline-flex; animation: logo-scroll 24s linear infinite; }
+.logo-carousel-track:hover { animation-play-state: paused; }
+
+@media (prefers-reduced-motion: reduce) {
+  .logo-carousel-track  { animation: none; }
+}
+
+/* ─── Hero verb rotator ──────────────────────────────────────────────── */
+/*
+  The animated verb sits in a mask; words slide vertically.
+  The static phrase is in a visually-hidden <span> for screen readers.
+*/
+@keyframes verb-in {
+  from { transform: translateY(100%); opacity: 0; }
+  to   { transform: translateY(0);    opacity: 1; }
+}
+@keyframes verb-out {
+  from { transform: translateY(0);    opacity: 1; }
+  to   { transform: translateY(-100%);opacity: 0; }
+}
+
+.verb-mask   { overflow: hidden; display: inline-block; vertical-align: bottom; }
+.verb-word   { display: inline-block; }
+.verb-word.entering { animation: verb-in  0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+.verb-word.leaving  { animation: verb-out 0.4s cubic-bezier(0.4, 0, 1, 1) forwards; }
+
+@media (prefers-reduced-motion: reduce) {
+  .verb-word.entering,
+  .verb-word.leaving { animation: none; opacity: 1; transform: none; }
+}
+
+/* ─── WhatsApp pulse ─────────────────────────────────────────────────── */
+@keyframes wa-pulse {
+  0%   { transform: scale(0.9); opacity: 0.8; }
+  100% { transform: scale(1.4); opacity: 0; }
+}
+
+.wa-pulse::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: #25D366;
+  animation: wa-pulse 2s ease-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .wa-pulse::before { animation: none; }
+}
+
+/* ─── Project list hover ─────────────────────────────────────────────── */
+.project-row {
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.project-row:hover { transform: translateX(8px); }
+
+.project-logo {
+  transition: opacity 0.25s ease;
+  opacity: 0;
+}
+.project-row:hover .project-logo { opacity: 1; }
+
+@media (prefers-reduced-motion: reduce) {
+  .project-row:hover { transform: none; }
 }
