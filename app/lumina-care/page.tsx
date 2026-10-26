@@ -36,11 +36,8 @@ export default function LuminaCarePage() {
 
             {/* Texte */}
             <div className="flex-1 max-w-xl">
-              <div className="flex items-center gap-4 mb-6">
+              <div className="mb-6">
                 <ProductIcon product="care" size={52} />
-                <span className="text-xs font-semibold text-muted bg-subtle border border-border px-3 py-1 rounded-full tracking-wide">
-                  Déploiement sur mesure
-                </span>
               </div>
               <p className="text-[10px] uppercase tracking-widest text-care mb-3">
                 lumina care
@@ -79,23 +76,25 @@ export default function LuminaCarePage() {
       {/* ── Comment nous déployons ── */}
       <section className="py-20 lg:py-28 border-b border-border">
         <Container>
-          <p className="text-[10px] uppercase tracking-widest text-muted mb-12">
-            comment nous déployons
-          </p>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-0">
-            {STEPS.map((s, i) => (
-              <div
-                key={s.n}
-                className={[
-                  "py-8 md:py-0",
-                  i > 0 ? "border-t md:border-t-0 md:border-l border-border md:pl-10" : "",
-                  i < STEPS.length - 1 ? "md:pr-10" : "",
-                ].join(" ")}
-              >
-                <p className="text-xs font-mono text-muted mb-4">{s.n}</p>
-                <p className="text-ink font-semibold leading-snug">{s.label}</p>
-              </div>
-            ))}
+          <div className="max-w-3xl mx-auto">
+            <p className="text-[10px] uppercase tracking-widest text-muted mb-12 text-center">
+              comment nous déployons
+            </p>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-0">
+              {STEPS.map((s, i) => (
+                <div
+                  key={s.n}
+                  className={[
+                    "py-8 md:py-0 text-center md:text-left",
+                    i > 0 ? "border-t md:border-t-0 md:border-l border-border md:pl-10" : "",
+                    i < STEPS.length - 1 ? "md:pr-10" : "",
+                  ].join(" ")}
+                >
+                  <p className="text-xs font-mono text-muted mb-4">{s.n}</p>
+                  <p className="text-ink text-lg font-semibold leading-snug">{s.label}</p>
+                </div>
+              ))}
+            </div>
           </div>
         </Container>
       </section>
@@ -103,7 +102,7 @@ export default function LuminaCarePage() {
       {/* ── Appel à l'action ── */}
       <section className="py-20 lg:py-32">
         <Container>
-          <div className="max-w-xl">
+          <div className="max-w-xl mx-auto text-center">
             <h2 className="text-3xl lg:text-4xl font-black text-ink leading-tight tracking-tight">
               Commençons par regarder ce que vous avez déjà.
             </h2>
@@ -111,7 +110,7 @@ export default function LuminaCarePage() {
               Un audit sans engagement. Nous analysons vos procédures et vous
               indiquons ce qui mérite d&apos;être conservé, numérisé ou restructuré.
             </p>
-            <div className="mt-8 flex flex-wrap items-center gap-4">
+            <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
               <Button as="a" href="/contact">Demander un audit</Button>
               <Link
                 href="/lumina-education"
