@@ -62,9 +62,16 @@ export default function TravauxPage() {
     <>
       <section className="bg-white border-b border-border py-20 lg:py-28">
         <Container>
-          <h1 className="text-4xl lg:text-5xl font-black text-ink leading-tight tracking-tight mb-16">
-            Travaux
+          <p className="text-[10px] uppercase tracking-widest text-muted mb-4">
+            travaux récents
+          </p>
+          <h1 className="text-4xl lg:text-5xl font-black text-ink leading-tight tracking-tight mb-3">
+            Une sélection de nos dernières réalisations.
           </h1>
+          <p className="text-muted text-lg leading-relaxed mb-16 max-w-xl">
+            Plateformes métier, identités de marque et sites institutionnels —
+            conçus et déployés par notre équipe.
+          </p>
 
           <div>
             {projects.map((p) => {
