@@ -52,7 +52,7 @@ const projects = [
     num:      "01",
     name:     "LUMINA Education",
     subtitle: null,
-    tags:     ["SaaS", "Design", "Développement"],
+    tags:     ["SaaS", "Gestion scolaire", "Développement"],
     image:    null,
     product:  "education" as const,
     linked:   true,
@@ -60,9 +60,9 @@ const projects = [
   {
     slug:     "france-afrique-media",
     num:      "02",
-    name:     "France Afrique Média",
-    subtitle: "Logo, identité visuelle et développement du site d\u2019actualité",
-    tags:     [],
+    name:     "France-Afrique Média",
+    subtitle: null,
+    tags:     ["Logo", "Identité visuelle", "Développement"],
     image:    "/projects/france-afrique.png",
     product:  null,
     linked:   true,
@@ -72,7 +72,7 @@ const projects = [
     num:      "03",
     name:     "Master Finance",
     subtitle: null,
-    tags:     ["Application web", "UX"],
+    tags:     ["Site institutionnel", "Espace partenaire", "Référencement", "Acquisition"],
     image:    "/projects/master-finance.png",
     product:  null,
     linked:   true,
@@ -81,8 +81,8 @@ const projects = [
     slug:     null,
     num:      "04",
     name:     "TechCongo",
-    subtitle: "Plateforme SaaS\u00a0: développement, identité visuelle et référencement",
-    tags:     [],
+    subtitle: null,
+    tags:     ["SaaS", "Développement", "Identité visuelle", "SEO"],
     image:    "/projects/techcongo.png",
     product:  null,
     linked:   false,
@@ -449,10 +449,10 @@ export default function HomePage() {
             <div className="flex-1 reveal reveal-right w-full">
               <div
                 className="relative w-full overflow-hidden rounded-2xl"
-                style={{ aspectRatio: "5000/3885" }}
+                style={{ aspectRatio: "12473/9824" }}
               >
                 <Image
-                  src="/team.png"
+                  src="/about.png"
                   alt="L'équipe LUMINA Creative Group"
                   fill
                   sizes="(max-width: 1024px) 100vw, 64vw"
