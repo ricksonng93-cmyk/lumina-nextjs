@@ -118,7 +118,7 @@ export default function Header() {
   return (
     <header
       className={[
-        "sticky top-0 z-50 transition-[transform,background-color,box-shadow] duration-300",
+        "relative lg:sticky lg:top-0 z-50 transition-[transform,background-color,box-shadow] duration-300",
         scrolled ? "bg-surface/95 backdrop-blur-sm shadow-sm" : "bg-surface",
         hidden ? "-translate-y-full" : "translate-y-0",
       ].join(" ")}
