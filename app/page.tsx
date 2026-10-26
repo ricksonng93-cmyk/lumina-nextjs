@@ -62,7 +62,7 @@ const projects = [
     num:      "02",
     name:     "France Afrique Média",
     subtitle: "Logo, identité visuelle et développement du site d\u2019actualité",
-    tags:     ["2025"],
+    tags:     [],
     image:    "/projects/france-afrique.png",
     product:  null,
     linked:   true,
@@ -82,7 +82,7 @@ const projects = [
     num:      "04",
     name:     "TechCongo",
     subtitle: "Plateforme SaaS\u00a0: développement, identité visuelle et référencement",
-    tags:     ["2024"],
+    tags:     [],
     image:    "/projects/techcongo.png",
     product:  null,
     linked:   false,
@@ -144,10 +144,13 @@ export default function HomePage() {
               Une équipe professionnelle, un seul interlocuteur.
             </p>
 
-            {/* CTA */}
-            <div className="mt-12">
+            {/* CTA — deux boutons, empilés sur mobile */}
+            <div className="mt-12 flex flex-col sm:flex-row gap-4 justify-center">
               <Button as="a" href="/contact" size="lg">
                 Parler d&apos;un projet
+              </Button>
+              <Button as="a" href="/contact?sujet=demo" size="lg" variant="secondary">
+                Demander une démo
               </Button>
             </div>
           </div>
@@ -467,16 +470,16 @@ export default function HomePage() {
       ══════════════════════════════════════════════════════════════ */}
       <section className="py-24 lg:py-40">
         <Container>
-          <div className="reveal reveal-up max-w-3xl">
+          <div className="reveal reveal-up text-center max-w-3xl mx-auto">
             <h2 className="text-4xl lg:text-6xl font-black text-ink leading-tight tracking-tight">
               Commençons par regarder ce que vous avez déjà.
             </h2>
-            <p className="mt-6 text-muted text-lg leading-relaxed max-w-xl">
+            <p className="mt-6 text-muted text-lg leading-relaxed mx-auto max-w-xl">
               Un audit sans engagement. Nous analysons votre situation et vous
               indiquons ce qui mérite d&apos;être conservé, amélioré ou
               reconstruit.
             </p>
-            <div className="mt-10">
+            <div className="mt-10 flex justify-center">
               <Button as="a" href="/contact" size="lg">
                 Demander un audit
               </Button>

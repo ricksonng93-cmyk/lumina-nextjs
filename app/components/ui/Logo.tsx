@@ -23,7 +23,7 @@ export default function Logo({
   className = "",
 }: LogoProps) {
   const src =
-    variant === "light" ? "/logos/lumina-signe.svg" :
+    variant === "light" ? "/logos/originaux/lumina-logo-black-white.svg" :
     variant === "app"   ? "/logos/lumina-signe-app.svg" :
     "/logos/lumina-signe-mono.svg";
 
