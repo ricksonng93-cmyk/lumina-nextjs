@@ -3,6 +3,12 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import Container from "@/app/components/ui/Container";
 import Button from "@/app/components/ui/Button";
+import {
+  AuditVisual,
+  ConceptionVisual,
+  IdentiteVisual,
+  MaintenanceVisual,
+} from "@/app/components/expertises/ExpertisesVisuals";
 
 export const metadata: Metadata = {
   title: "Nos expertises",
@@ -19,118 +25,158 @@ export const metadata: Metadata = {
 
 const EXPERTISES = [
   {
-    id:    "audit",
-    num:   "01",
-    label: "Audit",
-    title: "Audit de l\u2019existant",
-    body:  "Nous ne démarrons jamais sans regarder ce qui existe déjà. Trop de projets échouent parce que personne n'a pris le temps d'analyser ce qui fonctionne, ce qui bloque, et ce qui peut être amélioré plutôt que reconstruit. L'audit est notre point de départ systématique. Nous remettons un diagnostic écrit avec nos recommandations, classées par ordre de priorité.",
-    items: [
+    id:      "audit",
+    num:     "01",
+    label:   "Audit",
+    title:   "Audit de l\u2019existant",
+    body:    "Nous ne démarrons jamais sans regarder ce qui existe déjà. Trop de projets échouent parce que personne n'a pris le temps d'analyser ce qui fonctionne, ce qui bloque, et ce qui peut être amélioré plutôt que reconstruit. L'audit est notre point de départ systématique. Nous remettons un diagnostic écrit avec nos recommandations, classées par ordre de priorité.",
+    items:   [
       "Diagnostic écrit avec recommandations prioritaires",
       "Cartographie des processus existants",
       "Estimation des efforts et des coûts par chantier",
       "Plan de déploiement progressif proposé",
     ],
+    Visual: AuditVisual,
   },
   {
-    id:    "conception",
-    num:   "02",
-    label: "Construction",
-    title: "Conception et développement",
-    body:  "De la maquette à la mise en production. Nous ne séparons jamais la conception du développement : les interfaces que nous dessinons, nous les construisons nous-mêmes, avec les mêmes équipes. Cela garantit que ce qui a été promis est exactement ce qui est livré. Sites institutionnels, plateformes métier, applications SaaS.",
-    items: [
+    id:      "conception",
+    num:     "02",
+    label:   "Construction",
+    title:   "Conception et développement",
+    body:    "De la maquette à la mise en production. Nous ne séparons jamais la conception du développement : les interfaces que nous dessinons, nous les construisons nous-mêmes, avec les mêmes équipes. Cela garantit que ce qui a été promis est exactement ce qui est livré. Sites institutionnels, plateformes métier, applications SaaS.",
+    items:   [
       "Maquettes et prototypes interactifs",
       "Développement frontend et backend",
       "Intégrations tierces : paiement, SMS, authentification",
       "Tests, recette et mise en production",
     ],
+    Visual: ConceptionVisual,
   },
   {
-    id:    "identite",
-    num:   "03",
-    label: "Marque",
-    title: "Identité visuelle",
-    body:  "Votre marque est la première impression que vous donnez et la dernière chose que vos clients oublient. Nous créons des identités cohérentes, déclinables sur tous les supports, du web à l'impression. Tout est livré en fichiers sources avec un guide d'utilisation pour votre équipe.",
-    items: [
+    id:      "identite",
+    num:     "03",
+    label:   "Marque",
+    title:   "Identité visuelle",
+    body:    "Votre marque est la première impression que vous donnez et la dernière chose que vos clients oublient. Nous créons des identités cohérentes, déclinables sur tous les supports, du web à l'impression. Tout est livré en fichiers sources avec un guide d'utilisation pour votre équipe.",
+    items:   [
       "Logotype et déclinaisons (couleur, monochrome, blanc)",
       "Charte graphique complète",
       "Gabarits print et digital",
       "Manuel de marque et guide d'utilisation",
     ],
+    Visual: IdentiteVisual,
   },
   {
-    id:    "maintenance",
-    num:   "04",
-    label: "Durée",
-    title: "Maintenance et formation",
-    body:  "La livraison n'est pas la fin du projet. Nous assurons l'hébergement, les mises à jour de sécurité, les sauvegardes et les correctifs. Nous formons également vos équipes sur place pour qu'elles soient autonomes sur l'outil au quotidien.",
-    items: [
+    id:      "maintenance",
+    num:     "04",
+    label:   "Durée",
+    title:   "Maintenance et formation",
+    body:    "La livraison n'est pas la fin du projet. Nous assurons l'hébergement, les mises à jour de sécurité, les sauvegardes et les correctifs. Nous formons également vos équipes sur place pour qu'elles soient autonomes sur l'outil au quotidien.",
+    items:   [
       "Hébergement et surveillance continue",
       "Mises à jour de sécurité et fonctionnelles",
       "Sessions de formation sur site",
       "Documentation technique transmise à l'équipe",
     ],
+    Visual: MaintenanceVisual,
   },
 ];
+
+const HERO_CARDS = EXPERTISES.map((e) => ({
+  num:   e.num,
+  label: e.label,
+  title: e.title,
+  id:    e.id,
+}));
 
 export default function ExpertisesPage() {
   return (
     <>
       {/* ── Hero ── */}
-      <section className="bg-white border-b border-border py-20 lg:py-28">
+      <section className="bg-ink py-20 lg:py-28">
         <Container>
-          <p className="text-[10px] uppercase tracking-widest text-muted mb-4">
-            nos expertises
-          </p>
-          <h1 className="text-4xl lg:text-5xl font-black text-ink leading-tight tracking-tight max-w-2xl">
-            Quatre domaines. Un seul interlocuteur.
-          </h1>
-          <p className="mt-6 text-muted text-lg leading-relaxed max-w-xl">
-            Du diagnostic initial à la maintenance long terme, nous couvrons
-            l&apos;ensemble du cycle de vie d&apos;un projet numérique.
-          </p>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 lg:gap-20 items-center">
+
+            {/* Left: text */}
+            <div>
+              <p className="text-[10px] uppercase tracking-widest text-white/40 mb-4">
+                nos expertises
+              </p>
+              <h1 className="text-4xl lg:text-5xl font-black text-white leading-tight tracking-tight">
+                Quatre domaines. Un seul interlocuteur.
+              </h1>
+              <p className="mt-6 text-white/60 text-lg leading-relaxed max-w-md">
+                Du diagnostic initial à la maintenance long terme, nous couvrons
+                l&apos;ensemble du cycle de vie d&apos;un projet numérique.
+              </p>
+            </div>
+
+            {/* Right: 2x2 expertise grid */}
+            <div className="grid grid-cols-2 bg-white/10 gap-px rounded-2xl overflow-hidden">
+              {HERO_CARDS.map((card) => (
+                <a
+                  key={card.id}
+                  href={`#${card.id}`}
+                  className="bg-ink hover:bg-white/5 transition-colors p-6 group"
+                >
+                  <p className="font-mono text-xs text-white/30 mb-3">{card.num}</p>
+                  <p className="text-[10px] uppercase tracking-widest text-white/40 mb-2">
+                    {card.label}
+                  </p>
+                  <p className="text-sm font-bold text-white/80 group-hover:text-white transition-colors leading-snug">
+                    {card.title}
+                  </p>
+                </a>
+              ))}
+            </div>
+          </div>
         </Container>
       </section>
 
       {/* ── Les quatre expertises ── */}
-      {EXPERTISES.map((e, i) => (
-        <section
-          key={e.id}
-          id={e.id}
-          className={[
-            "py-20 lg:py-28 border-b border-border",
-            i % 2 === 1 ? "bg-subtle" : "bg-white",
-          ].join(" ")}
-        >
-          <Container>
-            <div className="grid grid-cols-1 lg:grid-cols-[220px_1fr] gap-10 lg:gap-24">
+      {EXPERTISES.map((e, i) => {
+        const Visual = e.Visual;
+        const textFirst = i % 2 === 0;
+        return (
+          <section
+            key={e.id}
+            id={e.id}
+            className={[
+              "py-20 lg:py-28 border-b border-border",
+              i % 2 === 1 ? "bg-subtle" : "bg-white",
+            ].join(" ")}
+          >
+            <Container>
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
 
-              {/* Étiquette */}
-              <div className="lg:pt-1.5">
-                <p className="text-xs font-mono text-muted mb-1">{e.num}</p>
-                <p className="text-[10px] uppercase tracking-widest text-muted">{e.label}</p>
-              </div>
+                {/* Text column */}
+                <div className={textFirst ? "" : "lg:order-2"}>
+                  <p className="font-mono text-xs text-muted mb-4">{e.num}</p>
+                  <h2 className="text-3xl lg:text-4xl font-black text-ink leading-tight tracking-tight mb-6">
+                    {e.title}
+                  </h2>
+                  <p className="text-muted text-lg leading-relaxed mb-8 max-w-xl">
+                    {e.body}
+                  </p>
+                  <ul className="space-y-3">
+                    {e.items.map((item) => (
+                      <li key={item} className="flex items-start gap-3 text-sm text-ink">
+                        <span className="mt-2 w-1.5 h-1.5 rounded-full bg-agency flex-shrink-0" />
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
 
-              {/* Contenu */}
-              <div>
-                <h2 className="text-3xl lg:text-4xl font-black text-ink leading-tight tracking-tight mb-6">
-                  {e.title}
-                </h2>
-                <p className="text-muted text-lg leading-relaxed mb-10 max-w-2xl">
-                  {e.body}
-                </p>
-                <ul className="space-y-3">
-                  {e.items.map(item => (
-                    <li key={item} className="flex items-start gap-3 text-sm text-ink">
-                      <span className="mt-2 w-1.5 h-1.5 rounded-full bg-agency flex-shrink-0" />
-                      {item}
-                    </li>
-                  ))}
-                </ul>
+                {/* Visual column */}
+                <div className={["flex justify-center", textFirst ? "" : "lg:order-1"].join(" ")}>
+                  <Visual />
+                </div>
               </div>
-            </div>
-          </Container>
-        </section>
-      ))}
+            </Container>
+          </section>
+        );
+      })}
 
       {/* ── CTA ── */}
       <section className="py-20 lg:py-32">

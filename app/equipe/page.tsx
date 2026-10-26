@@ -39,53 +39,45 @@ const VALEURS = [
 export default function EquipePage() {
   return (
     <>
-      {/* ── Hero ── */}
-      <section className="bg-white border-b border-border py-20 lg:py-28">
-        <Container>
-          <p className="text-[10px] uppercase tracking-widest text-muted mb-4">
-            l&apos;équipe
-          </p>
-          <h1 className="text-4xl lg:text-5xl font-black text-ink leading-tight tracking-tight max-w-2xl">
-            Nous construisons des outils qui fonctionnent sur le terrain.
-          </h1>
-          <p className="mt-6 text-muted text-lg leading-relaxed max-w-xl">
-            LUMINA Creative Group est une agence numérique qui travaille avec
-            des établissements scolaires, des services administratifs et des
-            entreprises. Nous concevons des outils sur mesure, adaptés aux
-            contraintes réelles de chaque organisation.
-          </p>
-        </Container>
-      </section>
+      {/* ── Hero avec image ── */}
+      <section className="relative overflow-hidden min-h-[65vh] flex items-end">
+        <Image
+          src="/about.png"
+          alt="L'équipe LUMINA Creative Group"
+          fill
+          sizes="100vw"
+          className="object-cover"
+          quality={85}
+          priority
+        />
+        {/* Gradient overlay */}
+        <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/60 to-transparent" />
 
-      {/* ── Photo équipe ── */}
-      <section className="py-20 lg:py-28 border-b border-border">
-        <Container>
-          <div className="relative w-full overflow-hidden rounded-2xl" style={{ aspectRatio: "12473/9824" }}>
-            <Image
-              src="/about.png"
-              alt="L'équipe LUMINA Creative Group"
-              fill
-              sizes="(max-width: 1024px) 100vw, 1200px"
-              className="object-cover"
-              quality={85}
-              priority
-            />
-          </div>
-        </Container>
+        {/* Content */}
+        <div className="relative z-10 w-full pb-16 lg:pb-24">
+          <Container>
+            <p className="text-[10px] uppercase tracking-widest text-white/50 mb-4">
+              l&apos;équipe
+            </p>
+            <h1 className="text-4xl lg:text-5xl font-black text-white leading-tight tracking-tight max-w-2xl">
+              Nous construisons des outils qui fonctionnent sur le terrain.
+            </h1>
+          </Container>
+        </div>
       </section>
 
       {/* ── Le fondateur ── */}
       <section className="py-20 lg:py-28 border-b border-border">
         <Container>
-          <div className="grid grid-cols-1 lg:grid-cols-[320px_1fr] gap-12 lg:gap-24 items-start">
+          <div className="grid grid-cols-1 lg:grid-cols-[280px_1fr] gap-12 lg:gap-24 items-start">
 
             {/* Photo fondateur */}
-            <div className="relative overflow-hidden rounded-2xl aspect-[3/4] w-full max-w-xs">
+            <div className="relative overflow-hidden rounded-2xl aspect-[3/4] w-full max-w-[280px]">
               <Image
                 src="/fondateur.png"
                 alt="Faity Rickson NGAKOUA-BOUYA"
                 fill
-                sizes="320px"
+                sizes="280px"
                 className="object-cover object-top"
                 quality={85}
               />
@@ -119,23 +111,19 @@ export default function EquipePage() {
       </section>
 
       {/* ── Nos valeurs ── */}
-      <section className="py-20 lg:py-28 border-b border-border bg-subtle">
+      <section className="bg-ink py-20 lg:py-28 border-b border-border">
         <Container>
-          <p className="text-[10px] uppercase tracking-widest text-muted mb-12">
+          <p className="text-[10px] uppercase tracking-widest text-white/40 mb-12">
             notre approche
           </p>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-0">
-            {VALEURS.map((v, i) => (
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {VALEURS.map((v) => (
               <div
                 key={v.label}
-                className={[
-                  "py-10 md:py-10",
-                  i % 2 === 1 ? "md:pl-12 md:border-l border-border" : "md:pr-12",
-                  i >= 2 ? "border-t border-border" : "",
-                ].join(" ")}
+                className="bg-white/5 rounded-2xl p-6 lg:p-8"
               >
-                <h3 className="text-lg font-black text-ink mb-3">{v.label}</h3>
-                <p className="text-muted leading-relaxed">{v.body}</p>
+                <h3 className="text-lg font-black text-white mb-3">{v.label}</h3>
+                <p className="text-white/60 leading-relaxed text-sm">{v.body}</p>
               </div>
             ))}
           </div>

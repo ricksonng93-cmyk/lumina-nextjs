@@ -4,6 +4,7 @@ import { ArrowLeft, ArrowRight } from "lucide-react";
 import Container from "@/app/components/ui/Container";
 import Button from "@/app/components/ui/Button";
 import ProductIcon from "@/app/components/ui/ProductIcon";
+import BulletinDemo from "@/app/components/home/BulletinDemo";
 
 export const metadata: Metadata = {
   title: "Projet LUMINA Education",
@@ -36,27 +37,49 @@ export default function ProjetLuminaEducationPage() {
       {/* ── Hero ── */}
       <section className="bg-white border-b border-border py-20 lg:py-28">
         <Container>
-          <div className="flex flex-wrap gap-2 mb-8">
-            {["SaaS", "Gestion scolaire", "Développement"].map(tag => (
-              <span key={tag} className="text-xs text-muted bg-subtle px-3 py-1.5 rounded-full border border-border">
-                {tag}
-              </span>
-            ))}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 lg:gap-20 items-center">
+
+            {/* Left: text */}
+            <div>
+              <div className="flex flex-wrap gap-2 mb-8">
+                {["SaaS", "Gestion scolaire", "Développement"].map((tag) => (
+                  <span
+                    key={tag}
+                    className="text-xs text-muted bg-subtle px-3 py-1.5 rounded-full border border-border"
+                  >
+                    {tag}
+                  </span>
+                ))}
+              </div>
+              <div className="mb-6">
+                <ProductIcon product="education" size={52} />
+              </div>
+              <p className="text-[10px] uppercase tracking-widest text-edu mb-3">
+                lumina education
+              </p>
+              <h1 className="text-4xl lg:text-5xl font-black text-ink leading-tight tracking-tight">
+                LUMINA Education
+              </h1>
+              <p className="mt-4 text-muted text-lg leading-relaxed max-w-md">
+                Notre propre plateforme SaaS de gestion scolaire, conçue pour les
+                établissements privés d&apos;Afrique centrale.
+              </p>
+              <div className="mt-8">
+                <Button as="a" href="/lumina-education" variant="edu">
+                  Découvrir le produit
+                </Button>
+              </div>
+            </div>
+
+            {/* Right: demo visual */}
+            <div className="flex justify-center">
+              <BulletinDemo />
+            </div>
           </div>
-          <div className="flex items-center gap-4 mb-6">
-            <ProductIcon product="education" size={48} />
-          </div>
-          <h1 className="text-4xl lg:text-5xl font-black text-ink leading-tight tracking-tight max-w-2xl">
-            LUMINA Education
-          </h1>
-          <p className="mt-4 text-muted text-lg leading-relaxed max-w-xl">
-            Notre propre plateforme SaaS de gestion scolaire, conçue pour les
-            établissements privés d&apos;Afrique centrale.
-          </p>
         </Container>
       </section>
 
-      {/* ── Contenu ── */}
+      {/* ── Contexte ── */}
       <section className="py-20 lg:py-28 border-b border-border">
         <Container>
           <div className="grid grid-cols-1 lg:grid-cols-[220px_1fr] gap-10 lg:gap-24">
@@ -82,6 +105,7 @@ export default function ProjetLuminaEducationPage() {
         </Container>
       </section>
 
+      {/* ── Ce que nous avons fait ── */}
       <section className="py-20 lg:py-28 border-b border-border bg-subtle">
         <Container>
           <div className="grid grid-cols-1 lg:grid-cols-[220px_1fr] gap-10 lg:gap-24">
@@ -106,7 +130,7 @@ export default function ProjetLuminaEducationPage() {
                   "Espace parent et espace élève sur mobile",
                   "Gestion des inscriptions et des dossiers élèves",
                   "Comptes séparés par rôle : direction, secrétariat, enseignants, parents, élèves",
-                ].map(item => (
+                ].map((item) => (
                   <li key={item} className="flex items-start gap-3 text-sm text-ink">
                     <span className="mt-2 w-1.5 h-1.5 rounded-full bg-edu flex-shrink-0" />
                     {item}
