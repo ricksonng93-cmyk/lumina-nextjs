@@ -1,7 +1,7 @@
 'use client';
 import React from 'react';
 import {
-  Globe, Palette, GraduationCap, ArrowRight, CheckCircle2,
+  Globe, Palette, GraduationCap, ArrowRight,
   Target, Code, Users, Wrench, Heart, Star, Layers, Headphones, Wallet
 } from 'lucide-react';
 import { useScrollReveal, AnimatedNumber } from './shared';
@@ -63,28 +63,6 @@ export default function Home({ nav }: { nav: (p: string) => void }) {
                 <img src="/hero.png" alt="Digital Solutions" className="w-full h-[400px] lg:h-[480px] object-cover" />
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-900/20 to-transparent" />
               </div>
-              <div className="absolute -bottom-4 -left-4 bg-white rounded-xl p-4 shadow-xl float">
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 bg-green-100 rounded-lg flex items-center justify-center">
-                    <CheckCircle2 size={20} className="text-green-600" />
-                  </div>
-                  <div>
-                    <p className="font-semibold text-slate-900 text-sm">Projet livré</p>
-                    <p className="text-xs text-slate-500">Il y a 2h</p>
-                  </div>
-                </div>
-              </div>
-              <div className="absolute -top-4 -right-4 bg-white rounded-xl p-4 shadow-xl float" style={{animationDelay: '1s'}}>
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center">
-                    <Users size={18} className="text-blue-600" />
-                  </div>
-                  <div>
-                    <p className="font-bold text-slate-900">+50</p>
-                    <p className="text-xs text-slate-500">Clients satisfaits</p>
-                  </div>
-                </div>
-              </div>
             </div>
           </div>
         </div>
@@ -98,14 +76,10 @@ export default function Home({ nav }: { nav: (p: string) => void }) {
           <div className="scroll-content">
             {[
               { name: 'Master Finance', logo: '/projects/master-finance.png' },
-              { name: 'Moonlie', logo: '/projects/moonlie.png' },
               { name: 'France-Afrique Média', logo: '/projects/france-afrique.png' },
-              { name: 'École Saint-Joseph', logo: '/projects/ecole-st-joseph.png' },
               { name: 'TechCongo', logo: '/projects/techcongo.png' },
               { name: 'Master Finance', logo: '/projects/master-finance.png' },
-              { name: 'Moonlie', logo: '/projects/moonlie.png' },
               { name: 'France-Afrique Média', logo: '/projects/france-afrique.png' },
-              { name: 'École Saint-Joseph', logo: '/projects/ecole-st-joseph.png' },
               { name: 'TechCongo', logo: '/projects/techcongo.png' },
             ].map((project, i) => (
               <div key={i} className="inline-flex flex-col items-center mx-12 lg:mx-16">

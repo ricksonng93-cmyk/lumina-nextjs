@@ -228,11 +228,10 @@ export function WhatsAppButton() {
 }
 
 export function CookieBanner() {
-  const [visible, setVisible] = useState(false);
-
-  useEffect(() => {
-    if (!localStorage.getItem('cookies-accepted')) setVisible(true);
-  }, []);
+  const [visible, setVisible] = useState(() => {
+    if (typeof window === 'undefined') return false;
+    return !localStorage.getItem('cookies-accepted');
+  });
 
   const accept = () => { localStorage.setItem('cookies-accepted', 'true'); setVisible(false); };
 

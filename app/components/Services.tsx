@@ -107,7 +107,7 @@ export default function Services({ nav }: { nav: (p: string) => void }) {
                     <GraduationCap size={20} className="text-white" />
                   </div>
                   <div>
-                    <p className="font-semibold text-slate-900">École Saint-Joseph</p>
+                    <p className="font-semibold text-slate-900">C.S Le Savoir de Rabbin</p>
                     <p className="text-xs text-slate-500">Dashboard administrateur</p>
                   </div>
                 </div>

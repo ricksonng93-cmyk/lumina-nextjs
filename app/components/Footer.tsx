@@ -106,7 +106,7 @@ export default function Footer({ nav, navToService }: { nav: (p: string) => void
             </span>
           </div>
           <div className="text-center text-slate-500 text-sm">
-            <p>© 2025 LUMINA Creative Group. Tous droits réservés.</p>
+            <p>© {new Date().getFullYear()} LUMINA Creative Group. Tous droits réservés.</p>
           </div>
         </div>
       </div>
