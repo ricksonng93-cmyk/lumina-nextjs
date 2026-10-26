@@ -12,12 +12,14 @@ import Contact from './Contact';
 import Privacy from './Privacy';
 
 function App() {
-  const [page, setPage] = useState('home');
+  const [page, setPage] = useState<string>(() => {
+    if (typeof window === 'undefined') return 'home';
+    const path = window.location.pathname.replace(/^\//, '');
+    return ['services', 'education', 'a-propos', 'partners', 'contact', 'privacy'].includes(path) ? path : 'home';
+  });
   const [menuOpen, setMenuOpen] = useState(false);
 
   const nav = (p: string) => { setPage(p); setMenuOpen(false); window.scrollTo({ top: 0, behavior: 'smooth' }); window.history.pushState({}, '', p === 'home' ? '/' : '/' + p); };
-
-  useEffect(() => { const path = window.location.pathname.replace('/', ''); if (path && ['services','education','a-propos','partners','contact','privacy'].includes(path)) setPage(path); }, []);
 
   useEffect(() => { const onPop = () => { const path = window.location.pathname.replace('/', ''); setPage(path || 'home'); }; window.addEventListener('popstate', onPop); return () => window.removeEventListener('popstate', onPop); }, []);
 
