@@ -1,7 +1,10 @@
 "use client";
 import { useEffect } from "react";
+import { usePathname } from "next/navigation";
 
 export default function ScrollInit() {
+  const pathname = usePathname();
+
   useEffect(() => {
     const root = document.documentElement;
 
@@ -48,7 +51,7 @@ export default function ScrollInit() {
       observer.disconnect();
       root.classList.remove("js-reveal");
     };
-  }, []);
+  }, [pathname]);
 
   return null;
 }
