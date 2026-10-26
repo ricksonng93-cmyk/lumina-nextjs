@@ -72,38 +72,18 @@ html {
   .logo-carousel-track  { animation: none; }
 }
 
-/* ─── Hero verb rotator ──────────────────────────────────────────────── */
-/*
-  Mask + absolute word: the spacer inside .verb-mask reserves the width
-  of the longest verb so the rest of the title line never shifts.
-*/
-@keyframes verb-in {
-  from { transform: translateY(110%); opacity: 0; }
-  to   { transform: translateY(0);    opacity: 1; }
+/* ─── Hero verb rotator — letter animation ──────────────────────── */
+@keyframes verb-enter {
+  from { opacity: 0; transform: translateY(55%); }
+  to   { opacity: 1; transform: translateY(0); }
 }
-@keyframes verb-out {
-  from { transform: translateY(0);     opacity: 1; }
-  to   { transform: translateY(-110%); opacity: 0; }
+@keyframes verb-leave {
+  from { opacity: 1; transform: translateY(0); }
+  to   { opacity: 0; transform: translateY(-55%); }
 }
-
-.verb-mask {
-  position: relative;
-  display: inline-block;
-  overflow: hidden;
-  vertical-align: bottom;
-}
-.verb-word {
-  display: inline-block;
-  position: absolute;
-  left: 0;
-  top: 0;
-}
-.verb-word.entering { animation: verb-in  0.35s cubic-bezier(0.22, 1, 0.36, 1) forwards; }
-.verb-word.leaving  { animation: verb-out 0.28s cubic-bezier(0.4, 0, 1, 1) forwards; }
 
 @media (prefers-reduced-motion: reduce) {
-  .verb-word.entering,
-  .verb-word.leaving { animation: none; opacity: 1; transform: none; }
+  /* VerbRotator shows the static word immediately */
 }
 
 /* ─── WhatsApp pulse ─────────────────────────────────────────────────── */
@@ -154,10 +134,10 @@ html {
 
 /* ─── Hero title (fluid) ─────────────────────────────────────────── */
 .hero-title {
-  font-size: clamp(3rem, 5vw + 1.5rem, 6rem);
-  line-height: 1.0;
+  font-size: clamp(2.5rem, 4.5vw + 1rem, 5.5rem);
+  line-height: 1.05;
   letter-spacing: -0.03em;
-  font-weight: 800;
+  font-weight: 900;
 }
 
 /* ─── Skip link ──────────────────────────────────────────────────── */

@@ -5,6 +5,8 @@ import Container from "@/app/components/ui/Container";
 import Button from "@/app/components/ui/Button";
 import ProductIcon from "@/app/components/ui/ProductIcon";
 import BulletinDemo from "@/app/components/home/BulletinDemo";
+import PhoneScrollSection from "@/app/components/education/PhoneScrollSection";
+import EducationBento from "@/app/components/education/EducationBento";
 
 export const metadata: Metadata = {
   title: "LUMINA Education",
@@ -19,64 +21,19 @@ export const metadata: Metadata = {
   alternates: { canonical: "https://lumina-cg.com/lumina-education" },
 };
 
-/* ── Fonctions présentées ─────────────────────────────────────────── */
-/* Textes fournis par le client. */
-
-const HIGHLIGHT_FEATURES = [
-  {
-    title: "Espace parent",
-    body: "Les familles suivent les notes, les bulletins et les paiements de leur enfant depuis leur téléphone.",
-  },
-  {
-    title: "Espace élève",
-    body: "L\u2019élève consulte ses notes, ses bulletins et son emploi du temps.",
-  },
-];
-
-const FEATURES = [
-  {
-    title: "Notes et bulletins",
-    body: "Bulletins générés en un clic, moyennes et rangs calculés. Au collège, trois notes par matière et par trimestre (devoir de classe, devoir départemental, composition). Au primaire, des notes mensuelles sur\u00a010 ou sur\u00a020 selon la discipline.",
-  },
-  {
-    title: "Scolarité et paiements",
-    body: "Suivi des paiements, reçus numérotés, relances des familles, export Excel.",
-  },
-  {
-    title: "Inscriptions",
-    body: "Dossiers des élèves, import depuis Excel, classes.",
-  },
-  {
-    title: "Emplois du temps",
-    body: "Construits par l\u2019école, affichables au mur.",
-  },
-  {
-    title: "Comptes par rôle",
-    body: "Direction, secrétariat, enseignants, parents, élèves\u00a0: chacun voit ce qui le concerne.",
-  },
-  {
-    title: "Communication",
-    body: "Messages et SMS aux familles.",
-  },
-];
-
 const STEPS = [
   { n: "01", label: "Audit de vos proc\u00e9dures actuelles" },
   { n: "02", label: "Param\u00e9trage sur vos circuits r\u00e9els" },
   { n: "03", label: "Formation de vos \u00e9quipes sur place" },
 ];
 
-/* ── Page ─────────────────────────────────────────────────────────── */
-
 export default function LuminaEducationPage() {
   return (
     <>
-      {/* ── En-tête produit ── */}
+      {/* ── Hero ── */}
       <section className="bg-white border-b border-border py-20 lg:py-28">
         <Container>
           <div className="flex flex-col lg:flex-row items-center gap-14 lg:gap-20">
-
-            {/* Texte */}
             <div className="flex-1 max-w-xl">
               <div className="flex items-center gap-4 mb-6">
                 <ProductIcon product="education" size={52} />
@@ -84,23 +41,18 @@ export default function LuminaEducationPage() {
                   Déploiement sur mesure
                 </span>
               </div>
-              <p className="text-[10px] uppercase tracking-widest text-edu mb-3">
-                lumina education
-              </p>
+              <p className="text-[10px] uppercase tracking-widest text-edu mb-3">lumina education</p>
               <h1 className="text-4xl lg:text-5xl font-black text-ink leading-tight tracking-tight">
                 La gestion scolaire, enfin simple.
               </h1>
               <p className="mt-6 text-muted text-lg leading-relaxed">
                 Notes, bulletins, paiements, emploi du temps et communication.
-                Une plateforme complète, avec un espace parent et un espace
-                élève.
+                Une plateforme complète, avec un espace parent et un espace élève.
               </p>
               <div className="mt-10">
                 <Button as="a" href="/contact">Demander un audit</Button>
               </div>
             </div>
-
-            {/* Visuel animé */}
             <div className="flex-1 flex justify-center w-full">
               <BulletinDemo />
             </div>
@@ -108,43 +60,23 @@ export default function LuminaEducationPage() {
         </Container>
       </section>
 
-      {/* ── Espace parent & élève — mis en avant ── */}
-      <section className="py-20 lg:py-28 border-b border-border bg-subtle">
+      {/* ── Section signature : scrollytelling ── */}
+      <section className="py-20 lg:py-28 border-b border-border">
         <Container>
-          <p className="text-[10px] uppercase tracking-widest text-muted mb-10">
-            pour les familles et les élèves
+          <p className="text-[10px] uppercase tracking-widest text-muted mb-16">
+            le produit en action
           </p>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-0">
-            {HIGHLIGHT_FEATURES.map((f, i) => (
-              <div
-                key={f.title}
-                className={[
-                  "py-10 md:py-0",
-                  i > 0 ? "border-t md:border-t-0 md:border-l border-border md:pl-10" : "md:pr-10",
-                ].join(" ")}
-              >
-                <h3 className="text-lg font-black text-ink mb-3">{f.title}</h3>
-                <p className="text-muted leading-relaxed">{f.body}</p>
-              </div>
-            ))}
-          </div>
+          <PhoneScrollSection />
         </Container>
       </section>
 
-      {/* ── Ce que nous mettons en place ── */}
-      <section className="py-20 lg:py-28 border-b border-border">
+      {/* ── Les fonctions ── */}
+      <section className="py-20 lg:py-28 border-b border-border bg-subtle">
         <Container>
           <p className="text-[10px] uppercase tracking-widest text-muted mb-10">
-            ce que nous mettons en place
+            ce que fait lumina education
           </p>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-10 max-w-4xl">
-            {FEATURES.map((f) => (
-              <div key={f.title}>
-                <h3 className="text-sm font-bold text-ink mb-2">{f.title}</h3>
-                <p className="text-sm text-muted leading-relaxed">{f.body}</p>
-              </div>
-            ))}
-          </div>
+          <EducationBento />
         </Container>
       </section>
 
@@ -172,25 +104,43 @@ export default function LuminaEducationPage() {
         </Container>
       </section>
 
-      {/* ── Déjà déployé ── */}
-      <section className="py-20 lg:py-28 border-b border-border bg-subtle">
+      {/* ── Référence terrain ── */}
+      <section className="py-20 lg:py-28 border-b border-border">
         <Container>
-          <p className="text-[10px] uppercase tracking-widest text-muted mb-8">
+          <p className="text-[10px] uppercase tracking-widest text-muted mb-10">
             déjà déployé
           </p>
-          <div className="max-w-xs">
-            <p className="text-ink font-bold text-sm leading-snug">
-              C.S Le Savoir de Rabbin
-            </p>
-            <p className="text-muted text-[11px] mt-0.5">Brazzaville</p>
-            <p className="mt-3 text-xs text-muted">
-              En service depuis la rentrée 2026-2027
-            </p>
+          <div className="flex flex-col lg:flex-row items-start gap-12 lg:gap-20">
+            {/* Identité école */}
+            <div className="flex-shrink-0">
+              {/* Logo : emplacement réservé, fichier à fournir */}
+              <div
+                className="w-20 h-20 rounded-2xl border-2 border-border bg-subtle flex items-center justify-center mb-4"
+              >
+                <span className="text-xl font-black text-muted select-none">SR</span>
+              </div>
+              <p className="font-black text-ink text-xl leading-tight">C.S Le Savoir de Rabbin</p>
+              <p className="text-muted text-sm mt-1">Brazzaville · Congo</p>
+              <p className="text-xs text-muted mt-3">En service depuis la rentrée 2026-2027</p>
+            </div>
+
+            {/* Citation — masquée jusqu'à réception du texte */}
+            {/* TODO : décommenter quand Marlyse Safoula fournit sa citation
+            <blockquote className="flex-1 max-w-lg">
+              <p className="text-2xl font-black text-ink leading-snug tracking-tight">
+                &ldquo;[Citation de Marlyse Safoula, directrice générale]&rdquo;
+              </p>
+              <footer className="mt-4">
+                <p className="font-semibold text-ink text-sm">Marlyse Safoula</p>
+                <p className="text-muted text-sm">Directrice générale, C.S Le Savoir de Rabbin</p>
+              </footer>
+            </blockquote>
+            */}
           </div>
         </Container>
       </section>
 
-      {/* ── Appel à l'action ── */}
+      {/* ── CTA ── */}
       <section className="py-20 lg:py-32">
         <Container>
           <div className="max-w-xl">

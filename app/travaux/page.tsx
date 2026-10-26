@@ -67,7 +67,7 @@ export default function TravauxPage() {
           </h1>
 
           <div>
-            {projects.map((p, i) => {
+            {projects.map((p) => {
               const logo = (
                 <span className="w-10 h-10 rounded-lg overflow-hidden flex-shrink-0 bg-subtle flex items-center justify-center">
                   {p.product ? (

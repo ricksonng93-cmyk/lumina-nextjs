@@ -125,26 +125,23 @@ export default function HomePage() {
       ══════════════════════════════════════════════════════════════ */}
       <section className="bg-white border-b border-border min-h-[90svh] flex items-center">
         <Container className="py-28 lg:py-40">
-          <div className="max-w-4xl mx-auto text-center">
-
-            {/* H1 — visible dès le chargement, aucune animation d'entrée */}
+          <div className="text-center">
             <h1
-              className="hero-title text-ink"
+              className="hero-title uppercase text-ink"
               aria-label="Nous auditons, concevons, construisons et maintenons vos outils numériques."
             >
-              Nous{" "}
-              <VerbRotator aria-hidden={true} />
-              <br />
-              vos outils numériques.
+              <span className="block">NOUS</span>
+              <span className="block text-agency">
+                <VerbRotator />
+              </span>
+              <span className="block">VOS OUTILS NUMÉRIQUES.</span>
             </h1>
 
-            {/* Sous-titre */}
             <p className="mt-8 mx-auto max-w-xl text-muted text-lg leading-relaxed">
               Plateformes métier, sites et identités de marque.
               Une équipe professionnelle, un seul interlocuteur.
             </p>
 
-            {/* CTA — deux boutons, empilés sur mobile */}
             <div className="mt-12 flex flex-col sm:flex-row gap-4 justify-center">
               <Button as="a" href="/contact" size="lg">
                 Parler d&apos;un projet
@@ -249,7 +246,7 @@ export default function HomePage() {
       <section className="py-24 lg:py-36 border-b border-border">
         <Container>
           <p className="reveal reveal-up text-[11px] uppercase tracking-widest text-muted mb-16">
-            nos derniers projets
+            travaux récents
           </p>
 
           <div>

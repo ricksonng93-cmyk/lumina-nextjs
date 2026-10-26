@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowRight, Check } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import Container from "@/app/components/ui/Container";
 import Button from "@/app/components/ui/Button";
 import ProductIcon from "@/app/components/ui/ProductIcon";
 import AdminDemo from "@/app/components/product/AdminDemo";
+import AdminBento from "@/app/components/product/AdminBento";
 
 export const metadata: Metadata = {
   title: "LUMINA Administration",
@@ -18,14 +19,6 @@ export const metadata: Metadata = {
   },
   alternates: { canonical: "https://lumina-cg.com/lumina-administration" },
 };
-
-const FEATURES = [
-  "Dossiers des usagers, du dépôt à la décision",
-  "Courriers entrants et sortants, enregistrés et suivis",
-  "Circuits de validation, avec l\u2019historique de chaque étape",
-  "Archives numérisées et consultables",
-  "Accès par rôle\u00a0: chaque agent voit ce qui le concerne",
-];
 
 const STEPS = [
   { n: "01", label: "Audit de vos procédures actuelles" },
@@ -73,24 +66,13 @@ export default function LuminaAdministrationPage() {
         </Container>
       </section>
 
-      {/* ── Ce que nous mettons en place ── */}
-      <section className="py-20 lg:py-28 border-b border-border">
+      {/* ── Ce que fait LUMINA Administration ── */}
+      <section className="py-20 lg:py-28 border-b border-border bg-subtle">
         <Container>
-          <div className="max-w-3xl">
-            <p className="text-[10px] uppercase tracking-widest text-muted mb-10">
-              ce que nous mettons en place
-            </p>
-            <ul className="space-y-5">
-              {FEATURES.map((f) => (
-                <li key={f} className="flex items-start gap-4">
-                  <span className="mt-0.5 flex-shrink-0 w-5 h-5 rounded-full bg-admin/10 flex items-center justify-center">
-                    <Check size={11} className="text-admin" strokeWidth={2.5} />
-                  </span>
-                  <span className="text-ink leading-snug">{f}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
+          <p className="text-[10px] uppercase tracking-widest text-muted mb-10">
+            ce que fait lumina administration
+          </p>
+          <AdminBento />
         </Container>
       </section>
 

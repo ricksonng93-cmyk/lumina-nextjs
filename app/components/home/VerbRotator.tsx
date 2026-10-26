@@ -1,69 +1,77 @@
 "use client";
-import { useEffect, useRef, useState } from "react";
+import { useState, useEffect, useRef } from "react";
 
-const VERBS = ["auditons", "concevons", "construisons", "maintenons"];
-const INTERVAL       = 1200;  // ms between rotations
-const LEAVE_DURATION = 280;   // ms out animation
-const ENTER_DURATION = 350;   // ms in animation
+const VERBS = ["AUDITONS", "CONCEVONS", "CONSTRUISONS", "MAINTENONS"];
+const HOLD      = 1400;  // ms word stays static before exit
+const STAGGER   = 26;    // ms between each letter
+const LETTER_MS = 360;   // ms per letter animation
 
-type Phase = "stable" | "leaving" | "entering";
-
-interface Props {
-  "aria-hidden"?: boolean | "true" | "false";
-}
-
-export default function VerbRotator(props: Props) {
-  const prefersReduced =
-    typeof window !== "undefined"
-      ? window.matchMedia("(prefers-reduced-motion: reduce)").matches
-      : false;
-
-  const [index, setIndex] = useState(2); // start on "construisons"
-  const [phase, setPhase] = useState<Phase>("stable");
-  const indexRef = useRef(2);
+export default function VerbRotator() {
+  const idxRef   = useRef(0);
+  const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const [display, setDisplay] = useState(0);
+  const [phase,   setPhase]   = useState<"idle" | "out" | "in">("idle");
 
   useEffect(() => {
-    if (prefersReduced) return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
-    const tick = () => {
-      setPhase("leaving");
-      setTimeout(() => {
-        const next = (indexRef.current + 1) % VERBS.length;
-        indexRef.current = next;
-        setIndex(next);
-        setPhase("entering");
-        setTimeout(() => setPhase("stable"), ENTER_DURATION);
-      }, LEAVE_DURATION);
+    const cycle = () => {
+      const cur  = idxRef.current;
+      const word = VERBS[cur];
+      const outMs = word.length * STAGGER + LETTER_MS;
+
+      setPhase("out");
+
+      timerRef.current = setTimeout(() => {
+        const next = (cur + 1) % VERBS.length;
+        idxRef.current = next;
+        setDisplay(next);
+        setPhase("in");
+        const inMs = VERBS[next].length * STAGGER + LETTER_MS + 80;
+        timerRef.current = setTimeout(() => {
+          setPhase("idle");
+          timerRef.current = setTimeout(cycle, HOLD);
+        }, inMs);
+      }, outMs);
     };
 
-    const id = setInterval(tick, INTERVAL);
-    return () => clearInterval(id);
-  }, []); // eslint-disable-line react-hooks/exhaustive-deps
+    timerRef.current = setTimeout(cycle, HOLD);
+    return () => { if (timerRef.current) clearTimeout(timerRef.current); };
+  }, []);
 
-  const cls =
-    phase === "entering" ? "verb-word entering"
-    : phase === "leaving"  ? "verb-word leaving"
-    : "verb-word";
-
-  if (prefersReduced) {
-    return (
-      <span className="verb-mask text-agency" {...props}>
-        {/* Spacer keeps the container at "construisons" width */}
-        <span className="opacity-0 select-none pointer-events-none" aria-hidden="true">
-          construisons
-        </span>
-        <span className="verb-word">construisons</span>
-      </span>
-    );
-  }
+  const word = VERBS[display];
 
   return (
-    <span className="verb-mask text-agency" {...props}>
-      {/* Invisible spacer — fixes width to the longest verb so the title never shifts */}
-      <span className="opacity-0 select-none pointer-events-none" aria-hidden="true">
-        construisons
+    <span
+      aria-hidden="true"
+      className="relative block overflow-hidden"
+      style={{ lineHeight: "inherit" }}
+    >
+      {/* Invisible sizer — keeps the block the height of one line */}
+      <span className="invisible select-none pointer-events-none" aria-hidden="true">
+        &nbsp;
       </span>
-      <span className={cls}>{VERBS[index]}</span>
+      {/* Animated letters — absolutely centered */}
+      <span className="absolute inset-0 flex items-center justify-center whitespace-nowrap">
+        {word.split("").map((ch, i) => {
+          const delay = `${i * STAGGER}ms`;
+          const anim =
+            phase === "out"
+              ? `verb-leave ${LETTER_MS}ms cubic-bezier(0.4,0,1,1) ${delay} both`
+              : phase === "in"
+              ? `verb-enter ${LETTER_MS}ms cubic-bezier(0.22,1,0.36,1) ${delay} both`
+              : "none";
+          return (
+            <span
+              key={`${display}-${i}`}
+              className="inline-block"
+              style={{ animation: anim }}
+            >
+              {ch}
+            </span>
+          );
+        })}
+      </span>
     </span>
   );
 }
