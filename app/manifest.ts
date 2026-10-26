@@ -11,10 +11,8 @@ export default function manifest(): MetadataRoute.Manifest {
     background_color: "#FFFFFF",
     theme_color: "#0F172A",
     icons: [
-      { src: "/favicon.ico",    sizes: "any",       type: "image/x-icon" },
-      // TODO: generate from lumina-signe-app.svg when SVG is provided
-      // { src: "/icons/icon-192.png", sizes: "192x192", type: "image/png" },
-      // { src: "/icons/icon-512.png", sizes: "512x512", type: "image/png" },
+      { src: "/favicon.ico",             sizes: "any",    type: "image/x-icon" },
+      { src: "/logos/lumina-signe-app.svg", sizes: "48x48", type: "image/svg+xml" },
     ],
   };
 }

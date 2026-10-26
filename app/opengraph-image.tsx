@@ -34,19 +34,12 @@ export default function Image() {
       >
         {/* Top-left: brand */}
         <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
-          <div
-            style={{
-              width: '48px',
-              height: '48px',
-              background: '#0F172A',
-              borderRadius: '50%',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-            }}
-          >
-            <span style={{ color: '#FFFFFF', fontSize: '22px', fontWeight: 800 }}>L</span>
-          </div>
+          {/* LUMINA signe — inline SVG (Satori compatible) */}
+          <svg width="48" height="48" viewBox="0 0 48 48" style={{ flexShrink: 0 }}>
+            <rect width="48" height="48" rx="12" fill="#0F172A"/>
+            <path d="M14.5 11v22.2h19" fill="none" stroke="#FFFFFF" strokeWidth="3.6" strokeLinecap="round" strokeLinejoin="round"/>
+            <path d="M27.6 17.6v-4.2M33.6 20.2l3-3M30.8 26.4h4.8" fill="none" stroke="#FFFFFF" strokeWidth="2.6" strokeLinecap="round"/>
+          </svg>
           <span style={{ fontSize: '26px', fontWeight: 600, color: '#0F172A', letterSpacing: '-0.02em' }}>
             LUMINA Creative Group
           </span>
