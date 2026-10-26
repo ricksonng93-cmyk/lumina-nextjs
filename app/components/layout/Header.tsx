@@ -55,7 +55,7 @@ export default function Header() {
       lastScrollY.current = y;
       setScrolled(y > 16);
       if (y < 80)          { setHidden(false); }
-      else if (delta > 4)  { setHidden(true); setOpen(false); setPlatOpen(false); }
+      else if (delta > 4)  { if (window.innerWidth >= 1024) setHidden(true); setOpen(false); setPlatOpen(false); }
       else if (delta < -4) { setHidden(false); }
     };
     window.addEventListener("scroll", onScroll, { passive: true });
