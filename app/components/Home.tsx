@@ -63,17 +63,6 @@ export default function Home({ nav }: { nav: (p: string) => void }) {
                 <img src="/hero.png" alt="Digital Solutions" className="w-full h-[400px] lg:h-[480px] object-cover" />
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-900/20 to-transparent" />
               </div>
-              <div className="absolute -top-4 -right-4 bg-white rounded-xl p-4 shadow-xl float" style={{animationDelay: '1s'}}>
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center">
-                    <Users size={18} className="text-blue-600" />
-                  </div>
-                  <div>
-                    <p className="font-bold text-slate-900">+50</p>
-                    <p className="text-xs text-slate-500">Clients satisfaits</p>
-                  </div>
-                </div>
-              </div>
             </div>
           </div>
         </div>
