@@ -3,19 +3,52 @@ import { useEffect } from "react";
 
 export default function ScrollInit() {
   useEffect(() => {
+    const root = document.documentElement;
+
+    // prefers-reduced-motion: never hide content
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+    // Adding .js-reveal activates the CSS that starts elements hidden
+    root.classList.add("js-reveal");
+
+    const elements = Array.from(
+      document.querySelectorAll<HTMLElement>(".reveal")
+    );
+
+    const revealEl = (el: HTMLElement) => el.classList.add("revealed");
+
+    // Elements already in viewport at load time: reveal immediately, no delay
+    elements.forEach((el) => {
+      const { top, bottom } = el.getBoundingClientRect();
+      if (top < window.innerHeight && bottom > 0) revealEl(el);
+    });
+
+    // Observer for elements that scroll into view later
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            (entry.target as HTMLElement).classList.add("revealed");
+            revealEl(entry.target as HTMLElement);
             observer.unobserve(entry.target);
           }
         });
       },
       { threshold: 0.08, rootMargin: "0px 0px -40px 0px" }
     );
-    document.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
-    return () => observer.disconnect();
+
+    elements
+      .filter((el) => !el.classList.contains("revealed"))
+      .forEach((el) => observer.observe(el));
+
+    // Safety net: reveal everything after 1.5 s regardless
+    const safety = setTimeout(() => elements.forEach(revealEl), 1500);
+
+    return () => {
+      clearTimeout(safety);
+      observer.disconnect();
+      root.classList.remove("js-reveal");
+    };
   }, []);
+
   return null;
 }

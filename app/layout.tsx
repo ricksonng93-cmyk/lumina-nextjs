@@ -28,7 +28,13 @@ export const metadata: Metadata = {
     url: "https://lumina-cg.com",
   },
   twitter: { card: "summary_large_image" },
-  icons: { icon: "/favicon.ico" },
+  icons: {
+    icon: [
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/icon.svg", type: "image/svg+xml" },
+    ],
+    apple: "/apple-touch-icon.png",
+  },
 };
 
 export default function RootLayout({

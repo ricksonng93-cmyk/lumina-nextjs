@@ -2,9 +2,9 @@
 import { useEffect, useRef, useState } from "react";
 
 const VERBS = ["auditons", "concevons", "construisons", "maintenons"];
-const INTERVAL = 2800;
-const LEAVE_DURATION = 400;
-const ENTER_DURATION = 450;
+const INTERVAL       = 1200;  // ms between rotations
+const LEAVE_DURATION = 280;   // ms out animation
+const ENTER_DURATION = 350;   // ms in animation
 
 type Phase = "stable" | "leaving" | "entering";
 
@@ -26,19 +26,13 @@ export default function VerbRotator(props: Props) {
     if (prefersReduced) return;
 
     const tick = () => {
-      // Phase leaving
       setPhase("leaving");
-
       setTimeout(() => {
-        // Update verb
         const next = (indexRef.current + 1) % VERBS.length;
         indexRef.current = next;
         setIndex(next);
         setPhase("entering");
-
-        setTimeout(() => {
-          setPhase("stable");
-        }, ENTER_DURATION);
+        setTimeout(() => setPhase("stable"), ENTER_DURATION);
       }, LEAVE_DURATION);
     };
 
@@ -46,26 +40,30 @@ export default function VerbRotator(props: Props) {
     return () => clearInterval(id);
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
+  const cls =
+    phase === "entering" ? "verb-word entering"
+    : phase === "leaving"  ? "verb-word leaving"
+    : "verb-word";
+
   if (prefersReduced) {
     return (
       <span className="verb-mask text-agency" {...props}>
+        {/* Spacer keeps the container at "construisons" width */}
+        <span className="opacity-0 select-none pointer-events-none" aria-hidden="true">
+          construisons
+        </span>
         <span className="verb-word">construisons</span>
       </span>
     );
   }
 
-  const cls =
-    phase === "entering"
-      ? "verb-word entering"
-      : phase === "leaving"
-      ? "verb-word leaving"
-      : "verb-word";
-
   return (
     <span className="verb-mask text-agency" {...props}>
-      <span className={cls}>
-        {VERBS[index]}
+      {/* Invisible spacer — fixes width to the longest verb so the title never shifts */}
+      <span className="opacity-0 select-none pointer-events-none" aria-hidden="true">
+        construisons
       </span>
+      <span className={cls}>{VERBS[index]}</span>
     </span>
   );
 }

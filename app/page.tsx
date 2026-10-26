@@ -116,39 +116,35 @@ export default function HomePage() {
     <>
       {/* ══════════════════════════════════════════════════════════════
           1. HERO
-          Fond blanc. Titre visible dès le chargement (pas d'animation
-          d'entrée). Seul le verbe s'anime.
+          Fond blanc. Titre centré, visible immédiatement.
+          Seul le verbe s'anime. Pas de mention de ville.
       ══════════════════════════════════════════════════════════════ */}
-      <section className="bg-white border-b border-border min-h-[85svh] flex items-center">
-        <Container className="py-24 lg:py-32">
-          <div className="max-w-3xl">
-            {/* Eyebrow */}
-            <p className="text-xs uppercase tracking-widest text-muted mb-8">
-              Agence numérique · Paris &amp; Brazzaville
-            </p>
+      <section className="bg-white border-b border-border min-h-[90svh] flex items-center">
+        <Container className="py-28 lg:py-40">
+          <div className="max-w-4xl mx-auto text-center">
 
-            {/* H1 — no entry animation; title is immediately visible */}
+            {/* H1 — visible dès le chargement, aucune animation d'entrée */}
             <h1
               className="hero-title text-ink"
               aria-label="Nous auditons, concevons, construisons et maintenons vos outils numériques."
             >
               Nous{" "}
               <VerbRotator aria-hidden={true} />
-              <br className="sm:hidden" />
-              {" "}vos outils numériques.
+              <br />
+              vos outils numériques.
             </h1>
 
-            {/* Subheadline */}
-            <p className="mt-6 max-w-lg text-muted leading-relaxed">
-              De l&apos;audit initial à la mise en ligne. Nous accompagnons les
-              écoles, les administrations et les entreprises, de Paris à
-              Brazzaville.
+            {/* Sous-titre */}
+            <p className="mt-8 mx-auto max-w-xl text-muted text-lg leading-relaxed">
+              Plateformes métier, sites et identités de marque.
+              Une équipe professionnelle, un seul interlocuteur.
             </p>
 
-            {/* CTAs */}
-            <div className="mt-10 flex flex-wrap gap-4">
-              <Button as="a" href="/contact">Demander un audit</Button>
-              <Button as="a" href="/travaux" variant="secondary">Nos travaux</Button>
+            {/* CTA */}
+            <div className="mt-12">
+              <Button as="a" href="/contact" size="lg">
+                Parler d&apos;un projet
+              </Button>
             </div>
           </div>
         </Container>
@@ -157,11 +153,11 @@ export default function HomePage() {
       {/* ══════════════════════════════════════════════════════════════
           2. EXPERTISES
           Quatre colonnes nues séparées par un filet fin.
-          Labels : Audit · Construction · Marque · Durée
+          Pas de cartes, pas d'icônes.
       ══════════════════════════════════════════════════════════════ */}
-      <section className="py-20 lg:py-28 border-b border-border">
+      <section className="py-24 lg:py-36 border-b border-border">
         <Container>
-          <p className="reveal reveal-up text-xs uppercase tracking-widest text-muted mb-12">
+          <p className="reveal reveal-up text-[11px] uppercase tracking-widest text-muted mb-16">
             nos expertises
           </p>
 
@@ -170,7 +166,7 @@ export default function HomePage() {
               <div
                 key={e.label}
                 className={[
-                  "reveal reveal-up py-8 lg:py-0",
+                  "reveal reveal-up py-10 lg:py-0",
                   `stagger-${i + 1}`,
                   i > 0
                     ? "border-t lg:border-t-0 lg:border-l border-border lg:pl-10"
@@ -180,19 +176,23 @@ export default function HomePage() {
                     : "",
                 ].join(" ")}
               >
-                <p className="text-[11px] uppercase tracking-widest text-muted mb-4">
+                <p className="text-[10px] uppercase tracking-widest text-muted mb-5">
                   {e.label}
                 </p>
-                <h3 className="font-bold text-ink mb-3 leading-snug">{e.title}</h3>
-                <p className="text-sm text-muted leading-relaxed max-w-[32ch]">{e.body}</p>
+                <h3 className="text-lg font-bold text-ink mb-4 leading-snug">
+                  {e.title}
+                </h3>
+                <p className="text-sm text-muted leading-relaxed">
+                  {e.body}
+                </p>
               </div>
             ))}
           </div>
 
-          <div className="mt-12 reveal reveal-up">
+          <div className="mt-16 reveal reveal-up">
             <Link
               href="/expertises"
-              className="text-sm text-agency inline-flex items-center gap-1 hover:gap-2 transition-all"
+              className="text-sm text-agency inline-flex items-center gap-1.5 hover:gap-3 transition-all"
             >
               Voir toutes nos expertises <ArrowRight size={14} />
             </Link>
@@ -201,34 +201,33 @@ export default function HomePage() {
       </section>
 
       {/* ══════════════════════════════════════════════════════════════
-          3. DÉMONSTRATION EDUCATION
-          Bulletin animé. Sans "Plateforme SaaS…", sans fausse fonctionnalité.
+          3. DÉMONSTRATION LUMINA EDUCATION
       ══════════════════════════════════════════════════════════════ */}
-      <section className="py-20 lg:py-28 border-b border-border">
+      <section className="py-24 lg:py-36 border-b border-border">
         <Container>
-          <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
+          <div className="flex flex-col lg:flex-row items-center gap-16 lg:gap-24">
 
-            {/* Left — product intro */}
+            {/* Gauche — présentation produit */}
             <div className="flex-1 reveal reveal-left">
-              <ProductIcon product="education" size={48} />
-              <p className="text-[11px] uppercase tracking-widest text-muted mt-4 mb-1">
+              <ProductIcon product="education" size={52} />
+              <p className="text-[10px] uppercase tracking-widest text-muted mt-5 mb-2">
                 lumina education
               </p>
-              <h2 className="text-3xl font-black text-ink leading-tight">
+              <h2 className="text-4xl lg:text-5xl font-black text-ink leading-tight tracking-tight">
                 Un bulletin en quelques secondes.
               </h2>
-              <p className="mt-4 max-w-md text-muted leading-relaxed">
+              <p className="mt-6 max-w-md text-muted leading-relaxed">
                 Notre plateforme de gestion scolaire calcule les moyennes,
                 génère les bulletins PDF et informe les parents par SMS.
               </p>
-              <div className="mt-8">
+              <div className="mt-10">
                 <Button as="a" href="/lumina-education" variant="edu">
                   Découvrir LUMINA Education
                 </Button>
               </div>
             </div>
 
-            {/* Right — live demo */}
+            {/* Droite — démo bulletin */}
             <div className="flex-1 flex justify-center reveal reveal-right">
               <BulletinDemo />
             </div>
@@ -238,42 +237,45 @@ export default function HomePage() {
 
       {/* ══════════════════════════════════════════════════════════════
           4. NOS DERNIERS PROJETS
-          Inclut TechCongo (sans lien).
+          Logos toujours visibles. TechCongo sans lien.
       ══════════════════════════════════════════════════════════════ */}
-      <section className="py-20 lg:py-28 border-b border-border">
+      <section className="py-24 lg:py-36 border-b border-border">
         <Container>
-          <p className="reveal reveal-up text-xs uppercase tracking-widest text-muted mb-10">
+          <p className="reveal reveal-up text-[11px] uppercase tracking-widest text-muted mb-16">
             nos derniers projets
           </p>
 
           <div>
             {projects.map((p, i) => {
+              const logo = (
+                <span className="w-10 h-10 rounded-lg overflow-hidden flex-shrink-0 bg-subtle flex items-center justify-center">
+                  {p.product ? (
+                    <ProductIcon product={p.product} size={40} />
+                  ) : p.image ? (
+                    <Image
+                      src={p.image}
+                      alt=""
+                      width={40}
+                      height={40}
+                      className="object-cover w-full h-full"
+                    />
+                  ) : null}
+                </span>
+              );
+
               const inner = (
                 <>
-                  <span className="text-muted text-sm font-mono w-8 flex-shrink-0">
+                  <span className="text-muted text-xs font-mono w-7 flex-shrink-0 tabular-nums">
                     {p.num}
                   </span>
 
-                  {/* Thumbnail — hidden by default, revealed on hover */}
-                  <span className="project-logo w-10 h-10 rounded-lg overflow-hidden flex-shrink-0 bg-subtle flex items-center justify-center">
-                    {p.product ? (
-                      <ProductIcon product={p.product} size={40} />
-                    ) : p.image ? (
-                      <Image
-                        src={p.image}
-                        alt=""
-                        width={40}
-                        height={40}
-                        className="object-cover w-full h-full"
-                      />
-                    ) : null}
-                  </span>
+                  {logo}
 
-                  <span className="font-semibold text-ink flex-1 group-hover:text-agency transition-colors duration-150">
+                  <span className="font-semibold text-ink flex-1 text-base group-hover:text-agency transition-colors duration-150">
                     {p.name}
                   </span>
 
-                  <span className="hidden sm:flex gap-1.5 flex-shrink-0">
+                  <span className="hidden sm:flex gap-2 flex-shrink-0">
                     {p.tags.map((tag) => (
                       <span
                         key={tag}
@@ -284,22 +286,19 @@ export default function HomePage() {
                     ))}
                   </span>
 
-                  <ArrowRight
-                    size={15}
-                    className={[
-                      "flex-shrink-0 transition-all duration-150",
-                      p.linked
-                        ? "text-muted group-hover:text-agency group-hover:translate-x-1"
-                        : "text-border",
-                    ].join(" ")}
-                  />
+                  {p.linked && (
+                    <ArrowRight
+                      size={15}
+                      className="flex-shrink-0 text-muted group-hover:text-agency group-hover:translate-x-1 transition-all duration-150"
+                    />
+                  )}
                 </>
               );
 
               const rowClass = [
                 `reveal reveal-up stagger-${i + 1}`,
-                "group flex items-center gap-4 py-5 border-b border-border last:border-0",
-                p.linked ? "project-row cursor-pointer" : "cursor-default opacity-80",
+                "group flex items-center gap-5 py-5 border-b border-border last:border-0",
+                p.linked ? "project-row cursor-pointer" : "cursor-default",
               ].join(" ");
 
               return p.linked && p.slug ? (
@@ -314,10 +313,10 @@ export default function HomePage() {
             })}
           </div>
 
-          <div className="mt-10 reveal reveal-up">
+          <div className="mt-14 reveal reveal-up">
             <Link
               href="/travaux"
-              className="text-sm text-agency inline-flex items-center gap-1 hover:gap-2 transition-all"
+              className="text-sm text-agency inline-flex items-center gap-1.5 hover:gap-3 transition-all"
             >
               Tous les travaux <ArrowRight size={14} />
             </Link>
@@ -327,48 +326,49 @@ export default function HomePage() {
 
       {/* ══════════════════════════════════════════════════════════════
           5. LA FAMILLE LUMINA
-          Les trois produits : Education, Administration, Care.
       ══════════════════════════════════════════════════════════════ */}
-      <section className="py-20 lg:py-28 border-b border-border">
+      <section className="py-24 lg:py-36 border-b border-border">
         <Container>
-          <p className="reveal reveal-up text-xs uppercase tracking-widest text-muted mb-12">
+          <p className="reveal reveal-up text-[11px] uppercase tracking-widest text-muted mb-16">
             la famille lumina
           </p>
 
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-0 border border-border rounded-2xl overflow-hidden">
             {products.map((prod, i) => {
               const content = (
-                <>
-                  <ProductIcon product={prod.product} size={48} />
-                  <h3 className="mt-5 font-black text-ink text-lg leading-tight">
+                <div className={[
+                  "p-8 lg:p-10 h-full",
+                  i > 0 ? "border-t sm:border-t-0 sm:border-l border-border" : "",
+                ].join(" ")}>
+                  <ProductIcon product={prod.product} size={52} />
+                  <h3 className="mt-6 text-xl font-black text-ink leading-tight">
                     {prod.name}
                   </h3>
-                  <p className="mt-2 text-sm text-muted leading-relaxed">
+                  <p className="mt-3 text-sm text-muted leading-relaxed">
                     {prod.body}
                   </p>
                   {!prod.linked && (
-                    <p className="mt-3 text-xs text-muted/60 italic">En développement</p>
+                    <p className="mt-4 text-xs text-muted/60 tracking-wide">En développement</p>
                   )}
                   {prod.linked && (
-                    <p className="mt-4 text-sm text-agency inline-flex items-center gap-1">
+                    <p className="mt-5 text-sm text-agency inline-flex items-center gap-1.5">
                       Découvrir <ArrowRight size={13} />
                     </p>
                   )}
-                </>
+                </div>
               );
 
-              const cardClass = [
+              const wrapClass = [
                 `reveal reveal-up stagger-${i + 1}`,
-                "p-6 rounded-2xl border border-border",
-                prod.linked ? "hover:border-agency/30 transition-colors cursor-pointer" : "",
+                prod.linked ? "hover:bg-subtle transition-colors cursor-pointer" : "",
               ].join(" ");
 
               return prod.linked && prod.href ? (
-                <Link key={prod.name} href={prod.href} className={cardClass}>
+                <Link key={prod.name} href={prod.href} className={wrapClass}>
                   {content}
                 </Link>
               ) : (
-                <div key={prod.name} className={cardClass}>
+                <div key={prod.name} className={wrapClass}>
                   {content}
                 </div>
               );
@@ -379,16 +379,15 @@ export default function HomePage() {
 
       {/* ══════════════════════════════════════════════════════════════
           6. TÉMOIGNAGES — CONSTRUITS MAIS MASQUÉS
-          Retirer className="hidden" quand les témoignages sont validés.
       ══════════════════════════════════════════════════════════════ */}
       <section className="hidden" aria-hidden="true">
-        <Container className="py-20 lg:py-28">
-          <p className="text-xs uppercase tracking-widest text-muted mb-10">
+        <Container className="py-24 lg:py-36">
+          <p className="text-[11px] uppercase tracking-widest text-muted mb-14">
             ils nous font confiance
           </p>
-          <div className="grid gap-10 md:grid-cols-2">
-            <blockquote className="space-y-4">
-              <p className="text-lg text-ink leading-relaxed">
+          <div className="grid gap-12 md:grid-cols-2">
+            <blockquote className="space-y-5">
+              <p className="text-xl text-ink leading-relaxed">
                 &ldquo;LUMINA a transformé la gestion de notre établissement.
                 Les bulletins sont générés en quelques clics, les parents
                 reçoivent les informations par SMS.&rdquo;
@@ -399,8 +398,8 @@ export default function HomePage() {
               </footer>
             </blockquote>
 
-            <blockquote className="space-y-4">
-              <p className="text-lg text-ink leading-relaxed">
+            <blockquote className="space-y-5">
+              <p className="text-xl text-ink leading-relaxed">
                 &ldquo;Une équipe sérieuse, qui comprend les contraintes du
                 terrain et livre ce qu&apos;elle promet.&rdquo;
               </p>
@@ -415,36 +414,38 @@ export default function HomePage() {
 
       {/* ══════════════════════════════════════════════════════════════
           7. NOUS LIVRONS, PUIS NOUS RESTONS
-          Photo d'équipe en grand (non négociable).
+          Photo d'équipe en grand. Non négociable.
       ══════════════════════════════════════════════════════════════ */}
-      <section className="py-20 lg:py-28 border-b border-border">
+      <section className="py-24 lg:py-36 border-b border-border">
         <Container>
-          <div className="flex flex-col lg:flex-row items-start gap-12 lg:gap-20">
+          <div className="flex flex-col lg:flex-row items-start gap-16 lg:gap-24">
 
-            {/* Left — text */}
-            <div className="lg:w-[38%] flex-shrink-0 reveal reveal-left">
-              <h2 className="text-3xl lg:text-4xl font-black text-ink leading-tight">
+            {/* Gauche — texte */}
+            <div className="lg:w-[36%] flex-shrink-0 reveal reveal-left">
+              <h2 className="text-4xl lg:text-5xl font-black text-ink leading-tight tracking-tight">
                 Nous livrons, puis nous restons.
               </h2>
-              <p className="mt-6 text-muted leading-relaxed max-w-md">
+              <p className="mt-8 text-muted leading-relaxed">
                 La livraison n&apos;est pas la fin du projet. Nous mettons en
                 place un suivi sur mesure : maintenance préventive, mises à
-                jour, transfert de compétences. Nous restons joignables quand
-                vous en avez besoin.
+                jour, transfert de compétences. Nous restons joignables
+                quand vous en avez besoin.
               </p>
             </div>
 
-            {/* Right — team photo, large */}
+            {/* Droite — photo équipe */}
             <div className="flex-1 reveal reveal-right w-full">
-              <div className="relative w-full overflow-hidden rounded-2xl" style={{ aspectRatio: "5000/3885" }}>
+              <div
+                className="relative w-full overflow-hidden rounded-2xl"
+                style={{ aspectRatio: "5000/3885" }}
+              >
                 <Image
                   src="/team.png"
                   alt="L'équipe LUMINA Creative Group"
                   fill
-                  sizes="(max-width: 1024px) 100vw, 62vw"
+                  sizes="(max-width: 1024px) 100vw, 64vw"
                   className="object-cover"
                   quality={85}
-                  priority={false}
                 />
               </div>
             </div>
@@ -454,21 +455,19 @@ export default function HomePage() {
 
       {/* ══════════════════════════════════════════════════════════════
           8. APPEL FINAL
-          "Commençons par regarder ce que vous avez déjà."
-          Bouton : "Demander un audit"
       ══════════════════════════════════════════════════════════════ */}
-      <section className="py-20 lg:py-28">
+      <section className="py-24 lg:py-40">
         <Container>
-          <div className="reveal reveal-up max-w-2xl">
-            <h2 className="text-3xl lg:text-4xl font-black text-ink leading-tight">
+          <div className="reveal reveal-up max-w-3xl">
+            <h2 className="text-4xl lg:text-6xl font-black text-ink leading-tight tracking-tight">
               Commençons par regarder ce que vous avez déjà.
             </h2>
-            <p className="mt-4 text-muted leading-relaxed max-w-lg">
+            <p className="mt-6 text-muted text-lg leading-relaxed max-w-xl">
               Un audit sans engagement. Nous analysons votre situation et vous
               indiquons ce qui mérite d&apos;être conservé, amélioré ou
               reconstruit.
             </p>
-            <div className="mt-8">
+            <div className="mt-10">
               <Button as="a" href="/contact" size="lg">
                 Demander un audit
               </Button>

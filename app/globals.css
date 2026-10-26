@@ -29,23 +29,22 @@ html {
 
 /* ─── Scroll reveal ──────────────────────────────────────────────────── */
 /*
-  Elements start invisible; JS adds .revealed when they enter the viewport.
-  prefers-reduced-motion: skip straight to final state.
+  Default: all content is VISIBLE — no JS = no invisible content.
+  ScrollInit adds .js-reveal to <html> once the observer is mounted.
+  Only under .js-reveal do .reveal elements start hidden and animate in.
+  Safety: ScrollInit removes .js-reveal after 1.5 s and immediately
+  reveals everything. prefers-reduced-motion: .js-reveal is never added.
 */
 .reveal {
-  opacity: 0;
   transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1),
               transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 }
-.reveal-up    { transform: translateY(32px); }
-.reveal-left  { transform: translateX(-32px); }
-.reveal-right { transform: translateX(32px); }
-.reveal-scale { transform: scale(0.95); }
 
-.reveal.revealed {
-  opacity: 1;
-  transform: translateY(0) translateX(0) scale(1);
-}
+.js-reveal .reveal:not(.revealed)       { opacity: 0; }
+.js-reveal .reveal-up:not(.revealed)    { transform: translateY(24px); }
+.js-reveal .reveal-left:not(.revealed)  { transform: translateX(-24px); }
+.js-reveal .reveal-right:not(.revealed) { transform: translateX(24px); }
+.js-reveal .reveal-scale:not(.revealed) { transform: scale(0.97); }
 
 .stagger-1 { transition-delay: 0.05s; }
 .stagger-2 { transition-delay: 0.10s; }
@@ -55,11 +54,8 @@ html {
 .stagger-6 { transition-delay: 0.30s; }
 
 @media (prefers-reduced-motion: reduce) {
-  .reveal {
-    opacity: 1;
-    transform: none;
-    transition: none;
-  }
+  .reveal { transition: none; }
+  .js-reveal .reveal:not(.revealed) { opacity: 1; transform: none; }
 }
 
 /* ─── Logo carousel ──────────────────────────────────────────────────── */
@@ -78,22 +74,32 @@ html {
 
 /* ─── Hero verb rotator ──────────────────────────────────────────────── */
 /*
-  The animated verb sits in a mask; words slide vertically.
-  The static phrase is in a visually-hidden <span> for screen readers.
+  Mask + absolute word: the spacer inside .verb-mask reserves the width
+  of the longest verb so the rest of the title line never shifts.
 */
 @keyframes verb-in {
-  from { transform: translateY(100%); opacity: 0; }
+  from { transform: translateY(110%); opacity: 0; }
   to   { transform: translateY(0);    opacity: 1; }
 }
 @keyframes verb-out {
-  from { transform: translateY(0);    opacity: 1; }
-  to   { transform: translateY(-100%);opacity: 0; }
+  from { transform: translateY(0);     opacity: 1; }
+  to   { transform: translateY(-110%); opacity: 0; }
 }
 
-.verb-mask   { overflow: hidden; display: inline-block; vertical-align: bottom; }
-.verb-word   { display: inline-block; }
-.verb-word.entering { animation: verb-in  0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
-.verb-word.leaving  { animation: verb-out 0.4s cubic-bezier(0.4, 0, 1, 1) forwards; }
+.verb-mask {
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: bottom;
+}
+.verb-word {
+  display: inline-block;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.verb-word.entering { animation: verb-in  0.35s cubic-bezier(0.22, 1, 0.36, 1) forwards; }
+.verb-word.leaving  { animation: verb-out 0.28s cubic-bezier(0.4, 0, 1, 1) forwards; }
 
 @media (prefers-reduced-motion: reduce) {
   .verb-word.entering,
@@ -123,13 +129,7 @@ html {
 .project-row {
   transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
-.project-row:hover { transform: translateX(8px); }
-
-.project-logo {
-  transition: opacity 0.25s ease;
-  opacity: 0;
-}
-.project-row:hover .project-logo { opacity: 1; }
+.project-row:hover { transform: translateX(6px); }
 
 @media (prefers-reduced-motion: reduce) {
   .project-row:hover { transform: none; }
@@ -154,9 +154,9 @@ html {
 
 /* ─── Hero title (fluid) ─────────────────────────────────────────── */
 .hero-title {
-  font-size: clamp(2.5rem, 5vw + 1rem, 5rem);
-  line-height: 1.05;
-  letter-spacing: -0.025em;
+  font-size: clamp(3rem, 5vw + 1.5rem, 6rem);
+  line-height: 1.0;
+  letter-spacing: -0.03em;
   font-weight: 800;
 }
 
