@@ -98,14 +98,10 @@ export default function Home({ nav }: { nav: (p: string) => void }) {
           <div className="scroll-content">
             {[
               { name: 'Master Finance', logo: '/projects/master-finance.png' },
-              { name: 'Moonlie', logo: '/projects/moonlie.png' },
               { name: 'France-Afrique Média', logo: '/projects/france-afrique.png' },
-              { name: 'École Saint-Joseph', logo: '/projects/ecole-st-joseph.png' },
               { name: 'TechCongo', logo: '/projects/techcongo.png' },
               { name: 'Master Finance', logo: '/projects/master-finance.png' },
-              { name: 'Moonlie', logo: '/projects/moonlie.png' },
               { name: 'France-Afrique Média', logo: '/projects/france-afrique.png' },
-              { name: 'École Saint-Joseph', logo: '/projects/ecole-st-joseph.png' },
               { name: 'TechCongo', logo: '/projects/techcongo.png' },
             ].map((project, i) => (
               <div key={i} className="inline-flex flex-col items-center mx-12 lg:mx-16">
