@@ -69,7 +69,7 @@ export default function TravauxPage() {
             Une sélection de nos dernières réalisations.
           </h1>
           <p className="text-muted text-lg leading-relaxed mb-16 max-w-xl">
-            Plateformes métier, identités de marque et sites institutionnels —
+            Plateformes métier, identités de marque et sites institutionnels,
             conçus et déployés par notre équipe.
           </p>
 

@@ -36,6 +36,7 @@ export default function Logo({
         width={36}
         height={36}
         aria-hidden
+        className={variant === "mono" ? "brightness-0 invert" : ""}
       />
 
       {/* ── Wordmark ── */}
