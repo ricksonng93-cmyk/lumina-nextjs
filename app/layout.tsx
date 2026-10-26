@@ -4,6 +4,7 @@ import "./globals.css";
 import Header from "@/app/components/layout/Header";
 import Footer from "@/app/components/layout/Footer";
 import WhatsAppButton from "@/app/components/layout/WhatsAppButton";
+import ScrollInit from "@/app/components/ui/ScrollInit";
 
 const pjs = Plus_Jakarta_Sans({
   subsets: ["latin"],
@@ -36,10 +37,12 @@ export default function RootLayout({
   return (
     <html lang="fr" className={pjs.variable}>
       <body className="font-sans bg-surface text-ink antialiased">
+        <a href="#main-content" className="skip-link">Aller au contenu principal</a>
         <Header />
-        <main>{children}</main>
+        <main id="main-content">{children}</main>
         <Footer />
         <WhatsAppButton />
+        <ScrollInit />
       </body>
     </html>
   );

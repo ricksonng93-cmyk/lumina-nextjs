@@ -1,12 +1,11 @@
+import Image from "next/image";
+
 /**
  * Logo component — LUMINA signe + wordmark.
  *
- * SVG files expected in public/logos/ :
+ * SVG files in public/logos/ :
  *   lumina-signe-app.svg    (carré arrondi coloré, icône d'application)
  *   lumina-signe-mono.svg   (monochrome, prend currentColor)
- *
- * Until the files are provided, a CSS-drawn placeholder is shown.
- * Replace <div className="logo-placeholder"> with <img> or inline SVG.
  */
 
 interface LogoProps {
@@ -25,24 +24,13 @@ export default function Logo({
   return (
     <span className={`inline-flex items-center gap-2.5 ${className}`}>
       {/* ── Signe ── */}
-      {/* TODO: replace this placeholder with:
-            variant === "app"
-              ? <img src="/logos/lumina-signe-app.svg" alt="" width={36} height={36} />
-              : <img src="/logos/lumina-signe-mono.svg" alt="" width={36} height={36} className="text-current" />
-      */}
-      <span
-        aria-hidden="true"
-        className={[
-          "flex items-center justify-center rounded-[10px] select-none",
-          "w-9 h-9 text-base font-black leading-none",
-          variant === "app"
-            ? "bg-ink text-white"
-            : "border-2 border-current",
-        ].join(" ")}
-        style={{ letterSpacing: "-0.02em" }}
-      >
-        L
-      </span>
+      <Image
+        src={variant === "app" ? "/logos/lumina-signe-app.svg" : "/logos/lumina-signe-mono.svg"}
+        alt=""
+        width={36}
+        height={36}
+        aria-hidden
+      />
 
       {/* ── Wordmark ── */}
       {wordmark && (

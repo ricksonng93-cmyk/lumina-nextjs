@@ -1,10 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 36" width="36" height="36">
-  <!--
-    Placeholder favicon — to be replaced with lumina-signe-app.svg
-    when the file is available in public/logos/.
-    Copy the final SVG here or use app/icon.tsx with ImageResponse.
-  -->
-  <rect width="36" height="36" rx="9" fill="#0F172A"/>
-  <text x="18" y="25" font-family="system-ui, sans-serif" font-size="20" font-weight="900"
-        text-anchor="middle" fill="white" letter-spacing="-1">L</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="48" height="48">
+  <rect width="48" height="48" rx="12" fill="#0F172A"/>
+  <path d="M14.5 11v22.2h19" fill="none" stroke="#FFFFFF" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M27.6 17.6v-4.2M33.6 20.2l3-3M30.8 26.4h4.8" fill="none" stroke="#FFFFFF" stroke-width="2.6" stroke-linecap="round"/>
 </svg>

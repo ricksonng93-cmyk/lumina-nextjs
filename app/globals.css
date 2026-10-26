@@ -134,3 +134,68 @@ html {
 @media (prefers-reduced-motion: reduce) {
   .project-row:hover { transform: none; }
 }
+
+/* ─── Hero load animation ────────────────────────────────────────── */
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: none; }
+}
+.hero-in {
+  animation: fade-up 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+.hero-in-1 { animation-delay: 0.05s; }
+.hero-in-2 { animation-delay: 0.15s; }
+.hero-in-3 { animation-delay: 0.25s; }
+.hero-in-4 { animation-delay: 0.40s; }
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-in { animation: none; opacity: 1; transform: none; }
+}
+
+/* ─── Hero title (fluid) ─────────────────────────────────────────── */
+.hero-title {
+  font-size: clamp(2.5rem, 5vw + 1rem, 5rem);
+  line-height: 1.05;
+  letter-spacing: -0.025em;
+  font-weight: 800;
+}
+
+/* ─── Skip link ──────────────────────────────────────────────────── */
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+.skip-link:focus {
+  position: fixed;
+  top: 1rem;
+  left: 1rem;
+  z-index: 200;
+  width: auto;
+  height: auto;
+  overflow: visible;
+  background: #0F172A;
+  color: #ffffff;
+  padding: 0.5rem 1.25rem;
+  border-radius: 0.5rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-decoration: none;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.5);
+  outline: none;
+}
+
+/* ─── Expertise card hover ───────────────────────────────────────── */
+.expertise-card {
+  transition: box-shadow 0.2s ease, transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.expertise-card:hover {
+  box-shadow: 0 8px 32px rgba(15, 23, 42, 0.10);
+  transform: translateY(-2px);
+}
+@media (prefers-reduced-motion: reduce) {
+  .expertise-card:hover { transform: none; }
+}
