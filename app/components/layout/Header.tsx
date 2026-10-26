@@ -124,7 +124,7 @@ export default function Header() {
       ].join(" ")}
     >
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
-        <div className="flex h-16 items-center justify-between gap-8">
+        <div className="flex h-20 items-center justify-between gap-8">
 
           {/* ── Logo ── */}
           <Link
@@ -252,7 +252,7 @@ export default function Header() {
               Travaux
             </Link>
 
-            {/* L'équipe */}
+            {/* À propos */}
             <Link
               href="/equipe"
               className={[
@@ -260,7 +260,7 @@ export default function Header() {
                 pathname === "/equipe" ? "text-ink bg-subtle" : "text-muted hover:text-ink hover:bg-subtle",
               ].join(" ")}
             >
-              L&apos;équipe
+              À propos
             </Link>
           </nav>
 
@@ -365,7 +365,7 @@ export default function Header() {
               pathname === "/equipe" ? "bg-subtle text-ink" : "text-muted hover:text-ink hover:bg-subtle",
             ].join(" ")}
           >
-            L&apos;équipe
+            À propos
           </Link>
 
           <div className="pt-2 pb-1">

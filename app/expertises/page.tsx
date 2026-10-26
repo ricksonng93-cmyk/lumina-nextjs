@@ -93,39 +93,41 @@ export default function ExpertisesPage() {
   return (
     <>
       {/* ── Hero ── */}
-      <section className="bg-ink py-20 lg:py-28">
+      <section className="bg-white border-b border-border py-20 lg:py-28">
         <Container>
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 lg:gap-20 items-center">
+          <div className="flex flex-col lg:flex-row items-center gap-14 lg:gap-20">
 
-            {/* Left: text */}
-            <div>
-              <p className="text-[10px] uppercase tracking-widest text-white/40 mb-4">
+            {/* Left: text + CTA */}
+            <div className="flex-1 max-w-xl">
+              <p className="text-[10px] uppercase tracking-widest text-agency mb-3">
                 nos expertises
               </p>
-              <h1 className="text-4xl lg:text-5xl font-black text-white leading-tight tracking-tight">
-                Quatre domaines. Un seul interlocuteur.
+              <h1 className="text-4xl lg:text-5xl font-black text-ink leading-tight tracking-tight">
+                Quatre domaines.<br />Un seul interlocuteur.
               </h1>
-              <p className="mt-6 text-white/60 text-lg leading-relaxed max-w-md">
+              <p className="mt-6 text-muted text-lg leading-relaxed">
                 Du diagnostic initial à la maintenance long terme, nous couvrons
                 l&apos;ensemble du cycle de vie d&apos;un projet numérique.
               </p>
+              <div className="mt-10">
+                <Button as="a" href="/contact">Demander un audit</Button>
+              </div>
             </div>
 
-            {/* Right: 2x2 expertise grid */}
-            <div className="grid grid-cols-2 bg-white/10 gap-px rounded-2xl overflow-hidden">
+            {/* Right: 2x2 expertise cards */}
+            <div className="flex-1 w-full grid grid-cols-2 gap-3 max-w-sm lg:max-w-none">
               {HERO_CARDS.map((card) => (
                 <a
                   key={card.id}
                   href={`#${card.id}`}
-                  className="bg-ink hover:bg-white/5 transition-colors p-6 group"
+                  className="group border border-border rounded-2xl p-5 lg:p-6 hover:border-agency hover:bg-subtle transition-all duration-200"
                 >
-                  <p className="font-mono text-xs text-white/30 mb-3">{card.num}</p>
-                  <p className="text-[10px] uppercase tracking-widest text-white/40 mb-2">
-                    {card.label}
-                  </p>
-                  <p className="text-sm font-bold text-white/80 group-hover:text-white transition-colors leading-snug">
+                  <p className="font-mono text-xs text-muted mb-3">{card.num}</p>
+                  <p className="text-[10px] uppercase tracking-widest text-agency mb-2">{card.label}</p>
+                  <p className="font-semibold text-ink text-sm leading-snug group-hover:text-agency transition-colors">
                     {card.title}
                   </p>
+                  <ArrowRight size={12} className="mt-3 text-muted opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all duration-200" />
                 </a>
               ))}
             </div>

@@ -33,8 +33,8 @@ export default function Logo({
       <Image
         src={src}
         alt=""
-        width={36}
-        height={36}
+        width={44}
+        height={44}
         aria-hidden
         className={variant === "mono" ? "brightness-0 invert" : ""}
       />
@@ -42,8 +42,7 @@ export default function Logo({
       {/* ── Wordmark ── */}
       {wordmark && (
         <span
-          className="font-black text-[1.1rem] leading-none tracking-[0.09em] uppercase select-none"
-          style={{ fontWeight: 800 }}
+          className="font-semibold text-[1.15rem] leading-none tracking-[0.1em] uppercase select-none"
         >
           LUMINA
         </span>

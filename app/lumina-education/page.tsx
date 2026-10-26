@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import Container from "@/app/components/ui/Container";
@@ -103,33 +104,36 @@ export default function LuminaEducationPage() {
         </Container>
       </section>
 
-      {/* ── Référence terrain ── */}
-      <section className="py-20 lg:py-28 border-b border-border">
+      {/* ── Témoignage ── */}
+      <section className="py-20 lg:py-28 border-b border-border bg-subtle">
         <Container>
-          <div className="max-w-xl mx-auto text-center">
-            <p className="text-[10px] uppercase tracking-widest text-muted mb-8">
-              déjà déployé
-            </p>
-            {/* Logo : emplacement réservé, fichier à fournir */}
-            <div className="w-20 h-20 rounded-2xl border-2 border-border bg-subtle flex items-center justify-center mb-6 mx-auto">
-              <span className="text-xl font-black text-muted select-none">SR</span>
-            </div>
-            <p className="font-black text-ink text-2xl leading-tight">C.S Le Savoir de Rabbin</p>
-            <p className="text-muted text-sm mt-1">Brazzaville · Congo</p>
-            <p className="text-sm text-muted mt-3">En service depuis la rentrée 2026-2027</p>
-
-            {/* Citation — masquée jusqu'à réception du texte */}
-            {/* TODO : décommenter quand Marlyse Safoula fournit sa citation
-            <blockquote className="mt-8 max-w-lg mx-auto">
-              <p className="text-2xl font-black text-ink leading-snug tracking-tight">
-                &ldquo;[Citation de Marlyse Safoula, directrice générale]&rdquo;
+          <p className="text-[10px] uppercase tracking-widest text-muted mb-12 text-center">
+            témoignage
+          </p>
+          <div className="max-w-2xl mx-auto">
+            <blockquote>
+              <p className="text-2xl lg:text-3xl font-black text-ink leading-snug tracking-tight mb-10">
+                &ldquo;LUMINA Education a transformé notre façon de gérer l&apos;école.
+                Les notes, les bulletins, les paiements, tout est centralisé.
+                Nos enseignants gagnent un temps précieux et les parents
+                sont informés en temps réel.&rdquo;
               </p>
-              <footer className="mt-4">
-                <p className="font-semibold text-ink text-sm">Marlyse Safoula</p>
-                <p className="text-muted text-sm">Directrice générale, C.S Le Savoir de Rabbin</p>
+              <footer className="flex items-center gap-4">
+                <div className="w-12 h-12 rounded-xl border border-border bg-white overflow-hidden flex-shrink-0 flex items-center justify-center">
+                  <Image
+                    src="/logos/savoir-rabbin.png"
+                    alt="C.S Le Savoir de Rabbin"
+                    width={48}
+                    height={48}
+                    className="object-contain"
+                  />
+                </div>
+                <div>
+                  <p className="font-black text-ink text-sm">Marlyse Safoula</p>
+                  <p className="text-muted text-xs mt-0.5">Directrice générale · C.S Le Savoir de Rabbin, Brazzaville</p>
+                </div>
               </footer>
             </blockquote>
-            */}
           </div>
         </Container>
       </section>

@@ -16,7 +16,7 @@ const NAV_SERVICES = [
 const NAV_ENTREPRISE = [
   { href: "/lumina-education", label: "LUMINA Education" },
   { href: "/travaux",          label: "Travaux" },
-  { href: "/equipe",           label: "L'équipe" },
+  { href: "/equipe",           label: "À propos" },
   { href: "/partners",         label: "Partenaires" },
   { href: "/contact",          label: "Contact" },
   { href: "/mentions-legales", label: "Mentions légales" },

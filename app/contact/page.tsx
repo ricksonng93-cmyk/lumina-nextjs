@@ -27,47 +27,47 @@ export default function ContactPage() {
   return (
     <>
       {/* ── Hero ── */}
-      <section className="bg-ink py-20 lg:py-28">
+      <section className="border-b border-border py-20 lg:py-28">
         <Container>
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 lg:gap-20 items-start">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 lg:gap-24 items-start">
 
             {/* Left: text */}
             <div>
-              <p className="text-[10px] uppercase tracking-widest text-white/40 mb-4">
+              <p className="text-[10px] uppercase tracking-widest text-muted mb-6">
                 contact
               </p>
-              <h1 className="text-4xl lg:text-5xl font-black text-white leading-tight tracking-tight max-w-lg">
+              <h1 className="text-4xl lg:text-5xl font-black text-ink leading-tight tracking-tight max-w-lg">
                 Parlons de votre projet.
               </h1>
-              <p className="mt-6 text-white/60 text-lg leading-relaxed max-w-md">
+              <p className="mt-6 text-muted text-lg leading-relaxed max-w-md">
                 Pas de formulaire à rallonge. Décrivez votre situation,
                 nous revenons vers vous sous 24 heures ouvrées.
               </p>
             </div>
 
-            {/* Right: contact info cards */}
-            <div className="space-y-3">
+            {/* Right: contact info — clean bordered list */}
+            <div className="border border-border rounded-2xl overflow-hidden divide-y divide-border">
               {CONTACT_ITEMS.map((item) => (
                 <a
                   key={item.label}
                   href={item.href}
-                  className="flex items-center gap-3 bg-white/5 hover:bg-white/10 transition-colors rounded-xl px-4 py-3 group"
+                  className="flex items-center gap-4 px-5 py-4 hover:bg-subtle transition-colors group"
                 >
                   {item.icon === "phone" && (
-                    <Phone size={15} className="text-white/40 flex-shrink-0 group-hover:text-white/60 transition-colors" />
+                    <Phone size={14} className="text-muted flex-shrink-0" />
                   )}
                   {item.icon === "mail" && (
-                    <Mail size={15} className="text-white/40 flex-shrink-0 group-hover:text-white/60 transition-colors" />
+                    <Mail size={14} className="text-muted flex-shrink-0" />
                   )}
-                  <span className="text-sm text-white/60 group-hover:text-white transition-colors">
+                  <span className="text-sm text-ink group-hover:text-agency transition-colors">
                     {item.label}
                   </span>
                 </a>
               ))}
-              <div className="flex items-start gap-3 bg-white/5 rounded-xl px-4 py-3">
-                <MapPin size={15} className="text-white/40 flex-shrink-0 mt-0.5" />
-                <span className="text-sm text-white/60 leading-relaxed">
-                  Paris, France<br />Brazzaville, Congo
+              <div className="flex items-start gap-4 px-5 py-4 bg-subtle">
+                <MapPin size={14} className="text-muted flex-shrink-0 mt-0.5" />
+                <span className="text-sm text-muted leading-relaxed">
+                  Paris, France · Brazzaville, Congo
                 </span>
               </div>
             </div>

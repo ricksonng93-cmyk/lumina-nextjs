@@ -93,7 +93,7 @@ export default function BulletinDemo() {
             LUMINA Education
           </p>
           <p className="text-white/70 text-[10px] leading-tight">
-            CS Le Savoir de Rabbin · 2025–2026
+            CS Le Savoir de Rabbin · 2026–2027
           </p>
         </div>
       </div>

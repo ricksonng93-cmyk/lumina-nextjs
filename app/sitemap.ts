@@ -15,6 +15,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE}/travaux/lumina-education`,             lastModified: now, changeFrequency: "yearly",  priority: 0.7 },
     { url: `${BASE}/travaux/france-afrique-media`,         lastModified: now, changeFrequency: "yearly",  priority: 0.7 },
     { url: `${BASE}/travaux/master-finance`,               lastModified: now, changeFrequency: "yearly",  priority: 0.7 },
+    { url: `${BASE}/travaux/techcongo`,                    lastModified: now, changeFrequency: "yearly",  priority: 0.7 },
     { url: `${BASE}/equipe`,                               lastModified: now, changeFrequency: "yearly",  priority: 0.6 },
     { url: `${BASE}/partners`,                             lastModified: now, changeFrequency: "monthly", priority: 0.6 },
     { url: `${BASE}/contact`,                              lastModified: now, changeFrequency: "yearly",  priority: 0.8 },

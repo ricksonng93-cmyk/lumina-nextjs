@@ -32,13 +32,13 @@ const projects = [
     linked:  true,
   },
   {
-    slug:    null,
+    slug:    "techcongo",
     num:     "04",
     name:    "TechCongo",
     tags:    ["SaaS", "Développement", "Identité visuelle", "SEO"],
     image:   "/projects/techcongo.png",
     product: null,
-    linked:  false,
+    linked:  true,
   },
 ];
 

@@ -260,6 +260,7 @@ export default function HomePage() {
                     <Image
                       src={p.image}
                       alt=""
+                      aria-hidden="true"
                       width={40}
                       height={40}
                       className="object-cover w-full h-full"
@@ -447,7 +448,7 @@ export default function HomePage() {
             <div className="flex-1 reveal reveal-right w-full">
               <div
                 className="relative w-full overflow-hidden rounded-2xl"
-                style={{ aspectRatio: "12473/9824" }}
+                style={{ aspectRatio: "1413/1113" }}
               >
                 <Image
                   src="/about.png"
