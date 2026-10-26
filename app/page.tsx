@@ -42,46 +42,50 @@ const expertises = [
   {
     label: "Durée",
     title: "Maintenance et formation",
-    body: "Nous assurons la maintenance, les évolutions et la formation de vos équipes. Nous ne livrons pas et disparaissons.",
+    body: "Hébergement, correctifs, sauvegardes et évolutions. Nous formons vos équipes sur place pour qu\u2019elles soient autonomes.",
   },
 ];
 
 const projects = [
   {
-    slug:    "lumina-education",
-    num:     "01",
-    name:    "LUMINA Education",
-    tags:    ["SaaS", "Design", "Développement"],
-    image:   null,
-    product: "education" as const,
-    linked:  true,
+    slug:     "lumina-education",
+    num:      "01",
+    name:     "LUMINA Education",
+    subtitle: null,
+    tags:     ["SaaS", "Design", "Développement"],
+    image:    null,
+    product:  "education" as const,
+    linked:   true,
   },
   {
-    slug:    "france-afrique-media",
-    num:     "02",
-    name:    "France Afrique Média",
-    tags:    ["Site web", "CMS", "Branding"],
-    image:   "/projects/france-afrique.png",
-    product: null,
-    linked:  true,
+    slug:     "france-afrique-media",
+    num:      "02",
+    name:     "France Afrique Média",
+    subtitle: "Logo, identité visuelle et développement du site d\u2019actualité",
+    tags:     ["2025"],
+    image:    "/projects/france-afrique.png",
+    product:  null,
+    linked:   true,
   },
   {
-    slug:    "master-finance",
-    num:     "03",
-    name:    "Master Finance",
-    tags:    ["Application web", "UX"],
-    image:   "/projects/master-finance.png",
-    product: null,
-    linked:  true,
+    slug:     "master-finance",
+    num:      "03",
+    name:     "Master Finance",
+    subtitle: null,
+    tags:     ["Application web", "UX"],
+    image:    "/projects/master-finance.png",
+    product:  null,
+    linked:   true,
   },
   {
-    slug:    null,
-    num:     "04",
-    name:    "TechCongo",
-    tags:    ["Identité visuelle", "2024"],
-    image:   "/projects/techcongo.png",
-    product: null,
-    linked:  false,
+    slug:     null,
+    num:      "04",
+    name:     "TechCongo",
+    subtitle: "Plateforme SaaS\u00a0: développement, identité visuelle et référencement",
+    tags:     ["2024"],
+    image:    "/projects/techcongo.png",
+    product:  null,
+    linked:   false,
   },
 ];
 
@@ -97,15 +101,15 @@ const products = [
     product:  "administration" as const,
     name:     "LUMINA Administration",
     body:     "Dématérialisation pour les services administratifs. Formulaires numériques, registres, circuits de validation.",
-    href:     null,
-    linked:   false,
+    href:     "/lumina-administration",
+    linked:   true,
   },
   {
     product:  "care" as const,
     name:     "LUMINA Care",
     body:     "Gestion de structures médicales. Dossiers patients, rendez-vous, rappels automatiques.",
-    href:     null,
-    linked:   false,
+    href:     "/lumina-care",
+    linked:   true,
   },
 ];
 
@@ -271,8 +275,13 @@ export default function HomePage() {
 
                   {logo}
 
-                  <span className="font-semibold text-ink flex-1 text-base group-hover:text-agency transition-colors duration-150">
-                    {p.name}
+                  <span className="flex-1 min-w-0">
+                    <span className="block font-semibold text-ink text-base group-hover:text-agency transition-colors duration-150">
+                      {p.name}
+                    </span>
+                    {p.subtitle && (
+                      <span className="block text-xs text-muted mt-0.5 truncate">{p.subtitle}</span>
+                    )}
                   </span>
 
                   <span className="hidden sm:flex gap-2 flex-shrink-0">

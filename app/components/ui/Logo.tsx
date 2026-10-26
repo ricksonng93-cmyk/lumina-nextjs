@@ -4,28 +4,34 @@ import Image from "next/image";
  * Logo component — LUMINA signe + wordmark.
  *
  * SVG files in public/logos/ :
- *   lumina-signe-app.svg    (carré arrondi coloré, icône d'application)
- *   lumina-signe-mono.svg   (monochrome, prend currentColor)
+ *   lumina-signe.svg      (cercle contour encre, fond blanc — en-tête)
+ *   lumina-signe-app.svg  (carré arrondi coloré, icône d'application)
+ *   lumina-signe-mono.svg (monochrome, prend currentColor — footer)
  */
 
 interface LogoProps {
-  /** "app" = carré arrondi coloré (header). "mono" = currentColor (footer, fond sombre). */
-  variant?: "app" | "mono";
+  /** "light" = cercle encre sur fond blanc (header). "app" = carré coloré. "mono" = currentColor. */
+  variant?: "light" | "app" | "mono";
   /** Show the wordmark "LUMINA" next to the signe. */
   wordmark?: boolean;
   className?: string;
 }
 
 export default function Logo({
-  variant = "app",
+  variant = "light",
   wordmark = true,
   className = "",
 }: LogoProps) {
+  const src =
+    variant === "light" ? "/logos/lumina-signe.svg" :
+    variant === "app"   ? "/logos/lumina-signe-app.svg" :
+    "/logos/lumina-signe-mono.svg";
+
   return (
     <span className={`inline-flex items-center gap-2.5 ${className}`}>
       {/* ── Signe ── */}
       <Image
-        src={variant === "app" ? "/logos/lumina-signe-app.svg" : "/logos/lumina-signe-mono.svg"}
+        src={src}
         alt=""
         width={36}
         height={36}
