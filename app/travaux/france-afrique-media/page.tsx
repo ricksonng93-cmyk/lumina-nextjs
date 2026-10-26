@@ -1,5 +1,9 @@
 import type { Metadata } from "next";
+import Image from "next/image";
+import Link from "next/link";
+import { ArrowLeft, ArrowRight } from "lucide-react";
 import Container from "@/app/components/ui/Container";
+import Button from "@/app/components/ui/Button";
 
 export const metadata: Metadata = {
   title: "Projet France-Afrique Média",
@@ -13,11 +17,132 @@ export const metadata: Metadata = {
   alternates: { canonical: "https://lumina-cg.com/travaux/france-afrique-media" },
 };
 
-// Étape E : contenu complet
 export default function ProjetFranceAfriqueMediaPage() {
   return (
-    <Container className="py-32 text-center">
-      <p className="text-muted text-sm">Projet France-Afrique Média — étape E à venir</p>
-    </Container>
+    <>
+      {/* ── Navigation ── */}
+      <section className="bg-white border-b border-border py-5">
+        <Container>
+          <Link
+            href="/travaux"
+            className="inline-flex items-center gap-2 text-sm text-muted hover:text-ink transition-colors"
+          >
+            <ArrowLeft size={14} /> Tous les travaux
+          </Link>
+        </Container>
+      </section>
+
+      {/* ── Hero ── */}
+      <section className="bg-white border-b border-border py-20 lg:py-28">
+        <Container>
+          <div className="flex flex-wrap gap-2 mb-8">
+            {["Logo", "Identité visuelle", "Développement"].map(tag => (
+              <span key={tag} className="text-xs text-muted bg-subtle px-3 py-1.5 rounded-full border border-border">
+                {tag}
+              </span>
+            ))}
+          </div>
+          <h1 className="text-4xl lg:text-5xl font-black text-ink leading-tight tracking-tight max-w-2xl">
+            France-Afrique Média
+          </h1>
+          <p className="mt-4 text-muted text-lg leading-relaxed max-w-xl">
+            Identité de marque et site éditorial pour un média francophone
+            couvrant l&apos;actualité africaine.
+          </p>
+        </Container>
+      </section>
+
+      {/* ── Image projet ── */}
+      <section className="border-b border-border bg-subtle py-12">
+        <Container>
+          <div className="relative w-full overflow-hidden rounded-2xl aspect-video">
+            <Image
+              src="/projects/france-afrique.png"
+              alt="France-Afrique Média"
+              fill
+              sizes="(max-width: 1024px) 100vw, 1200px"
+              className="object-cover"
+              quality={85}
+            />
+          </div>
+        </Container>
+      </section>
+
+      {/* ── Contexte ── */}
+      <section className="py-20 lg:py-28 border-b border-border">
+        <Container>
+          <div className="grid grid-cols-1 lg:grid-cols-[220px_1fr] gap-10 lg:gap-24">
+            <div className="lg:pt-1">
+              <p className="text-[10px] uppercase tracking-widest text-muted">Le contexte</p>
+            </div>
+            <div className="max-w-2xl">
+              <p className="text-muted text-lg leading-relaxed mb-5">
+                France-Afrique Média couvrait l&apos;actualité africaine sans
+                identité visuelle cohérente. Le logotype existant n&apos;était
+                pas déclinable sur les supports digitaux, et le site ne reflétait
+                pas le positionnement éditorial de la rédaction.
+              </p>
+              <p className="text-muted text-lg leading-relaxed">
+                La mission couvrait l&apos;ensemble de l&apos;identité de marque,
+                de la refonte du logotype au développement d&apos;un nouveau site
+                éditorial.
+              </p>
+            </div>
+          </div>
+        </Container>
+      </section>
+
+      {/* ── Ce que nous avons fait ── */}
+      <section className="py-20 lg:py-28 border-b border-border bg-subtle">
+        <Container>
+          <div className="grid grid-cols-1 lg:grid-cols-[220px_1fr] gap-10 lg:gap-24">
+            <div className="lg:pt-1">
+              <p className="text-[10px] uppercase tracking-widest text-muted">Ce que nous avons fait</p>
+            </div>
+            <div className="max-w-2xl">
+              <p className="text-muted text-lg leading-relaxed mb-10">
+                Nous avons repensé l&apos;intégralité de l&apos;identité visuelle,
+                du logotype aux gabarits de publication, puis développé un site
+                éditorial structuré, rapide et pensé pour le référencement.
+              </p>
+              <ul className="space-y-3">
+                {[
+                  "Logotype et déclinaisons (couleur, monochrome, blanc)",
+                  "Charte graphique complète",
+                  "Gabarits pour les publications digitales",
+                  "Développement du site éditorial",
+                  "Optimisation pour le référencement naturel",
+                ].map(item => (
+                  <li key={item} className="flex items-start gap-3 text-sm text-ink">
+                    <span className="mt-2 w-1.5 h-1.5 rounded-full bg-agency flex-shrink-0" />
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </Container>
+      </section>
+
+      {/* ── CTA ── */}
+      <section className="py-20 lg:py-28">
+        <Container>
+          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-8">
+            <div>
+              <p className="text-[10px] uppercase tracking-widest text-muted mb-3">
+                un projet similaire
+              </p>
+              <Button as="a" href="/contact">Demander un audit</Button>
+            </div>
+            <Link
+              href="/travaux/master-finance"
+              className="text-sm text-muted inline-flex items-center gap-1 hover:text-ink transition-colors flex-shrink-0"
+            >
+              Projet suivant : Master Finance <ArrowRight size={13} />
+            </Link>
+          </div>
+        </Container>
+      </section>
+    </>
   );
 }

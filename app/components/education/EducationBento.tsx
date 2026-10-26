@@ -298,35 +298,29 @@ function CommunicationCard() {
 /* ─── Bento principal ──────────────────────────────────────────── */
 export default function EducationBento() {
   return (
-    <div
-      className="grid gap-3"
-      style={{ gridTemplateColumns: "2fr 1fr 1fr", gridTemplateRows: "auto auto" }}
-    >
-      {/* Notes : large (2 colonnes, 2 lignes) */}
-      <div
-        className="rounded-2xl border border-border bg-white overflow-hidden select-none"
-        style={{ gridColumn: "1", gridRow: "1 / 3" }}
-      >
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
+      {/* Notes : large (2 cols + 2 rows sur desktop) */}
+      <div className="md:col-span-2 lg:col-span-2 lg:row-span-2 min-h-[260px] rounded-2xl border border-border bg-white overflow-hidden select-none">
         <NotesCard />
       </div>
 
       {/* Inscriptions */}
-      <div className="rounded-2xl border border-border bg-white overflow-hidden select-none">
+      <div className="min-h-[220px] rounded-2xl border border-border bg-white overflow-hidden select-none">
         <InscriptionsCard />
       </div>
 
       {/* Emplois du temps */}
-      <div className="rounded-2xl border border-border bg-white overflow-hidden select-none">
+      <div className="min-h-[220px] rounded-2xl border border-border bg-white overflow-hidden select-none">
         <EmploisCard />
       </div>
 
       {/* Comptes par rôle */}
-      <div className="rounded-2xl border border-border bg-white overflow-hidden select-none">
+      <div className="min-h-[200px] rounded-2xl border border-border bg-white overflow-hidden select-none">
         <RolesCard />
       </div>
 
       {/* Communication */}
-      <div className="rounded-2xl border border-border bg-white overflow-hidden select-none">
+      <div className="md:col-span-1 min-h-[200px] rounded-2xl border border-border bg-white overflow-hidden select-none">
         <CommunicationCard />
       </div>
     </div>
