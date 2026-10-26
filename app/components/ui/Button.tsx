@@ -44,10 +44,11 @@ export default function Button({ variant = "primary", size = "md", ...props }: P
     .join(" ");
 
   if ((props as AnchorProps).as === "a") {
-    const { as: _as, variant: _v, size: _s, ...rest } = props as AnchorProps & { as: "a"; variant: Variant; size: Size };
+    // Strip `as` before spreading onto <a> — variant/size already removed in outer destructure
+    const { as: _omit, ...rest } = props as AnchorProps;
     return <a {...rest} className={className} />;
   }
 
-  const { as: _as, variant: _v, size: _s, ...rest } = props as ButtonProps & { as?: "button"; variant: Variant; size: Size };
+  const { as: _omit, ...rest } = props as ButtonProps;
   return <button {...rest} className={className} />;
 }

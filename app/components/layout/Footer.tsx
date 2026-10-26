@@ -124,7 +124,7 @@ export default function Footer() {
                   {status === "sending" ? "Inscription…" : "S'inscrire"}
                 </button>
                 {status === "error" && (
-                  <p className="text-xs text-red-400">Une erreur s'est produite. Réessayez.</p>
+                  <p className="text-xs text-red-400">Une erreur s&apos;est produite. Réessayez.</p>
                 )}
               </form>
             )}

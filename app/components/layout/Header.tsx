@@ -26,9 +26,6 @@ export default function Header() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  // Close menu on route change
-  useEffect(() => { setOpen(false); }, [pathname]);
-
   return (
     <header
       className={[
@@ -104,6 +101,7 @@ export default function Header() {
               <Link
                 key={href}
                 href={href}
+                onClick={() => setOpen(false)}
                 className={[
                   "px-4 py-3 rounded-xl text-sm font-medium transition-colors",
                   active ? "bg-subtle text-ink" : "text-muted hover:text-ink hover:bg-subtle",

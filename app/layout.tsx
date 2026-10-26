@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import { Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
+import Header from "@/app/components/layout/Header";
+import Footer from "@/app/components/layout/Footer";
+import WhatsAppButton from "@/app/components/layout/WhatsAppButton";
 
 const pjs = Plus_Jakarta_Sans({
   subsets: ["latin"],
@@ -33,7 +36,10 @@ export default function RootLayout({
   return (
     <html lang="fr" className={pjs.variable}>
       <body className="font-sans bg-surface text-ink antialiased">
-        {children}
+        <Header />
+        <main>{children}</main>
+        <Footer />
+        <WhatsAppButton />
       </body>
     </html>
   );
