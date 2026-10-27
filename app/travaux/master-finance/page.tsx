@@ -39,40 +39,48 @@ export default function ProjetMasterFinancePage() {
         </Container>
       </section>
 
-      {/* ── Hero avec image ── */}
-      <section className="relative overflow-hidden min-h-[60vh] flex items-end">
-        <Image
-          src="/projects/master-finance.png"
-          alt="Master Finance"
-          fill
-          sizes="100vw"
-          className="object-cover"
-          quality={85}
-          priority
-        />
-        <div className="absolute inset-0 bg-ink/75" />
+      {/* ── Hero ── */}
+      <section className="bg-white border-b border-border py-20 lg:py-28">
+        <Container>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 lg:gap-20 items-center">
 
-        <div className="relative z-10 w-full pb-16 lg:pb-20">
-          <Container>
-            <div className="flex flex-wrap gap-2 mb-6">
-              {["Site institutionnel", "Espace partenaire", "Référencement", "Acquisition"].map((tag) => (
-                <span
-                  key={tag}
-                  className="text-xs text-white/80 border border-white/20 bg-white/10 px-3 py-1.5 rounded-full"
-                >
-                  {tag}
-                </span>
-              ))}
+            {/* Left */}
+            <div>
+              <div className="flex flex-wrap gap-2 mb-8">
+                {["Site institutionnel", "Espace partenaire", "SEO"].map((tag) => (
+                  <span key={tag} className="text-xs text-muted bg-subtle border border-border px-3 py-1.5 rounded-full">
+                    {tag}
+                  </span>
+                ))}
+              </div>
+              <p className="text-[10px] uppercase tracking-widest text-agency mb-3">
+                site &amp; acquisition
+              </p>
+              <h1 className="text-4xl lg:text-5xl font-black text-ink leading-tight tracking-tight">
+                Master Finance
+              </h1>
+              <p className="mt-4 text-muted text-lg leading-relaxed max-w-md">
+                Site institutionnel, espace partenaire et stratégie de référencement
+                pour une structure financière.
+              </p>
             </div>
-            <h1 className="text-4xl lg:text-5xl font-black text-white leading-tight tracking-tight max-w-2xl">
-              Master Finance
-            </h1>
-            <p className="mt-4 text-white/60 text-lg leading-relaxed max-w-xl">
-              Site institutionnel, espace partenaire et stratégie de référencement
-              pour une structure financière.
-            </p>
-          </Container>
-        </div>
+
+            {/* Right: project image */}
+            <div className="flex justify-center">
+              <div className="relative w-full max-w-md aspect-[4/3] rounded-3xl overflow-hidden border border-border bg-subtle">
+                <Image
+                  src="/projects/master-finance.png"
+                  alt="Master Finance"
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                  className="object-cover"
+                  quality={85}
+                  priority
+                />
+              </div>
+            </div>
+          </div>
+        </Container>
       </section>
 
       {/* ── Stats ── */}

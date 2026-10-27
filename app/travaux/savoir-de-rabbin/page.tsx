@@ -80,13 +80,13 @@ export default function ProjetSavoirDeRabbinPage() {
               </div>
 
               <p className="text-[10px] uppercase tracking-widest text-edu mb-3">
-                lumina education · premier déploiement
+                lumina education · déploiement
               </p>
               <h1 className="text-4xl lg:text-5xl font-black text-ink leading-tight tracking-tight">
                 C.S Le Savoir de Rabbin
               </h1>
               <p className="mt-4 text-muted text-lg leading-relaxed max-w-md">
-                Premier établissement à déployer LUMINA Education.
+                L&apos;un des premiers établissements à déployer LUMINA Education.
                 En production à Brazzaville depuis la rentrée 2026–2027.
               </p>
             </div>
@@ -142,6 +142,7 @@ export default function ProjetSavoirDeRabbinPage() {
                 transparente pour les familles et opérationnelle dès le premier
                 jour de rentrée.
               </p>
+
               <p className="text-muted text-lg leading-relaxed">
                 La mission couvrait l&apos;intégralité du déploiement : de
                 l&apos;import des données existantes à la formation des équipes,

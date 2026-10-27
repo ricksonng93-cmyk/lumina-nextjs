@@ -40,20 +40,17 @@ export default function ProjetLuminaEducationPage() {
         <Container>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 lg:gap-20 items-center">
 
-            {/* Left: text */}
+            {/* Left */}
             <div>
               <div className="flex flex-wrap gap-2 mb-8">
                 {["SaaS", "Gestion scolaire", "Développement"].map((tag) => (
-                  <span
-                    key={tag}
-                    className="text-xs text-muted bg-subtle px-3 py-1.5 rounded-full border border-border"
-                  >
+                  <span key={tag} className="text-xs text-muted bg-subtle border border-border px-3 py-1.5 rounded-full">
                     {tag}
                   </span>
                 ))}
               </div>
               <div className="mb-6">
-                <ProductIcon product="education" size={52} />
+                <ProductIcon product="education" size={44} />
               </div>
               <p className="text-[10px] uppercase tracking-widest text-edu mb-3">
                 lumina education
