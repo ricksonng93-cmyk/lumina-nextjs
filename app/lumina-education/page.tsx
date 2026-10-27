@@ -149,7 +149,7 @@ export default function LuminaEducationPage() {
       </section>
 
       {/* ── FAQ ── */}
-      <FAQ accent="text-edu" items={[
+      <FAQ accent="edu" items={[
         {
           q: "La plateforme fonctionne-t-elle avec une connexion internet instable ?",
           a: "LUMINA Education est conçue pour les réalités africaines. Les données se synchronisent dès que la connexion est disponible. Les fonctions essentielles restent accessibles même avec un débit limité.",

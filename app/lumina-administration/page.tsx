@@ -101,7 +101,7 @@ export default function LuminaAdministrationPage() {
       </section>
 
       {/* ── FAQ ── */}
-      <FAQ accent="text-admin" items={[
+      <FAQ accent="administration" items={[
         {
           q: "Peut-on numériser et importer nos archives papier existantes ?",
           a: "Oui. L'importation et la numérisation des données existantes font partie du déploiement. Vos archives historiques deviennent consultables et cherchables depuis la plateforme, sans tout ressaisir manuellement.",

@@ -9,7 +9,14 @@ export interface FAQItem {
   a: string;
 }
 
-export default function FAQ({ items, accent = "text-muted" }: { items: FAQItem[]; accent?: string }) {
+const ACCENT: Record<string, { label: string; circle: string }> = {
+  edu:            { label: "text-edu",   circle: "bg-edu border-edu" },
+  care:           { label: "text-care",  circle: "bg-care border-care" },
+  administration: { label: "text-admin", circle: "bg-admin border-admin" },
+};
+
+export default function FAQ({ items, accent }: { items: FAQItem[]; accent?: "edu" | "care" | "administration" }) {
+  const { label: labelColor, circle: circleColor } = accent ? ACCENT[accent] : { label: "text-muted", circle: "bg-ink border-ink" };
   const [open, setOpen] = useState<number | null>(null);
 
   return (
@@ -17,7 +24,7 @@ export default function FAQ({ items, accent = "text-muted" }: { items: FAQItem[]
       <Container>
         <div className="grid grid-cols-1 lg:grid-cols-[220px_1fr] gap-10 lg:gap-24">
           <div className="lg:pt-1">
-            <p className={`text-[10px] uppercase tracking-widest ${accent}`}>
+            <p className={`text-[10px] uppercase tracking-widest ${labelColor}`}>
               Questions fréquentes
             </p>
           </div>
@@ -42,7 +49,7 @@ export default function FAQ({ items, accent = "text-muted" }: { items: FAQItem[]
                     className={[
                       "flex-shrink-0 w-6 h-6 rounded-full border flex items-center justify-center transition-all duration-200",
                       open === i
-                        ? "bg-ink border-ink"
+                        ? circleColor
                         : "border-border group-hover:border-ink",
                     ].join(" ")}
                   >
