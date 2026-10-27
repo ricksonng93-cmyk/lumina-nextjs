@@ -9,14 +9,14 @@ export interface FAQItem {
   a: string;
 }
 
-const ACCENT: Record<string, { label: string; circle: string }> = {
-  edu:            { label: "text-edu",   circle: "bg-edu border-edu" },
-  care:           { label: "text-care",  circle: "bg-care border-care" },
-  administration: { label: "text-admin", circle: "bg-admin border-admin" },
+const ACCENT: Record<string, string> = {
+  edu:            "bg-edu border-edu",
+  care:           "bg-care border-care",
+  administration: "bg-admin border-admin",
 };
 
 export default function FAQ({ items, accent }: { items: FAQItem[]; accent?: "edu" | "care" | "administration" }) {
-  const { label: labelColor, circle: circleColor } = accent ? ACCENT[accent] : { label: "text-muted", circle: "bg-ink border-ink" };
+  const circleColor = accent ? ACCENT[accent] : "bg-ink border-ink";
   const [open, setOpen] = useState<number | null>(null);
 
   return (
@@ -24,7 +24,7 @@ export default function FAQ({ items, accent }: { items: FAQItem[]; accent?: "edu
       <Container>
         <div className="grid grid-cols-1 lg:grid-cols-[220px_1fr] gap-10 lg:gap-24">
           <div className="lg:pt-1">
-            <p className={`text-[10px] uppercase tracking-widest ${labelColor}`}>
+            <p className="text-[10px] uppercase tracking-widest text-muted">
               Questions fréquentes
             </p>
           </div>
