@@ -265,16 +265,8 @@ export default function Header() {
           </nav>
 
           {/* ── Desktop CTA ── */}
-          <div className="hidden lg:flex flex-shrink-0 items-center gap-3">
-            <a
-              href="https://app.lumina-cg.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-sm font-semibold text-muted hover:text-ink transition-colors duration-150"
-            >
-              Connexion
-            </a>
-            <Button as="a" href="/contact" size="sm">Écrire</Button>
+          <div className="hidden lg:block flex-shrink-0">
+            <Button as="a" href="https://app.lumina-cg.com" size="sm" target="_blank" rel="noopener noreferrer">Connexion</Button>
           </div>
 
           {/* ── Mobile burger ── */}
@@ -376,18 +368,9 @@ export default function Header() {
             À propos
           </Link>
 
-          <a
-            href="https://app.lumina-cg.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            onClick={() => setOpen(false)}
-            className="px-4 py-3 rounded-xl text-sm font-semibold text-muted hover:text-ink hover:bg-subtle transition-colors"
-          >
-            Connexion
-          </a>
           <div className="pt-2 pb-1">
-            <Button as="a" href="/contact" size="md" className="w-full justify-center">
-              Écrire
+            <Button as="a" href="https://app.lumina-cg.com" size="md" className="w-full justify-center" target="_blank" rel="noopener noreferrer">
+              Connexion
             </Button>
           </div>
         </nav>
