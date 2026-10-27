@@ -34,11 +34,11 @@ export default function Image() {
       >
         {/* Top-left: brand */}
         <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
-          {/* LUMINA signe — app icon style */}
+          {/* LUMINA signe — exact app icon */}
           <svg width="56" height="56" viewBox="0 0 48 48" style={{ flexShrink: 0 }}>
-            <rect width="48" height="48" rx="10" fill="#0F172A"/>
-            <path d="M17 14.5v16.5M17 31h12.5" fill="none" stroke="white" strokeWidth="2.8" strokeLinecap="round"/>
-            <path d="M24.5 18.5v-3.4M29.2 20.8l2.4-2.4M27 25.3h3.8" fill="none" stroke="white" strokeWidth="2.2" strokeLinecap="round"/>
+            <rect width="48" height="48" rx="12" fill="#0F172A"/>
+            <path d="M14.5 11v22.2h19" fill="none" stroke="white" strokeWidth="3.6" strokeLinecap="round" strokeLinejoin="round"/>
+            <path d="M27.6 17.6v-4.2M33.6 20.2l3-3M30.8 26.4h4.8" fill="none" stroke="white" strokeWidth="2.6" strokeLinecap="round"/>
           </svg>
           <span style={{ fontSize: '26px', fontWeight: 600, color: '#0F172A', letterSpacing: '-0.02em' }}>
             LUMINA Creative Group
