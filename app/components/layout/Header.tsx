@@ -254,10 +254,10 @@ export default function Header() {
 
             {/* À propos */}
             <Link
-              href="/equipe"
+              href="/a-propos"
               className={[
                 "px-4 py-2 rounded-full text-sm font-medium transition-colors duration-150",
-                pathname === "/equipe" ? "text-ink bg-subtle" : "text-muted hover:text-ink hover:bg-subtle",
+                pathname === "/a-propos" ? "text-ink bg-subtle" : "text-muted hover:text-ink hover:bg-subtle",
               ].join(" ")}
             >
               À propos
@@ -358,11 +358,11 @@ export default function Header() {
           </Link>
 
           <Link
-            href="/equipe"
+            href="/a-propos"
             onClick={() => setOpen(false)}
             className={[
               "px-4 py-3 rounded-xl text-sm font-medium transition-colors",
-              pathname === "/equipe" ? "bg-subtle text-ink" : "text-muted hover:text-ink hover:bg-subtle",
+              pathname === "/a-propos" ? "bg-subtle text-ink" : "text-muted hover:text-ink hover:bg-subtle",
             ].join(" ")}
           >
             À propos

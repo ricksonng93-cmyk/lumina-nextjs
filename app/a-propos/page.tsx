@@ -10,11 +10,11 @@ export const metadata: Metadata = {
   description:
     "Faity Rickson NGAKOUA-BOUYA, fondateur et directeur créatif de LUMINA Creative Group.",
   openGraph: {
-    url: "https://lumina-cg.com/equipe",
+    url: "https://lumina-cg.com/a-propos",
     title: "À propos | LUMINA Creative Group",
     description: "Faity Rickson NGAKOUA-BOUYA, fondateur et directeur créatif.",
   },
-  alternates: { canonical: "https://lumina-cg.com/equipe" },
+  alternates: { canonical: "https://lumina-cg.com/a-propos" },
 };
 
 const VALEURS = [
