@@ -48,14 +48,14 @@ const expertises = [
 
 const projects = [
   {
-    slug:     null,
+    slug:     "savoir-de-rabbin",
     num:      "01",
     name:     "Le Savoir de Rabbin",
     subtitle: null,
-    tags:     ["Gestion scolaire", "SaaS", "Premier déploiement"],
+    tags:     ["Gestion scolaire", "SaaS", "Actif"],
     image:    "/logos/savoir-rabbin.png",
     product:  null,
-    linked:   false,
+    linked:   true,
   },
   {
     slug:     "france-afrique-media",
@@ -286,15 +286,17 @@ export default function HomePage() {
                     )}
                   </span>
 
-                  <span className="hidden sm:flex gap-2 flex-shrink-0">
-                    {p.tags.map((tag) => (
-                      <span
-                        key={tag}
-                        className="text-xs text-muted bg-subtle px-2.5 py-1 rounded-full"
-                      >
-                        {tag}
-                      </span>
-                    ))}
+                  <span className="hidden sm:flex gap-2 flex-shrink-0 flex-wrap">
+                    {p.tags.map((tag) =>
+                      tag === "Actif" ? (
+                        <span key={tag} className="inline-flex items-center gap-1.5 text-xs text-green-700 bg-green-50 border border-green-200 px-2.5 py-1 rounded-full">
+                          <span className="w-1.5 h-1.5 rounded-full bg-green-500 flex-shrink-0" />
+                          {tag}
+                        </span>
+                      ) : (
+                        <span key={tag} className="text-xs text-muted bg-subtle px-2.5 py-1 rounded-full">{tag}</span>
+                      )
+                    )}
                   </span>
 
                   {p.linked && (

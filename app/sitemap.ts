@@ -12,6 +12,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE}/lumina-administration`,                lastModified: now, changeFrequency: "monthly", priority: 0.9 },
     { url: `${BASE}/lumina-care`,                          lastModified: now, changeFrequency: "monthly", priority: 0.9 },
     { url: `${BASE}/travaux`,                              lastModified: now, changeFrequency: "monthly", priority: 0.8 },
+    { url: `${BASE}/travaux/savoir-de-rabbin`,             lastModified: now, changeFrequency: "yearly",  priority: 0.7 },
     { url: `${BASE}/travaux/lumina-education`,             lastModified: now, changeFrequency: "yearly",  priority: 0.7 },
     { url: `${BASE}/travaux/france-afrique-media`,         lastModified: now, changeFrequency: "yearly",  priority: 0.7 },
     { url: `${BASE}/travaux/master-finance`,               lastModified: now, changeFrequency: "yearly",  priority: 0.7 },
