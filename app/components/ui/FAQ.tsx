@@ -9,7 +9,7 @@ export interface FAQItem {
   a: string;
 }
 
-export default function FAQ({ items }: { items: FAQItem[] }) {
+export default function FAQ({ items, accent = "text-muted" }: { items: FAQItem[]; accent?: string }) {
   const [open, setOpen] = useState<number | null>(null);
 
   return (
@@ -17,7 +17,7 @@ export default function FAQ({ items }: { items: FAQItem[] }) {
       <Container>
         <div className="grid grid-cols-1 lg:grid-cols-[220px_1fr] gap-10 lg:gap-24">
           <div className="lg:pt-1">
-            <p className="text-[10px] uppercase tracking-widest text-muted">
+            <p className={`text-[10px] uppercase tracking-widest ${accent}`}>
               Questions fréquentes
             </p>
           </div>

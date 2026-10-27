@@ -197,7 +197,7 @@ export default function ExpertisesPage() {
         },
         {
           q: "Combien de temps dure un projet en moyenne ?",
-          a: "Cela dépend du périmètre et des spécificités de votre projet. Nous posons un calendrier réaliste dès le départ — et nous sommes rapides.",
+          a: "Cela dépend du périmètre et des spécificités de votre projet. Nous posons un calendrier réaliste dès le départ.",
         },
         {
           q: "Comment se passe la collaboration une fois le projet lancé ?",

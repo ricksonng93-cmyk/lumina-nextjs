@@ -101,7 +101,7 @@ export default function LuminaCarePage() {
       </section>
 
       {/* ── FAQ ── */}
-      <FAQ items={[
+      <FAQ accent="text-care" items={[
         {
           q: "Convient-elle aux petits cabinets comme aux cliniques ?",
           a: "Oui. LUMINA Care est pensée pour des structures de toute taille, d'un cabinet individuel à une clinique multi-praticiens. Le déploiement et les fonctionnalités s'adaptent à votre équipe et à votre volume.",

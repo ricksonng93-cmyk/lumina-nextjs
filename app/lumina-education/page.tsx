@@ -149,7 +149,7 @@ export default function LuminaEducationPage() {
       </section>
 
       {/* ── FAQ ── */}
-      <FAQ items={[
+      <FAQ accent="text-edu" items={[
         {
           q: "La plateforme fonctionne-t-elle avec une connexion internet instable ?",
           a: "LUMINA Education est conçue pour les réalités africaines. Les données se synchronisent dès que la connexion est disponible. Les fonctions essentielles restent accessibles même avec un débit limité.",
@@ -164,7 +164,7 @@ export default function LuminaEducationPage() {
         },
         {
           q: "Que se passe-t-il si on décide d'arrêter d'utiliser la plateforme ?",
-          a: "Vos données vous appartiennent entièrement. Vous pouvez les exporter à tout moment au format Excel ou PDF. Aucun engagement de durée n'est imposé.",
+          a: "Vos données vous appartiennent entièrement. Vous pouvez les exporter à tout moment au format Excel ou PDF. Les modalités de fin de collaboration sont définies dans votre contrat.",
         },
         {
           q: "Les parents doivent-ils être à l'aise avec la technologie ?",
