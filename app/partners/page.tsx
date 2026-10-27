@@ -134,8 +134,8 @@ export default function PartnersPage() {
       {/* ── Formulaire ── */}
       <section className="py-20 lg:py-28">
         <Container>
-          <div className="max-w-xl">
-            <p className="text-[10px] uppercase tracking-widest text-muted mb-6">
+          <div className="max-w-xl mx-auto">
+            <p className="text-[10px] uppercase tracking-widest text-muted mb-6 text-center">
               nous écrire
             </p>
             <PartnersForm />
