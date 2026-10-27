@@ -93,44 +93,39 @@ export default function ExpertisesPage() {
   return (
     <>
       {/* ── Hero ── */}
-      <section className="bg-white border-b border-border py-20 lg:py-28">
+      <section className="bg-ink relative overflow-hidden py-20 lg:py-32">
+        <div aria-hidden="true" className="pointer-events-none absolute -right-32 -top-32 w-[700px] h-[700px] rounded-full bg-agency/8 blur-3xl" />
         <Container>
-          <div className="flex flex-col lg:flex-row items-center gap-14 lg:gap-20">
+          <div className="max-w-3xl">
+            <p className="text-[10px] uppercase tracking-widest text-white/40 mb-6">
+              nos expertises
+            </p>
+            <h1 className="text-5xl lg:text-6xl font-black text-white leading-tight tracking-tight mb-6">
+              Quatre domaines.<br />Un seul interlocuteur.
+            </h1>
+            <p className="text-white/50 text-lg leading-relaxed max-w-xl mb-14">
+              Du diagnostic initial à la maintenance long terme, nous couvrons
+              l&apos;ensemble du cycle de vie d&apos;un projet numérique.
+            </p>
 
-            {/* Left: text + CTA */}
-            <div className="flex-1 max-w-xl">
-              <p className="text-[10px] uppercase tracking-widest text-agency mb-3">
-                nos expertises
-              </p>
-              <h1 className="text-4xl lg:text-5xl font-black text-ink leading-tight tracking-tight">
-                Quatre domaines.<br />Un seul interlocuteur.
-              </h1>
-              <p className="mt-6 text-muted text-lg leading-relaxed">
-                Du diagnostic initial à la maintenance long terme, nous couvrons
-                l&apos;ensemble du cycle de vie d&apos;un projet numérique.
-              </p>
-              <div className="mt-10">
-                <Button as="a" href="/contact">Demander un audit</Button>
-              </div>
-            </div>
-
-            {/* Right: 2x2 expertise cards */}
-            <div className="flex-1 w-full grid grid-cols-2 gap-3 max-w-sm lg:max-w-none">
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 mb-14">
               {HERO_CARDS.map((card) => (
                 <a
                   key={card.id}
                   href={`#${card.id}`}
-                  className="group border border-border rounded-2xl p-5 lg:p-6 hover:border-agency hover:bg-subtle transition-all duration-200"
+                  className="group border border-white/10 rounded-xl p-4 hover:border-agency/60 hover:bg-white/5 transition-all duration-200"
                 >
-                  <p className="font-mono text-xs text-muted mb-3">{card.num}</p>
-                  <p className="text-[10px] uppercase tracking-widest text-agency mb-2">{card.label}</p>
-                  <p className="font-semibold text-ink text-sm leading-snug group-hover:text-agency transition-colors">
+                  <p className="font-mono text-xs text-white/25 mb-2">{card.num}</p>
+                  <p className="text-[10px] uppercase tracking-widest text-agency mb-1.5">{card.label}</p>
+                  <p className="text-xs font-semibold text-white/70 leading-snug group-hover:text-white transition-colors">
                     {card.title}
                   </p>
-                  <ArrowRight size={12} className="mt-3 text-muted opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all duration-200" />
+                  <ArrowRight size={11} className="mt-2 text-agency opacity-0 group-hover:opacity-100 group-hover:translate-x-0.5 transition-all duration-200" />
                 </a>
               ))}
             </div>
+
+            <Button as="a" href="/contact">Demander un audit</Button>
           </div>
         </Container>
       </section>

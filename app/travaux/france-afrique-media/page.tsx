@@ -17,6 +17,15 @@ export const metadata: Metadata = {
   alternates: { canonical: "https://lumina-cg.com/travaux/france-afrique-media" },
 };
 
+const DELIVERABLES = [
+  { num: "01", title: "Logotype principal", desc: "Création du logo, variantes couleur, monochrome et blanc." },
+  { num: "02", title: "Charte graphique", desc: "Palette, typographie, règles d'usage et gabarits." },
+  { num: "03", title: "Gabarits éditoriaux", desc: "Templates publication web, social media et newsletter." },
+  { num: "04", title: "Site éditorial", desc: "Développement du site avec CMS intégré pour l'équipe rédactionnelle." },
+  { num: "05", title: "Optimisation SEO", desc: "Structure technique, balises et maillage interne." },
+  { num: "06", title: "Manuel de marque", desc: "Guide complet remis aux équipes pour une utilisation autonome." },
+];
+
 export default function ProjetFranceAfriqueMediaPage() {
   return (
     <>
@@ -43,10 +52,8 @@ export default function ProjetFranceAfriqueMediaPage() {
           quality={85}
           priority
         />
-        {/* Dark overlay */}
         <div className="absolute inset-0 bg-ink/75" />
 
-        {/* Overlaid content */}
         <div className="relative z-10 w-full pb-16 lg:pb-20">
           <Container>
             <div className="flex flex-wrap gap-2 mb-6">
@@ -59,7 +66,7 @@ export default function ProjetFranceAfriqueMediaPage() {
                 </span>
               ))}
             </div>
-            <h1 className="text-4xl lg:text-5xl font-black text-white leading-tight tracking-tight max-w-2xl">
+            <h1 className="text-2xl sm:text-4xl lg:text-5xl font-black text-white leading-tight tracking-tight max-w-2xl">
               France-Afrique Média
             </h1>
             <p className="mt-4 text-white/60 text-lg leading-relaxed max-w-xl">
@@ -70,22 +77,20 @@ export default function ProjetFranceAfriqueMediaPage() {
         </div>
       </section>
 
-      {/* ── Metadata bar ── */}
-      <section className="border-b border-border bg-subtle py-6">
+      {/* ── Stats ── */}
+      <section className="border-b border-border">
         <Container>
-          <div className="flex flex-wrap gap-8">
-            <div>
-              <p className="text-xs text-muted">Type</p>
-              <p className="text-sm font-semibold text-ink mt-0.5">Identité de marque</p>
-            </div>
-            <div>
-              <p className="text-xs text-muted">Services</p>
-              <p className="text-sm font-semibold text-ink mt-0.5">Logo · Développement</p>
-            </div>
-            <div>
-              <p className="text-xs text-muted">Secteur</p>
-              <p className="text-sm font-semibold text-ink mt-0.5">Média</p>
-            </div>
+          <div className="grid grid-cols-3 divide-x divide-border">
+            {[
+              { value: "6", label: "livrables" },
+              { value: "3", label: "expertises mobilisées" },
+              { value: "1", label: "identité de marque" },
+            ].map((s) => (
+              <div key={s.label} className="py-8 px-4 lg:px-8 text-center">
+                <p className="text-3xl lg:text-4xl font-black text-ink">{s.value}</p>
+                <p className="text-xs text-muted mt-1">{s.label}</p>
+              </div>
+            ))}
           </div>
         </Container>
       </section>
@@ -98,16 +103,18 @@ export default function ProjetFranceAfriqueMediaPage() {
               <p className="text-[10px] uppercase tracking-widest text-muted">Le contexte</p>
             </div>
             <div className="max-w-2xl">
+              <p className="text-2xl lg:text-3xl font-black text-ink leading-snug tracking-tight mb-8">
+                Un média sérieux, sans identité à la hauteur de ses ambitions.
+              </p>
               <p className="text-muted text-lg leading-relaxed mb-5">
-                France-Afrique Média couvrait l&apos;actualité africaine sans
-                identité visuelle cohérente. Le logotype existant n&apos;était
-                pas déclinable sur les supports digitaux, et le site ne reflétait
-                pas le positionnement éditorial de la rédaction.
+                France-Afrique Média couvrait une actualité de qualité, mais son
+                identité visuelle fragmentée nuisait à sa crédibilité face aux
+                annonceurs et aux lecteurs. Aucune cohérence entre les supports,
+                aucun guide pour les équipes.
               </p>
               <p className="text-muted text-lg leading-relaxed">
-                La mission couvrait l&apos;ensemble de l&apos;identité de marque,
-                de la refonte du logotype au développement d&apos;un nouveau site
-                éditorial.
+                La mission : créer une identité forte, déclinable sur l&apos;ensemble
+                des formats éditoriaux, et développer le site qui la mette en valeur.
               </p>
             </div>
           </div>
@@ -123,24 +130,19 @@ export default function ProjetFranceAfriqueMediaPage() {
             </div>
             <div className="max-w-2xl">
               <p className="text-muted text-lg leading-relaxed mb-10">
-                Nous avons repensé l&apos;intégralité de l&apos;identité visuelle,
-                du logotype aux gabarits de publication, puis développé un site
-                éditorial structuré, rapide et pensé pour le référencement.
+                De la page blanche à un système de marque complet. Chaque livrable
+                a été conçu pour fonctionner seul et dans l&apos;ensemble, du logo
+                au site en passant par les gabarits utilisés au quotidien.
               </p>
-              <ul className="space-y-3">
-                {[
-                  "Logotype et déclinaisons (couleur, monochrome, blanc)",
-                  "Charte graphique complète",
-                  "Gabarits pour les publications digitales",
-                  "Développement du site éditorial",
-                  "Optimisation pour le référencement naturel",
-                ].map((item) => (
-                  <li key={item} className="flex items-start gap-3 text-sm text-ink">
-                    <span className="mt-2 w-1.5 h-1.5 rounded-full bg-agency flex-shrink-0" />
-                    {item}
-                  </li>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                {DELIVERABLES.map((d) => (
+                  <div key={d.num} className="bg-white border border-border rounded-2xl p-5">
+                    <p className="font-mono text-xs text-muted mb-3">{d.num}</p>
+                    <p className="font-semibold text-ink text-sm leading-snug mb-1.5">{d.title}</p>
+                    <p className="text-xs text-muted leading-relaxed">{d.desc}</p>
+                  </div>
                 ))}
-              </ul>
+              </div>
             </div>
           </div>
         </Container>

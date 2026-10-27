@@ -17,6 +17,15 @@ export const metadata: Metadata = {
   alternates: { canonical: "https://lumina-cg.com/travaux/techcongo" },
 };
 
+const DELIVERABLES = [
+  { num: "01", title: "Logotype & charte graphique", desc: "Identité visuelle complète avec guide d'usage." },
+  { num: "02", title: "Plateforme SaaS", desc: "Développement de la plateforme de bout en bout." },
+  { num: "03", title: "Gestion des membres", desc: "Espace membres avec profils, accès et contenus dédiés." },
+  { num: "04", title: "SEO technique", desc: "Architecture, vitesse de chargement et balises structurées." },
+  { num: "05", title: "Stratégie de contenu", desc: "Plan éditorial pour asseoir l'autorité dans l'écosystème tech." },
+  { num: "06", title: "Outils de communication", desc: "Intégration newsletter et outils d'engagement communauté." },
+];
+
 export default function ProjetTechCongoPage() {
   return (
     <>
@@ -61,29 +70,27 @@ export default function ProjetTechCongoPage() {
               TechCongo
             </h1>
             <p className="mt-4 text-white/60 text-lg leading-relaxed max-w-xl">
-              Plateforme SaaS, identité de marque et référencement pour un acteur
-              de l&apos;écosystème numérique congolais.
+              Plateforme SaaS, identité de marque et référencement pour le
+              repère de l&apos;écosystème numérique congolais.
             </p>
           </Container>
         </div>
       </section>
 
-      {/* ── Metadata bar ── */}
-      <section className="border-b border-border bg-subtle py-6">
+      {/* ── Stats ── */}
+      <section className="border-b border-border">
         <Container>
-          <div className="flex flex-wrap gap-8">
-            <div>
-              <p className="text-xs text-muted">Type</p>
-              <p className="text-sm font-semibold text-ink mt-0.5">Plateforme SaaS</p>
-            </div>
-            <div>
-              <p className="text-xs text-muted">Services</p>
-              <p className="text-sm font-semibold text-ink mt-0.5">Développement · Identité · SEO</p>
-            </div>
-            <div>
-              <p className="text-xs text-muted">Secteur</p>
-              <p className="text-sm font-semibold text-ink mt-0.5">Technologie</p>
-            </div>
+          <div className="grid grid-cols-3 divide-x divide-border">
+            {[
+              { value: "6", label: "livrables" },
+              { value: "3", label: "expertises mobilisées" },
+              { value: "1", label: "plateforme SaaS" },
+            ].map((s) => (
+              <div key={s.label} className="py-8 px-4 lg:px-8 text-center">
+                <p className="text-3xl lg:text-4xl font-black text-ink">{s.value}</p>
+                <p className="text-xs text-muted mt-1">{s.label}</p>
+              </div>
+            ))}
           </div>
         </Container>
       </section>
@@ -96,12 +103,14 @@ export default function ProjetTechCongoPage() {
               <p className="text-[10px] uppercase tracking-widest text-muted">Le contexte</p>
             </div>
             <div className="max-w-2xl">
+              <p className="text-2xl lg:text-3xl font-black text-ink leading-snug tracking-tight mb-8">
+                Devenir la référence tech au Congo. Le potentiel était là, l&apos;outil manquait.
+              </p>
               <p className="text-muted text-lg leading-relaxed mb-5">
                 TechCongo souhaitait se positionner comme la référence de
                 l&apos;écosystème technologique au Congo. L&apos;absence d&apos;une
                 identité visuelle forte et d&apos;une plateforme structurée limitait
-                leur capacité à attirer des partenaires et à fidéliser leur
-                communauté.
+                leur capacité à attirer des partenaires et à fédérer leur communauté.
               </p>
               <p className="text-muted text-lg leading-relaxed">
                 La mission couvrait la création de l&apos;identité de marque, le
@@ -122,25 +131,19 @@ export default function ProjetTechCongoPage() {
             </div>
             <div className="max-w-2xl">
               <p className="text-muted text-lg leading-relaxed mb-10">
-                Nous avons conçu l&apos;identité visuelle complète, développé la
-                plateforme et structuré la présence en ligne de TechCongo pour
-                en faire un repère crédible dans l&apos;écosystème tech congolais.
+                De l&apos;identité à la plateforme, en passant par le contenu et
+                le référencement. Un projet complet mené en trois expertises
+                coordonnées pour livrer un résultat cohérent de bout en bout.
               </p>
-              <ul className="space-y-3">
-                {[
-                  "Logotype et charte graphique complète",
-                  "Développement de la plateforme SaaS",
-                  "Gestion des contenus et des membres",
-                  "Optimisation SEO technique et on-page",
-                  "Stratégie de contenu pour le référencement naturel",
-                  "Intégration des outils de communication et de newsletter",
-                ].map((item) => (
-                  <li key={item} className="flex items-start gap-3 text-sm text-ink">
-                    <span className="mt-2 w-1.5 h-1.5 rounded-full bg-agency flex-shrink-0" />
-                    {item}
-                  </li>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                {DELIVERABLES.map((d) => (
+                  <div key={d.num} className="bg-white border border-border rounded-2xl p-5">
+                    <p className="font-mono text-xs text-muted mb-3">{d.num}</p>
+                    <p className="font-semibold text-ink text-sm leading-snug mb-1.5">{d.title}</p>
+                    <p className="text-xs text-muted leading-relaxed">{d.desc}</p>
+                  </div>
                 ))}
-              </ul>
+              </div>
             </div>
           </div>
         </Container>

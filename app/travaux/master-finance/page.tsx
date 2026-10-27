@@ -16,6 +16,14 @@ export const metadata: Metadata = {
   alternates: { canonical: "https://lumina-cg.com/travaux/master-finance" },
 };
 
+const DELIVERABLES = [
+  { num: "01", title: "Site institutionnel", desc: "Conception et développement du site vitrine orienté conversion." },
+  { num: "02", title: "Espace partenaire privé", desc: "Accès restreint avec gestion des droits par l'équipe." },
+  { num: "03", title: "Formulaires intelligents", desc: "Prise de contact et demandes qualifiées intégrées." },
+  { num: "04", title: "SEO on-page", desc: "Structure technique, balises et architecture de contenu." },
+  { num: "05", title: "Stratégie d'acquisition", desc: "Contenu éditorial pensé pour le référencement naturel." },
+];
+
 export default function ProjetMasterFinancePage() {
   return (
     <>
@@ -42,10 +50,8 @@ export default function ProjetMasterFinancePage() {
           quality={85}
           priority
         />
-        {/* Dark overlay */}
         <div className="absolute inset-0 bg-ink/75" />
 
-        {/* Overlaid content */}
         <div className="relative z-10 w-full pb-16 lg:pb-20">
           <Container>
             <div className="flex flex-wrap gap-2 mb-6">
@@ -62,28 +68,27 @@ export default function ProjetMasterFinancePage() {
               Master Finance
             </h1>
             <p className="mt-4 text-white/60 text-lg leading-relaxed max-w-xl">
-              Site institutionnel, espace partenaire et stratégie de référencement.
+              Site institutionnel, espace partenaire et stratégie de référencement
+              pour une structure financière.
             </p>
           </Container>
         </div>
       </section>
 
-      {/* ── Metadata bar ── */}
-      <section className="border-b border-border bg-subtle py-6">
+      {/* ── Stats ── */}
+      <section className="border-b border-border">
         <Container>
-          <div className="flex flex-wrap gap-8">
-            <div>
-              <p className="text-xs text-muted">Type</p>
-              <p className="text-sm font-semibold text-ink mt-0.5">Site institutionnel</p>
-            </div>
-            <div>
-              <p className="text-xs text-muted">Services</p>
-              <p className="text-sm font-semibold text-ink mt-0.5">SEO · Acquisition</p>
-            </div>
-            <div>
-              <p className="text-xs text-muted">Secteur</p>
-              <p className="text-sm font-semibold text-ink mt-0.5">Finance</p>
-            </div>
+          <div className="grid grid-cols-3 divide-x divide-border">
+            {[
+              { value: "5", label: "livrables" },
+              { value: "2", label: "cibles (clients & partenaires)" },
+              { value: "1", label: "espace partenaire privé" },
+            ].map((s) => (
+              <div key={s.label} className="py-8 px-4 lg:px-8 text-center">
+                <p className="text-3xl lg:text-4xl font-black text-ink">{s.value}</p>
+                <p className="text-xs text-muted mt-1">{s.label}</p>
+              </div>
+            ))}
           </div>
         </Container>
       </section>
@@ -96,17 +101,19 @@ export default function ProjetMasterFinancePage() {
               <p className="text-[10px] uppercase tracking-widest text-muted">Le contexte</p>
             </div>
             <div className="max-w-2xl">
+              <p className="text-2xl lg:text-3xl font-black text-ink leading-snug tracking-tight mb-8">
+                Une structure sérieuse, sans vitrine numérique à la mesure de ses ambitions.
+              </p>
               <p className="text-muted text-lg leading-relaxed mb-5">
-                Master Finance avait besoin d&apos;une présence en ligne crédible
-                pour attirer des partenaires et des clients. La mission couvrait
-                la conception du site, l&apos;intégration d&apos;un espace partenaire
-                privé et une stratégie de référencement pour générer des
-                opportunités qualifiées.
+                Master Finance souhaitait asseoir sa crédibilité en ligne pour
+                attirer des clients et des partenaires stratégiques. L&apos;absence
+                d&apos;une présence digitale structurée limitait leur capacité à
+                générer des opportunités qualifiées.
               </p>
               <p className="text-muted text-lg leading-relaxed">
-                L&apos;espace partenaire devait permettre à des tiers d&apos;accéder
-                à des ressources et des informations réservées, avec des accès
-                gérés par l&apos;équipe.
+                La mission couvrait la conception du site institutionnel,
+                l&apos;intégration d&apos;un espace partenaire privé et la mise en
+                place des fondations SEO nécessaires à l&apos;acquisition organique.
               </p>
             </div>
           </div>
@@ -122,24 +129,19 @@ export default function ProjetMasterFinancePage() {
             </div>
             <div className="max-w-2xl">
               <p className="text-muted text-lg leading-relaxed mb-10">
-                Nous avons conçu et développé le site institutionnel, intégré
-                l&apos;espace partenaire avec gestion des accès, puis mis en place
-                les fondations SEO nécessaires à l&apos;acquisition organique.
+                Un site pensé pour convertir deux audiences distinctes : les
+                clients potentiels cherchant des services financiers, et les
+                partenaires souhaitant accéder à des ressources dédiées.
               </p>
-              <ul className="space-y-3">
-                {[
-                  "Conception et développement du site institutionnel",
-                  "Espace partenaire avec accès restreint et gestion des droits",
-                  "Optimisation SEO on-page",
-                  "Stratégie de contenu pour l'acquisition organique",
-                  "Intégration des formulaires de contact et de demande",
-                ].map((item) => (
-                  <li key={item} className="flex items-start gap-3 text-sm text-ink">
-                    <span className="mt-2 w-1.5 h-1.5 rounded-full bg-agency flex-shrink-0" />
-                    {item}
-                  </li>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                {DELIVERABLES.map((d) => (
+                  <div key={d.num} className="bg-white border border-border rounded-2xl p-5">
+                    <p className="font-mono text-xs text-muted mb-3">{d.num}</p>
+                    <p className="font-semibold text-ink text-sm leading-snug mb-1.5">{d.title}</p>
+                    <p className="text-xs text-muted leading-relaxed">{d.desc}</p>
+                  </div>
                 ))}
-              </ul>
+              </div>
             </div>
           </div>
         </Container>
@@ -156,10 +158,10 @@ export default function ProjetMasterFinancePage() {
               <Button as="a" href="/contact">Demander un audit</Button>
             </div>
             <Link
-              href="/travaux/lumina-education"
+              href="/travaux/techcongo"
               className="text-sm text-muted inline-flex items-center gap-1 hover:text-ink transition-colors flex-shrink-0"
             >
-              Voir LUMINA Education <ArrowRight size={13} />
+              Projet suivant : TechCongo <ArrowRight size={13} />
             </Link>
           </div>
         </Container>

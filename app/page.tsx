@@ -48,14 +48,14 @@ const expertises = [
 
 const projects = [
   {
-    slug:     "lumina-education",
+    slug:     null,
     num:      "01",
-    name:     "LUMINA Education",
+    name:     "Le Savoir de Rabbin",
     subtitle: null,
-    tags:     ["SaaS", "Gestion scolaire", "Développement"],
-    image:    null,
-    product:  "education" as const,
-    linked:   true,
+    tags:     ["Gestion scolaire", "SaaS", "Premier déploiement"],
+    image:    "/logos/savoir-rabbin.png",
+    product:  null,
+    linked:   false,
   },
   {
     slug:     "france-afrique-media",
@@ -78,14 +78,14 @@ const projects = [
     linked:   true,
   },
   {
-    slug:     null,
+    slug:     "techcongo",
     num:      "04",
     name:     "TechCongo",
     subtitle: null,
     tags:     ["SaaS", "Développement", "Identité visuelle", "SEO"],
     image:    "/projects/techcongo.png",
     product:  null,
-    linked:   false,
+    linked:   true,
   },
 ];
 
