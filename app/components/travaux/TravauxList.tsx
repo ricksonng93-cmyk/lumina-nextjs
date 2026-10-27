@@ -5,13 +5,13 @@ import ProductIcon from "@/app/components/ui/ProductIcon";
 
 const projects = [
   {
-    slug:    "lumina-education",
+    slug:    null,
     num:     "01",
-    name:    "LUMINA Education",
-    tags:    ["SaaS", "Gestion scolaire", "Développement"],
-    image:   null,
-    product: "education" as const,
-    linked:  true,
+    name:    "Le Savoir de Rabbin",
+    tags:    ["Gestion scolaire", "SaaS", "Premier déploiement"],
+    image:   "/logos/savoir-rabbin.png",
+    product: null,
+    linked:  false,
   },
   {
     slug:    "france-afrique-media",

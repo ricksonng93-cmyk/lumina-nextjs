@@ -47,8 +47,17 @@ export default function LuminaEducationPage() {
                 Notes, bulletins, paiements, emploi du temps et communication.
                 Une plateforme complète, avec un espace parent et un espace élève.
               </p>
-              <div className="mt-10">
+              <div className="mt-10 flex flex-wrap gap-3">
                 <Button as="a" href="/contact">Demander un audit</Button>
+                <Button
+                  as="a"
+                  href="https://app.lumina-cg.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  variant="secondary"
+                >
+                  Se connecter
+                </Button>
               </div>
             </div>
             <div className="flex-1 flex justify-center w-full">
