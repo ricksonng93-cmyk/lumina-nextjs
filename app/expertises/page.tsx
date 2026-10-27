@@ -197,7 +197,7 @@ export default function ExpertisesPage() {
         },
         {
           q: "Combien de temps dure un projet en moyenne ?",
-          a: "Cela dépend du périmètre. Un site institutionnel se livre entre 4 et 8 semaines. Une plateforme métier demande plusieurs mois. Nous posons un calendrier réaliste dès le départ et nous y tenons.",
+          a: "Cela dépend du périmètre et des spécificités de votre projet. Nous posons un calendrier réaliste dès le départ — et nous sommes rapides.",
         },
         {
           q: "Comment se passe la collaboration une fois le projet lancé ?",
