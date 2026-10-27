@@ -4,6 +4,7 @@ import Link from "next/link";
 import { ArrowRight, Linkedin } from "lucide-react";
 import Container from "@/app/components/ui/Container";
 import Button from "@/app/components/ui/Button";
+import FAQ from "@/app/components/ui/FAQ";
 
 export const metadata: Metadata = {
   title: "À propos",
@@ -197,6 +198,26 @@ export default function EquipePage() {
           </div>
         </Container>
       </section>
+
+      {/* ── FAQ ── */}
+      <FAQ items={[
+        {
+          q: "Travaillez-vous uniquement avec de grandes organisations ?",
+          a: "Non. Nous travaillons avec des établissements scolaires, des PME, des structures administratives et des startups. Ce qui compte, c'est la clarté du projet et la volonté d'avancer, pas la taille de la structure.",
+        },
+        {
+          q: "Avez-vous une présence physique à Brazzaville ?",
+          a: "Oui. Notre équipe opère entre Paris et Brazzaville. Pour les projets déployés au Congo, nous nous déplaçons pour les phases clés : démarrage, formation et suivi terrain. Vous avez toujours un interlocuteur disponible dans votre fuseau horaire.",
+        },
+        {
+          q: "Comment se passent les échanges au quotidien ?",
+          a: "Chaque client a un interlocuteur direct, joignable par WhatsApp et email. Pas de tickets, pas de relais entre équipes. Vous posez une question, vous obtenez une réponse dans les 24 heures.",
+        },
+        {
+          q: "Que se passe-t-il si le projet évolue en cours de route ?",
+          a: "C'est naturel dans tout projet numérique. Nous travaillons avec des jalons clairs et des points d'étape réguliers. Les évolutions sont discutées ouvertement et intégrées sans friction ni surcoût caché.",
+        },
+      ]} />
 
       {/* ── CTA ── */}
       <section className="py-20 lg:py-32">

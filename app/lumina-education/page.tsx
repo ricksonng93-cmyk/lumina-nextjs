@@ -8,6 +8,7 @@ import ProductIcon from "@/app/components/ui/ProductIcon";
 import BulletinDemo from "@/app/components/home/BulletinDemo";
 import PhoneScrollSection from "@/app/components/education/PhoneScrollSection";
 import EducationBento from "@/app/components/education/EducationBento";
+import FAQ from "@/app/components/ui/FAQ";
 
 export const metadata: Metadata = {
   title: "LUMINA Education",
@@ -146,6 +147,30 @@ export default function LuminaEducationPage() {
           </div>
         </Container>
       </section>
+
+      {/* ── FAQ ── */}
+      <FAQ items={[
+        {
+          q: "La plateforme fonctionne-t-elle avec une connexion internet instable ?",
+          a: "LUMINA Education est conçue pour les réalités africaines. Les données se synchronisent dès que la connexion est disponible. Les fonctions essentielles restent accessibles même avec un débit limité.",
+        },
+        {
+          q: "Comment la plateforme gère-t-elle les coupures de courant ?",
+          a: "Toutes les données sont sauvegardées en temps réel sur des serveurs sécurisés. Rien n'est perdu en cas de coupure. À la reconnexion, l'établissement retrouve exactement là où il s'était arrêté.",
+        },
+        {
+          q: "Est-ce vraiment adapté au système scolaire congolais ?",
+          a: "Oui. La plateforme a été construite pour les spécificités locales : bulletins trimestriels, distinction devoirs de classe et de composition, scolarités payées en mensualités, et alertes SMS aux parents.",
+        },
+        {
+          q: "Que se passe-t-il si on décide d'arrêter d'utiliser la plateforme ?",
+          a: "Vos données vous appartiennent entièrement. Vous pouvez les exporter à tout moment au format Excel ou PDF. Aucun engagement de durée n'est imposé.",
+        },
+        {
+          q: "Les parents doivent-ils être à l'aise avec la technologie ?",
+          a: "L'espace parent est pensé pour être simple. Depuis un téléphone, ils consultent les notes, les bulletins et les paiements en quelques secondes. Aucune connaissance technique requise.",
+        },
+      ]} />
 
       {/* ── CTA ── */}
       <section className="py-20 lg:py-32">

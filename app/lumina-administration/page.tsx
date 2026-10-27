@@ -6,6 +6,7 @@ import Button from "@/app/components/ui/Button";
 import ProductIcon from "@/app/components/ui/ProductIcon";
 import AdminDemo from "@/app/components/product/AdminDemo";
 import AdminBento from "@/app/components/product/AdminBento";
+import FAQ from "@/app/components/ui/FAQ";
 
 export const metadata: Metadata = {
   title: "LUMINA Administration",
@@ -98,6 +99,26 @@ export default function LuminaAdministrationPage() {
           </div>
         </Container>
       </section>
+
+      {/* ── FAQ ── */}
+      <FAQ items={[
+        {
+          q: "Peut-on numériser et importer nos archives papier existantes ?",
+          a: "Oui. L'importation et la numérisation des données existantes font partie du déploiement. Vos archives historiques deviennent consultables et cherchables depuis la plateforme, sans tout ressaisir manuellement.",
+        },
+        {
+          q: "Comment la plateforme gère-t-elle les coupures d'électricité et de réseau ?",
+          a: "Les données sont hébergées sur des serveurs sécurisés. À la reconnexion, chaque agent retrouve son travail exactement où il l'avait laissé, sans perte. Nous recommandons un accès mobile comme solution de continuité.",
+        },
+        {
+          q: "Qui contrôle les accès au sein de notre structure ?",
+          a: "L'administrateur principal gère les droits de chaque agent. Chaque utilisateur n'accède qu'aux dossiers relevant de sa fonction. Tout est traçable : qui a consulté quoi, à quelle heure.",
+        },
+        {
+          q: "Peut-on adapter les circuits de validation à notre organisation ?",
+          a: "Oui. Chaque structure a ses propres processus. Nous configurons LUMINA Administration selon vos circuits réels : niveaux hiérarchiques, signatures requises, délais et notifications automatiques.",
+        },
+      ]} />
 
       {/* ── Appel à l'action ── */}
       <section className="py-20 lg:py-32">

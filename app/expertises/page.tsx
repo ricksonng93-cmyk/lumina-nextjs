@@ -3,6 +3,7 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import Container from "@/app/components/ui/Container";
 import Button from "@/app/components/ui/Button";
+import FAQ from "@/app/components/ui/FAQ";
 import {
   AuditVisual,
   ConceptionVisual,
@@ -179,6 +180,30 @@ export default function ExpertisesPage() {
           </section>
         );
       })}
+
+      {/* ── FAQ ── */}
+      <FAQ items={[
+        {
+          q: "Nous avons déjà des outils en place. Est-ce qu'on doit tout recommencer ?",
+          a: "Non. L'audit commence justement par analyser ce qui existe. On identifie ce qui fonctionne, ce qui bloque, et ce qui peut être amélioré sans tout reconstruire. Beaucoup de projets se règlent sans repartir de zéro.",
+        },
+        {
+          q: "On est basés à Brazzaville. Travaillez-vous avec des clients au Congo ?",
+          a: "Oui. Nous travaillons avec des structures à Brazzaville, Pointe-Noire et dans la diaspora depuis Paris. Les projets se pilotent à distance avec des points réguliers. Pour les phases de formation et de déploiement, nous nous déplaçons sur place.",
+        },
+        {
+          q: "On ne sait pas exactement ce dont on a besoin. Par où commencer ?",
+          a: "Par un échange. Décrivez-nous votre situation et ce qui bloque aujourd'hui. Nous identifions ensemble les priorités et proposons un plan adapté à votre réalité, pas à un modèle type.",
+        },
+        {
+          q: "Combien de temps dure un projet en moyenne ?",
+          a: "Cela dépend du périmètre. Un site institutionnel se livre entre 4 et 8 semaines. Une plateforme métier demande plusieurs mois. Nous posons un calendrier réaliste dès le départ et nous y tenons.",
+        },
+        {
+          q: "Comment se passe la collaboration une fois le projet lancé ?",
+          a: "Vous avez un interlocuteur direct, joignable par WhatsApp et email. Des points d'étape réguliers permettent de suivre l'avancement, d'ajuster le cap et de répondre à vos questions sans délai.",
+        },
+      ]} />
 
       {/* ── CTA ── */}
       <section className="py-20 lg:py-32">

@@ -6,6 +6,7 @@ import Button from "@/app/components/ui/Button";
 import ProductIcon from "@/app/components/ui/ProductIcon";
 import CareDemo from "@/app/components/product/CareDemo";
 import CareBento from "@/app/components/product/CareBento";
+import FAQ from "@/app/components/ui/FAQ";
 
 export const metadata: Metadata = {
   title: "LUMINA Care",
@@ -98,6 +99,26 @@ export default function LuminaCarePage() {
           </div>
         </Container>
       </section>
+
+      {/* ── FAQ ── */}
+      <FAQ items={[
+        {
+          q: "Convient-elle aux petits cabinets comme aux cliniques ?",
+          a: "Oui. LUMINA Care est pensée pour des structures de toute taille, d'un cabinet individuel à une clinique multi-praticiens. Le déploiement et les fonctionnalités s'adaptent à votre équipe et à votre volume.",
+        },
+        {
+          q: "Comment sont protégées les données des patients ?",
+          a: "Les données médicales sont chiffrées et hébergées sur des serveurs sécurisés. Seuls les praticiens autorisés y ont accès. Aucune donnée n'est partagée avec des tiers, sans exception.",
+        },
+        {
+          q: "Peut-on accéder au dossier patient depuis le terrain ?",
+          a: "Oui. La plateforme est accessible depuis n'importe quel appareil connecté. Un praticien en déplacement peut consulter un dossier, saisir une note ou planifier un rendez-vous depuis son téléphone.",
+        },
+        {
+          q: "Les rappels de rendez-vous sont-ils automatiques ?",
+          a: "Oui. Les patients reçoivent des rappels automatiques par SMS avant leurs rendez-vous. Vous réduisez les absences sans effort supplémentaire de votre secrétariat.",
+        },
+      ]} />
 
       {/* ── Appel à l'action ── */}
       <section className="py-20 lg:py-32">
