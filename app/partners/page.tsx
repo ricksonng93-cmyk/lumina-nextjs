@@ -82,7 +82,7 @@ export default function PartnersPage() {
                 {[
                   "Projets variés : SaaS, sites, identités",
                   "Équipe à taille humaine",
-                  "Présence Paris et Brazzaville",
+                  "Équipe entre Paris et Brazzaville",
                 ].map((item) => (
                   <li key={item} className="flex items-start gap-2.5 text-sm text-white/80">
                     <span className="mt-2 w-1.5 h-1.5 rounded-full bg-white/40 flex-shrink-0" />

@@ -60,7 +60,7 @@ export default function Image() {
 
         {/* Bottom: URL + locations */}
         <span style={{ fontSize: '26px', color: '#64748B', fontWeight: 600, letterSpacing: '0.01em' }}>
-          lumina-cg.com · Paris · Brazzaville
+          lumina-cg.com · création numérique
         </span>
       </div>
     ),

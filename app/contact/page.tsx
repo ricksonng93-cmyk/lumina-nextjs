@@ -67,7 +67,7 @@ export default function ContactPage() {
               <div className="flex items-start gap-4 px-5 py-4 bg-subtle">
                 <MapPin size={14} className="text-muted flex-shrink-0 mt-0.5" />
                 <span className="text-sm text-muted leading-relaxed">
-                  Paris, France · Brazzaville, Congo
+                  Équipe à Paris et à Brazzaville
                 </span>
               </div>
             </div>
