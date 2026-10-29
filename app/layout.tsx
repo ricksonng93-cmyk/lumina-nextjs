@@ -16,7 +16,7 @@ const pjs = Plus_Jakarta_Sans({
 export const metadata: Metadata = {
   metadataBase: new URL("https://lumina-cg.com"),
   title: {
-    default: "LUMINA Creative Group | Agence numérique à Paris et Brazzaville",
+    default: "LUMINA Creative Group | Agence numérique",
     template: "%s | LUMINA Creative Group",
   },
   description:

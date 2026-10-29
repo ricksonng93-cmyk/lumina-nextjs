@@ -147,7 +147,7 @@ export default function Footer() {
               <Mail size={13} /> contact@lumina-cg.com
             </a>
             <span className="flex items-center gap-2 text-sm text-white/40">
-              <MapPin size={13} /> Paris, France &amp; Brazzaville, Congo
+              <MapPin size={13} /> Brazzaville, Congo
             </span>
           </div>
           <p className="text-center text-xs text-white/30">

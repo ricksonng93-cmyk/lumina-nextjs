@@ -9,12 +9,12 @@ import VerbRotator from "@/app/components/home/VerbRotator";
 import BulletinDemo from "@/app/components/home/BulletinDemo";
 
 export const metadata: Metadata = {
-  title: "LUMINA Creative Group | Agence numérique à Paris et Brazzaville",
+  title: "LUMINA Creative Group | Agence numérique",
   description:
     "Nous auditons, concevons, construisons et maintenons les outils numériques des écoles, des administrations et des entreprises. Éditeur de LUMINA Education.",
   openGraph: {
     url: "https://lumina-cg.com",
-    title: "LUMINA Creative Group | Agence numérique à Paris et Brazzaville",
+    title: "LUMINA Creative Group | Agence numérique",
     description:
       "Nous auditons, concevons, construisons et maintenons les outils numériques des écoles, des administrations et des entreprises.",
   },

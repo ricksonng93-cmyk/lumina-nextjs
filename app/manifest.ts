@@ -5,7 +5,7 @@ export default function manifest(): MetadataRoute.Manifest {
     name: "LUMINA Creative Group",
     short_name: "LUMINA",
     description:
-      "Agence numérique à Paris et Brazzaville. Éditeur de LUMINA Education.",
+      "Agence numérique. Éditeur de LUMINA Education.",
     start_url: "/",
     display: "standalone",
     background_color: "#FFFFFF",

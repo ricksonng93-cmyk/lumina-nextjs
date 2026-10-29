@@ -40,6 +40,7 @@ export default function MentionsLegalesPage() {
                   <h3 className="font-semibold text-ink mb-1">Éditeur du site</h3>
                   <p>
                     LUMINA Creative Group<br />
+                    Brazzaville, Congo<br />
                     Directeur de la publication : Faity Rickson NGAKOUA-BOUYA<br />
                     Contact :{" "}
                     <a href="mailto:contact@lumina-cg.com" className="text-agency underline underline-offset-2 hover:text-agency/80">
